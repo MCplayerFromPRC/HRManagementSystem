@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.dao.GuestDao">
+    <resultMap id="guest" type="guest">
+        <id property="id" column="g_id"/>
+        <result property="name" column="g_name"/>
+        <result property="pass" column="g_pass"/>
+    </resultMap>
+    <insert id="insert" parameterType="guest">
+        insert into t_guest(g_id,g_name,g_pass) values (seq_guest.nextval,#{name},#{pass})
+    </insert>
+    <select id="getByNameAndPass" resultMap="guest" parameterType="guest">
+        select * from T_GUEST where g_name=#{name} and g_pass=#{pass}
+    </select>
+    <select id="getByName" resultMap="guest" parameterType="guest">
+        select * from t_guest where g_name=#{name}
+    </select>
+</mapper>
