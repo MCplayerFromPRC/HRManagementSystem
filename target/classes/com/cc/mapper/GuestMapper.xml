@@ -17,4 +17,10 @@
     <select id="getByName" resultMap="guest" parameterType="guest">
         select * from t_guest where g_name=#{name}
     </select>
+    <select id="getAll" resultMap="guest">
+        select * from t_guest
+    </select>
+    <select id="getById" resultType="com.cc.model.Guest">
+        select * from t_guest where g_id=#{id}
+    </select>
 </mapper>

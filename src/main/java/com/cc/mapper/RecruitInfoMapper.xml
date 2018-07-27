@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cc.dao.RecruitInfoDao">
+    <resultMap id="recruitInfo" type="recruitInfo">
+        <id property="id" column="ri_id"/>
+        <result property="company" column="ri_company"/>
+        <result property="address" column="ri_address"/>
+        <result property="phone" column="ri_phone"/>
+        <result property="salary" column="ri_salary"/>
+        <result property="industry" column="ri_industry"/>
+        <result property="revoke" column="ri_revoke"/>
+        <result property="job" column="ri_job"/>
+    </resultMap>
+    <insert id="insert">
+        insert into T_RECRUITINFO(RI_ID,RI_COMPANY,RI_ADDRESS,RI_PHONE,RI_SALARY,RI_INDUSTRY,RI_REVOKE)
+                values (SEQ_RECRUITINFO.nextval,#{company},#{address},#{phone},#{salary},#{industry},#{revoke})
+    </insert>
+    <update id="update">
+        update T_RECRUITINFO set RI_COMPANY=#{company},RI_ADDRESS=#{address},RI_PHONE=#{phone},
+            RI_SALARY=#{salary},RI_INDUSTRY=#{industry},RI_REVOKE=#{revoke} where RI_ID=#{id}
+    </update>
+    <delete id="delete">
+        delete from T_RECRUITINFO where RI_ID=#{id}
+    </delete>
+    <select id="getByRevoke" resultMap="recruitInfo">
+        select * from T_RECRUITINFO where RI_REVOKE=0
+    </select>
+    <select id="getAll" resultMap="recruitInfo">
+        select * from T_RECRUITINFO
+    </select>
+    <select id="getById" resultMap="recruitInfo">
+        select * from T_RECRUITINFO where RI_ID=#{id}
+    </select>
+    <select id="getByPage" resultType="com.cc.model.RecruitInfo" parameterType="map">
+        select * from
+            (select rm.*,ROWNUM rn
+             from (select * from T_RECRUITINFO
+             where RI_REVOKE=#{pageInfo.revoke}) rm
+             where  ROWNUM <![CDATA[<=]]> #{pageInfo.end})
+        where rn <![CDATA[>=]]> #{pageInfo.start}
+    </select>
+</mapper>

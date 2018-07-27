@@ -1,6 +1,8 @@
 package com.cc.model;
 
-public class Guest {
+import java.io.Serializable;
+
+public class Guest  implements Serializable {
     private int id;
     private String name;
     private String pass;
