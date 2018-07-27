@@ -2,19 +2,18 @@ package com.cc.model;
 
 import java.io.Serializable;
 
-public class Guest implements Serializable {
+public class Department implements Serializable {
     private int id;
     private String name;
-    private String pass;
+    private int empno;
 
-    public Guest() {
-
+    public Department() {
     }
 
-    public Guest(int id, String name, String pass) {
+    public Department(int id, String name, int empno) {
         this.id = id;
         this.name = name;
-        this.pass = pass;
+        this.empno = empno;
     }
 
     public int getId() {
@@ -33,20 +32,20 @@ public class Guest implements Serializable {
         this.name = name;
     }
 
-    public String getPass() {
-        return pass;
+    public int getEmpno() {
+        return empno;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setEmpno(int empno) {
+        this.empno = empno;
     }
 
     @Override
     public String toString() {
-        return "Guest{" +
+        return "Department{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", pass='" + pass + '\'' +
+                ", empno=" + empno +
                 '}';
     }
 }

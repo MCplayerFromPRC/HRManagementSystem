@@ -15,10 +15,23 @@
         <result property="age" column="re_age"/>
         <result property="description" column="re_description"/>
         <result property="salary" column="re_salary"/>
+        <result property="job" column="re_job"/>
     </resultMap>
-    <insert id="insert"></insert>
-    <update id="update"></update>
-    <delete id="delete"></delete>
-    <select id="getById" resultMap="resume"></select>
-    <select id="getByGid" resultMap="resume"></select>
+    <insert id="insert" parameterType="resume">
+        insert into T_RESUME(RE_ID,RE_GID,RE_NAME,RE_GENDER,RE_EMAIL,RE_CITY,RE_SCHOOL,RE_MAJOR,RE_AGE,RE_DESCRIPTION,RE_SALARY,
+        RE_JOB)values (SEQ_RESUME.nextval,#{gid},#{name},#{gender},#{email},#{city},#{school},#{major},#{age},#{description},#{salary},#{job})
+    </insert>
+    <update id="update">
+        update T_RESUME set RE_GID=#{gid},RE_NAME=#{name},RE_GENDER=#{gender},RE_EMAIL=#{email},RE_CITY=#{city},RE_SCHOOL=#{school},RE_MAJOR=#{major},
+            RE_AGE=#{age},RE_DESCRIPTION=#{description},RE_SALARY=#{salary},RE_JOB=#{job} where RE_ID=#{id}
+    </update>
+    <delete id="delete">
+        delete from T_RESUME where RE_ID=#{id}
+    </delete>
+    <select id="getById" resultMap="resume">
+        select * from T_RESUME where RE_ID=#{id}
+    </select>
+    <select id="getByGid" resultMap="resume">
+        select * from T_RESUME where RE_GID=#{gid}
+    </select>
 </mapper>

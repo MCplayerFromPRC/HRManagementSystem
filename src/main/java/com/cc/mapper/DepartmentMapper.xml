@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cc.dao.DepartmentDao">
+    <resultMap id="department" type="department">
+        <id property="id" column="dept_id"/>
+        <result property="name" column="dept_name"/>
+        <result property="empno" column="dept_empno"/>
+    </resultMap>
+    <insert id="insert">
+        insert into T_DEPARTMENT(DEPT_ID,DEPT_NAME,DEPT_EMPNO) values (SEQ_DEPT.nextval,#{name},#{empno})
+    </insert>
+    <update id="update">
+        update T_DEPARTMENT set
+    </update>
+    <delete id="delete"></delete>
+    <select id="getByName" resultMap="department"></select>
+    <select id="getById" resultMap="department"></select>
+</mapper>

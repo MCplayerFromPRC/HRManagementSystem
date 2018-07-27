@@ -2,16 +2,15 @@ package com.cc.model;
 
 import java.io.Serializable;
 
-public class Guest implements Serializable {
+public class Admin implements Serializable {
     private int id;
     private String name;
     private String pass;
 
-    public Guest() {
-
+    public Admin() {
     }
 
-    public Guest(int id, String name, String pass) {
+    public Admin(int id, String name, String pass) {
         this.id = id;
         this.name = name;
         this.pass = pass;
@@ -43,7 +42,7 @@ public class Guest implements Serializable {
 
     @Override
     public String toString() {
-        return "Guest{" +
+        return "Admin{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", pass='" + pass + '\'' +

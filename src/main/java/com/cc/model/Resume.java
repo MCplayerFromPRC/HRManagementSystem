@@ -1,6 +1,8 @@
 package com.cc.model;
 
-public class Resume {
+import java.io.Serializable;
+
+public class Resume implements Serializable {
     private int id;
     private int gid;
     private String name;
@@ -12,11 +14,12 @@ public class Resume {
     private int age;
     private String description;
     private double salary;
+    private String job;
 
     public Resume() {
     }
 
-    public Resume(int id, int gid, String name, String gender, String email, String city, String school, String major, int age, String description, double salary) {
+    public Resume(int id, int gid, String name, String gender, String email, String city, String school, String major, int age, String description, double salary, String job) {
         this.id = id;
         this.gid = gid;
         this.name = name;
@@ -28,6 +31,7 @@ public class Resume {
         this.age = age;
         this.description = description;
         this.salary = salary;
+        this.job = job;
     }
 
     public int getId() {
@@ -118,6 +122,14 @@ public class Resume {
         this.salary = salary;
     }
 
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
     @Override
     public String toString() {
         return "Resume{" +
@@ -132,6 +144,7 @@ public class Resume {
                 ", age=" + age +
                 ", description='" + description + '\'' +
                 ", salary=" + salary +
+                ", job='" + job + '\'' +
                 '}';
     }
 }
