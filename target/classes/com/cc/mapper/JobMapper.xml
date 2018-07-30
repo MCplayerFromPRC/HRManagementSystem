@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cc.dao.JobDao">
+    <resultMap id="job" type="job">
+        <id property="id" column="j_id"/>
+        <result property="name" column="j_name"/>
+        <result property="did" column="j_did"/>
+    </resultMap>
+    <insert id="insert">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+            select SEQ_JOB.nextval as id from dual
+        </selectKey>
+        insert into T_JOB(J_ID,J_NAME,J_DID) values (#{id},#{name},#{did})
+    </insert>
+    <update id="update">
+        update T_JOB set J_NAME=#{name},J_DID=#{did} where J_ID=#{id}
+    </update>
+    <delete id="delete">
+        delete from T_JOB where J_ID=#{id}
+    </delete>
+    <select id="getByName" resultMap="job">
+        select * from T_JOB WHERE J_NAME=#{name}
+    </select>
+    <select id="getByDid" resultMap="job">
+        select * from T_JOB WHERE J_DID=#{did}
+    </select>
+</mapper>

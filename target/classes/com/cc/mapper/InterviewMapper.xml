@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cc.dao.InterviewDao">
+    <resultMap id="interview" type="interview">
+        <id property="id" column="iv_id"/>
+        <result property="reid" column="iv_reid"/>
+        <result property="riid" column="iv_riid"/>
+        <result property="state" column="iv_state"/>
+        <result property="ivtime" column="iv_ivtime"/>
+    </resultMap>
+    <insert id="insert">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+            select SEQ_RESUME.nextval as id from dual
+        </selectKey>
+        insert into T_INTERVIEW(IV_ID,IV_REID,IV_RIID,IV_STATE,IV_IVTIME) values
+            (#{id},#{reid},#{riid},#{state},#{ivtime})
+    </insert>
+    <update id="update">
+        update T_INTERVIEW set IV_REID=#{reid},IV_RIID=#{riid},IV_STATE=#{state}
+            ,IV_IVTIME=#{ivtime} where IV_ID=#{id}
+    </update>
+    <delete id="delete">
+      delete from T_INTERVIEW where IV_ID=#{id}
+    </delete>
+    <select id="getInterviewByState" resultMap="interview">
+        select * from T_INTERVIEW where IV_STATE=#{state}
+    </select>
+    <select id="getInterviewByReidAndState" resultMap="interview">
+        select * from T_INTERVIEW where IV_REID=#{reid} and IV_STATE=#{state}
+    </select>
+    <select id="getInterviewByRiidAndState" resultMap="interview">
+        select * from T_INTERVIEW where IV_RIID=#{riid} and IV_STATE=#{state}
+    </select>
+    <select id="getInterviewById" resultMap="interview">
+        select * from T_INTERVIEW where IV_ID=#{id}
+    </select>
+</mapper>
