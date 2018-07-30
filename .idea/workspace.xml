@@ -373,7 +373,7 @@
       <workItem from="1532938213960" duration="9399000" />
       <workItem from="1532950704845" duration="1171000" />
       <workItem from="1532952123079" duration="2004000" />
-      <workItem from="1532956863160" duration="608000" />
+      <workItem from="1532956863160" duration="1056000" />
     </task>
     <task id="LOCAL-00001" summary="第二天&#10;已完成：招聘信息&#10;未完成：简历&#10;准备做：简历">
       <created>1532654237177</created>
@@ -417,11 +417,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532954133323</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="第六天&#10;      已完成：所有表&#10;      未完成：JSP&#10;      准备做：controller">
+      <created>1532957560466</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1532957560466</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100019000" />
+    <option name="totallyTimeSpent" value="100467000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -434,6 +441,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
