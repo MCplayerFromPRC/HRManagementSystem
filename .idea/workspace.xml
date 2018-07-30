@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ba4f208-3256-44d8-9890-1af8c06ccf29" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cc/dao/JobDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cc/dao/SalaryDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cc/mapper/JobMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cc/mapper/SalaryMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cc/model/Job.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cc/model/Salary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cc/service/DepartmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cc/service/JobService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cc/service/impl/DepartmentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cc/service/impl/JobServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9f6a9e2b-3c41-4449-b56b-1dec4efa7fe7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9f6a9e2b-3c41-4449-b56b-1dec4efa7fe7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9f6a9e2b-3c41-4449-b56b-1dec4efa7fe7/storage_v2/_src_/schema/MICHAEL.B3ajaQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9f6a9e2b-3c41-4449-b56b-1dec4efa7fe7/storage_v2/_src_/schema/MICHAEL.B3ajaQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/mapper/DepartmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/mapper/DepartmentMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,7 +29,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SalaryDao.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SalaryDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cc/dao/SalaryDao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="243">
@@ -54,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SalaryMapper.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SalaryMapper.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cc/mapper/SalaryMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="16" column="61" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
+            <state relative-caret-position="356">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -137,8 +124,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/cc/mapper/SalaryDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/cc/model/Salary.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cc/mapper/JobMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cc/mapper/SalaryMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/cc/dao/SalaryDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cc/mapper/SalaryMapper.xml" />
       </list>
     </option>
   </component>
@@ -170,7 +157,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-11" />
     <option name="y" value="157" />
     <option name="width" value="928" />
@@ -407,7 +394,7 @@
       <workItem from="1532654094249" duration="12923000" />
       <workItem from="1532834063446" duration="38000" />
       <workItem from="1532873224294" duration="701000" />
-      <workItem from="1532912498555" duration="4407000" />
+      <workItem from="1532912498555" duration="4683000" />
     </task>
     <task id="LOCAL-00001" summary="第二天&#10;已完成：招聘信息&#10;未完成：简历&#10;准备做：简历">
       <created>1532654237177</created>
@@ -430,14 +417,21 @@
       <option name="project" value="LOCAL" />
       <updated>1532694804007</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="第六天&#10;      已完成：薪资表&#10;      未完成：JSP&#10;      准备做：所有表">
+      <created>1532917245364</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1532917245364</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70422000" />
+    <option name="totallyTimeSpent" value="70698000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -485,7 +479,8 @@
     <MESSAGE value="第二天&#10;已完成：招聘信息&#10;未完成：简历&#10;准备做：简历" />
     <MESSAGE value="第二天&#10;      已完成：招聘信息&#10;      未完成：简历&#10;      准备做：简历" />
     <MESSAGE value="第二天晚上&#10;      已完成：招聘信息 简历&#10;      未完成：。。。&#10;      准备做：。。。" />
-    <option name="LAST_COMMIT_MESSAGE" value="第二天晚上&#10;      已完成：招聘信息 简历&#10;      未完成：。。。&#10;      准备做：。。。" />
+    <MESSAGE value="第六天&#10;      已完成：薪资表&#10;      未完成：JSP&#10;      准备做：所有表" />
+    <option name="LAST_COMMIT_MESSAGE" value="第六天&#10;      已完成：薪资表&#10;      未完成：JSP&#10;      准备做：所有表" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/jquery.js">
@@ -919,13 +914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cc/mapper/SalaryMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="16" column="61" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cc/dao/SalaryDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -933,6 +921,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cc/mapper/SalaryMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
