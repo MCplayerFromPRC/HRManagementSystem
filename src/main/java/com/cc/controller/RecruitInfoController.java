@@ -21,6 +21,9 @@ public class RecruitInfoController {
     public String showRecruitInfo(HttpServletRequest request, int pageSize, int revoke){
         List<RecruitInfo> recruitInfos=ris.getByPage(1,pageSize,0);
         request.setAttribute("recruitInfos",recruitInfos);
+        int  size=ris.getByRevoke(revoke).size();
+        int  pageNum=(size%pageSize==0? size/pageSize:size/pageSize+1);
+        request.setAttribute("pageNum",pageNum);
         return "forward:/index4.jsp";
     }
 
