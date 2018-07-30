@@ -16,7 +16,7 @@ public class GuestController {
 
     @RequestMapping("/home")
     public String home(){
-        return "../../index";
+        return "/index2.jsp";
     }
 
     @RequestMapping("/login")

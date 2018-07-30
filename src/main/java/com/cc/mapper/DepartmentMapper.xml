@@ -7,7 +7,10 @@
         <result property="empno" column="dept_empno"/>
     </resultMap>
     <insert id="insert">
-        insert into T_DEPARTMENT(DEPT_ID,DEPT_NAME,DEPT_EMPNO) values (SEQ_DEPT.nextval,#{name},#{empno})
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+            select SEQ_DEPT.nextval as id from dual
+        </selectKey>
+        insert into T_DEPARTMENT(DEPT_ID,DEPT_NAME,DEPT_EMPNO) values (#{id},#{name},#{empno})
     </insert>
     <update id="update">
         update T_DEPARTMENT set DEPT_NAME=#{name},DEPT_EMPNO=#{empno} where DEPT_ID=#{id}

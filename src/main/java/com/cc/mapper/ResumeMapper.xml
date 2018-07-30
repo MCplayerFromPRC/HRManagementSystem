@@ -18,8 +18,11 @@
         <result property="job" column="re_job"/>
     </resultMap>
     <insert id="insert" parameterType="resume">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+            select SEQ_RESUME.nextval as id from dual
+        </selectKey>
         insert into T_RESUME(RE_ID,RE_GID,RE_NAME,RE_GENDER,RE_EMAIL,RE_CITY,RE_SCHOOL,RE_MAJOR,RE_AGE,RE_DESCRIPTION,RE_SALARY,
-        RE_JOB)values (SEQ_RESUME.nextval,#{gid},#{name},#{gender},#{email},#{city},#{school},#{major},#{age},#{description},#{salary},#{job})
+        RE_JOB)values (#{id},#{gid},#{name},#{gender},#{email},#{city},#{school},#{major},#{age},#{description},#{salary},#{job})
     </insert>
     <update id="update">
         update T_RESUME set RE_GID=#{gid},RE_NAME=#{name},RE_GENDER=#{gender},RE_EMAIL=#{email},RE_CITY=#{city},RE_SCHOOL=#{school},RE_MAJOR=#{major},

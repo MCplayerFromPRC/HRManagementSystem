@@ -1,23 +1,26 @@
 package com.cc.model;
 
-public class Salary {
+import java.io.Serializable;
+import java.util.Date;
+
+public class Salary implements Serializable {
     private int id;
     private int empid;
-    private double salary;
+    private double salMoney;
     private double bonus;
     private double over;
     private double rewards;
     private double socialSecurity;
     private double aggregate;
-    private String payDate;
+    private Date payDate;
 
     public Salary() {
     }
 
-    public Salary(int id, int empid, double salary, double bonus, double over, double rewards, double socialSecurity, double aggregate, String payDate) {
+    public Salary(int id, int empid, double salMoney, double bonus, double over, double rewards, double socialSecurity, double aggregate, Date payDate) {
         this.id = id;
         this.empid = empid;
-        this.salary = salary;
+        this.salMoney = salMoney;
         this.bonus = bonus;
         this.over = over;
         this.rewards = rewards;
@@ -42,12 +45,12 @@ public class Salary {
         this.empid = empid;
     }
 
-    public double getSalary() {
-        return salary;
+    public double getSalMoney() {
+        return salMoney;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public void setSalMoney(double salMoney) {
+        this.salMoney = salMoney;
     }
 
     public double getBonus() {
@@ -90,11 +93,11 @@ public class Salary {
         this.aggregate = aggregate;
     }
 
-    public String getPayDate() {
+    public Date getPayDate() {
         return payDate;
     }
 
-    public void setPayDate(String payDate) {
+    public void setPayDate(Date payDate) {
         this.payDate = payDate;
     }
 
@@ -103,7 +106,7 @@ public class Salary {
         return "Salary{" +
                 "id=" + id +
                 ", empid=" + empid +
-                ", salary=" + salary +
+                ", salMoney=" + salMoney +
                 ", bonus=" + bonus +
                 ", over=" + over +
                 ", rewards=" + rewards +

@@ -9,7 +9,10 @@
         <result property="pass" column="g_pass"/>
     </resultMap>
     <insert id="insert" parameterType="guest">
-        insert into t_guest(g_id,g_name,g_pass) values (seq_guest.nextval,#{name},#{pass})
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+            select seq_guest.nextval as id from dual
+        </selectKey>
+        insert into t_guest(g_id,g_name,g_pass) values (#{id},#{name},#{pass})
     </insert>
     <select id="getByNameAndPass" resultMap="guest" parameterType="guest">
         select * from T_GUEST where g_name=#{name} and g_pass=#{pass}

@@ -18,10 +18,11 @@ public class RecruitInfoServiceImpl implements RecruitInfoService {
     private RecruitInfoDao rid;
     @Override
     public List<RecruitInfo> getByPage(int start, int end, int revoke) {
-        Map<String,Integer> map=new HashMap<>();
+        HashMap<String,Integer> map=new HashMap<>();
         map.put("start",start);
         map.put("end",end);
         map.put("revoke",revoke);
+//        return rid.getByPage(start,  end,  revoke);
         return rid.getByPage(map);
     }
 

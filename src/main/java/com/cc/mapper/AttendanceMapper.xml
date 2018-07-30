@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cc.dao.AttendanceDao">
+    <resultMap id="attendance" type="attendance">
+        <id property="id" column="attend_id"/>
+        <result property="startTime" column="attend_starttime"/>
+        <result property="endTime" column="attend_endtime"/>
+        <result property="empid" column="attend_empid"/>
+        <result property="state" column="attend_state"/>
+    </resultMap>
+    <insert id="insert">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+            select SEQ_ATTEND.nextval as id from dual
+        </selectKey>
+        insert into T_ATTENDANCE(ATTEND_ID, ATTEND_STARTTIME, ATTEND_ENDTIME, ATTEND_EMPID, ATTEND_STATE) VALUES
+            (#{id},#{startTime},#{endTime},#{empid},#{state})
+    </insert>
+    <update id="update">
+        update T_ATTENDANCE set  ATTEND_STARTTIME=#{startTime}, ATTEND_ENDTIME=#{endTime},
+            ATTEND_EMPID=#{empid}, ATTEND_STATE=#{state} where ATTEND_ID=#{id}
+    </update>
+    <delete id="delete">
+        delete from T_ATTENDANCE where ATTEND_ID=#{id}
+    </delete>
+    <select id="getByEmpidAndStateAndEndTime" resultMap="attendance">
+        select * from T_ATTENDANCE where ATTEND_EMPID=#{empid} and ATTEND_STATE=#{state}
+        and ATTEND_ENDTIME between (select max(SAL_PAYDATE) from T_SALARY) and #{endTime}
+    </select>
+    <select id="getById" resultMap="attendance">
+        select * from T_ATTENDANCE where ATTEND_ID=#{id}
+    </select>
+    <select id="getByEmpidAndEndTime" resultMap="attendance">
+        select * from T_ATTENDANCE where ATTEND_EMPID=#{empid} and ATTEND_ENDTIME
+        between (select max(SAL_PAYDATE) from T_SALARY) and #{endTime}
+    </select>
+</mapper>

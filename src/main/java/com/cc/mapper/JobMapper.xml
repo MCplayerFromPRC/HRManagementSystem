@@ -7,7 +7,10 @@
         <result property="did" column="j_did"/>
     </resultMap>
     <insert id="insert">
-        insert into T_JOB(J_ID,J_NAME,J_DID) values (SEQ_JOB.nextval,#{name},#{did})
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+            select SEQ_JOB.nextval as id from dual
+        </selectKey>
+        insert into T_JOB(J_ID,J_NAME,J_DID) values (#{id},#{name},#{did})
     </insert>
     <update id="update">
         update T_JOB set J_NAME=#{name},J_DID=#{did} where J_ID=#{id}

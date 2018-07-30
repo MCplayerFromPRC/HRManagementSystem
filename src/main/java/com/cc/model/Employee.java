@@ -15,11 +15,12 @@ public class Employee implements Serializable {
     private int trainid;
     private long phone;
     private String email;
+    private int state;
 
     public Employee() {
     }
 
-    public Employee(int id, String account, String pass, String name, String gender, int age, int jobid, double salary, double socialSecurity, int trainid, long phone, String email) {
+    public Employee(int id, String account, String pass, String name, String gender, int age, int jobid, double salary, double socialSecurity, int trainid, long phone, String email,int state) {
         this.id = id;
         this.account = account;
         this.pass = pass;
@@ -32,6 +33,7 @@ public class Employee implements Serializable {
         this.trainid = trainid;
         this.phone = phone;
         this.email = email;
+        this.state= state;
     }
 
     public int getId() {
@@ -130,6 +132,14 @@ public class Employee implements Serializable {
         this.email = email;
     }
 
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -145,6 +155,7 @@ public class Employee implements Serializable {
                 ", trainid=" + trainid +
                 ", phone=" + phone +
                 ", email='" + email + '\'' +
+                ", state=" + state +
                 '}';
     }
 }

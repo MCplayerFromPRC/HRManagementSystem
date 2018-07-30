@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cc.dao.TrainDao">
+    <resultMap id="train" type="train">
+        <id property="id" column="train_id"/>
+        <result property="subject" column="train_subject"/>
+        <result property="content" column="train_content"/>
+        <result property="object" column="train_object"/>
+        <result property="startTime" column="train_starttime"/>
+        <result property="endTime" column="train_endTime"/>
+        <result property="place" column="train_place"/>
+    </resultMap>
+    <insert id="insert">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+            select SEQ_TRAIN.nextval as id from dual
+        </selectKey>
+        insert into T_TRAIN(TRAIN_ID,TRAIN_SUBJUCT,TRAIN_CONTENT,TRAIN_OBJECT,TRAIN_STARTTIME,TRAIN_ENDTIME,TRAIN_PLACE)
+                values (#{id},#{subject},#{content},#{object},#{startTime},#{endTime},#{place})
+    </insert>
+    <update id="update">
+        update T_TRAIN set TRAIN_SUBJUCT=#{subject},TRAIN_CONTENT=#{content},TRAIN_OBJECT=#{object},TRAIN_STARTTIME=#{startTime}
+            ,TRAIN_ENDTIME=#{endTime},TRAIN_PLACE=#{place} where TRAIN_ID=#{id}
+    </update>
+    <delete id="delete">
+        delete from T_TRAIN where TRAIN_ID=#{id}
+    </delete>
+    <select id="getById" resultMap="train">
+        select * from T_TRAIN where TRAIN_ID=#{id}
+    </select>
+
+</mapper>

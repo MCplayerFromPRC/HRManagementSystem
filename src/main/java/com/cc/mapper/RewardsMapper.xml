@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cc.dao.RewardsDao">
+    <resultMap id="rewards" type="rewards">
+        <id property="id" column="rewards_id"/>
+        <result property="empid" column="rewards_empid"/>
+        <result property="payDate" column="rewards_paydate"/>
+        <result property="reMoney" column="rewards_remoney"/>
+        <result property="time" column="rewards_time"/>
+    </resultMap>
+    <insert id="insert">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+            select SEQ_REWARDS.nextval as id from dual
+        </selectKey>
+        insert into T_REWARDS(REWARDS_ID,REWARDS_EMPID,REWARDS_PAYDATE,REWARDS_REMONEY,REWARDS_TIME) values
+            (#{id},#{empid},#{payDate},#{reMoney},#{time})
+    </insert>
+    <update id="update">
+        update T_REWARDS set REWARDS_EMPID=#{empid},REWARDS_PAYDATE=#{payDate},REWARDS_REMONEY=#{reMoney}
+        ,REWARDS_TIME=#{time} where REWARDS_ID=#{id}
+    </update>
+    <delete id="delete">
+        delete from T_REWARDS where REWARDS_ID=#{id}
+    </delete>
+    <select id="getByEmpidAndPayDate" resultMap="rewards">
+        select * from T_REWARDS where REWARDS_EMPID=#{empid} and REWARDS_PAYDATE=#{payDate}
+    </select>
+    <select id="getById" resultMap="rewards">
+        select * from T_REWARDS where REWARDS_ID=#{id};
+    </select>
+</mapper>

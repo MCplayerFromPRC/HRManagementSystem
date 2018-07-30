@@ -12,8 +12,11 @@
         <result property="job" column="ri_job"/>
     </resultMap>
     <insert id="insert">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+            select SEQ_RECRUITINFO.nextval as id from dual
+        </selectKey>
         insert into T_RECRUITINFO(RI_ID,RI_COMPANY,RI_ADDRESS,RI_PHONE,RI_SALARY,RI_INDUSTRY,RI_REVOKE)
-                values (SEQ_RECRUITINFO.nextval,#{company},#{address},#{phone},#{salary},#{industry},#{revoke})
+                values (#{id},#{company},#{address},#{phone},#{salary},#{industry},#{revoke})
     </insert>
     <update id="update">
         update T_RECRUITINFO set RI_COMPANY=#{company},RI_ADDRESS=#{address},RI_PHONE=#{phone},
@@ -31,12 +34,12 @@
     <select id="getById" resultMap="recruitInfo">
         select * from T_RECRUITINFO where RI_ID=#{id}
     </select>
-    <select id="getByPage" resultType="com.cc.model.RecruitInfo" parameterType="map">
+    <select id="getByPage" resultMap="recruitInfo" parameterType="map">
         select * from
             (select rm.*,ROWNUM rn
              from (select * from T_RECRUITINFO
-             where RI_REVOKE=#{pageInfo.revoke}) rm
-             where  ROWNUM <![CDATA[<=]]> #{pageInfo.end})
-        where rn <![CDATA[>=]]> #{pageInfo.start}
+             where RI_REVOKE=#{revoke}) rm
+             where  ROWNUM &lt;= #{end})
+        where rn &gt;= #{start}
     </select>
 </mapper>
