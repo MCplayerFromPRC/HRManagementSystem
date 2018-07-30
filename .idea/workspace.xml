@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ba4f208-3256-44d8-9890-1af8c06ccf29" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/controller/RecruitInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/controller/RecruitInfoController.class" afterDir="false" />
-    </list>
+    <list default="true" id="2ba4f208-3256-44d8-9890-1af8c06ccf29" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -347,7 +344,7 @@
       <workItem from="1532938213960" duration="9399000" />
       <workItem from="1532950704845" duration="1171000" />
       <workItem from="1532952123079" duration="2004000" />
-      <workItem from="1532956863160" duration="16226000" />
+      <workItem from="1532956863160" duration="16469000" />
     </task>
     <task id="LOCAL-00001" summary="第二天&#10;已完成：招聘信息&#10;未完成：简历&#10;准备做：简历">
       <created>1532654237177</created>
@@ -412,11 +409,25 @@
       <option name="project" value="LOCAL" />
       <updated>1532973787074</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="第七天凌晨&#10;      已完成：所有表 首页页面&#10;      未完成：JSP&#10;      准备做：游客controller的简历Service&#10;      &#10;      项目做到太晚了  现在交的算明天早上九点半那次">
+      <created>1532974002216</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1532974002216</updated>
+    </task>
+    <task id="LOCAL-00011" summary="第七天凌晨&#10;      已完成：所有表 首页页面&#10;      未完成：JSP&#10;      准备做：游客controller的简历Service&#10;      &#10;      项目做到太晚了  现在交的算明天早上九点半那次">
+      <created>1532974220536</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1532974220536</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115637000" />
+    <option name="totallyTimeSpent" value="115880000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -448,8 +459,8 @@
       <window_info id="Image Layers" order="5" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3382353" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32843137" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3382353" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28971255" />
