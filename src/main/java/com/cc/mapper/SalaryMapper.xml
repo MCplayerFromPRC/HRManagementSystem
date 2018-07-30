@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cc.dao.SalaryDao">
+    <resultMap id="salary" type="salary">
+        <id property="id" column="sal_id"/>
+        <result property="empid" column="sal_empid"/>
+        <result property="salary" column="sal_salary"/>
+        <result property="bonus" column="sal_bonus"/>
+        <result property="over" column="sal_over"/>
+        <result property="reward" column="sal_reward"/>
+        <result property="socialSecurity" column="sal_sosecur"/>
+        <result property="aggregate" column="sal_aggr"/>
+        <result property="payDate" column="sal_paydate"/>
+    </resultMap>
+    <insert id="insert">
+        insert into T_SALARY(SAL_ID,SAL_EMPID,SAL_SALARY,SAL_BONUS,SAL_OVER,SAL_REWARDS,SAL_SOSECUR,SAL_AGGR,SAL_PAYDATE)
+                values (SEQ_SAL.nextval,#{empid},#{salary},#{bonus},#{over},#{rewards},#{socialSecurity},#{aggregate},#{payDate})
+    </insert>
+    <update id="update"></update>
+    <delete id="delete"></delete>
+    <select id="getByEmpidAndPayDate" resultMap="salary">
+        select * from T_SALARY where SAL_EMPID=#{empid} and SAL_PAYDATE=#{payDate}
+    </select>
+    <select id="getByEmpid" resultMap="salary">
+        select * from T_SALARY where SAL_EMPID=#{empid};
+    </select>
+    <select id="getByPayDate" resultMap="salary">
+        select * from T_SALARY where SAL_PAYDATE=#{payDate}
+    </select>
+
+</mapper>
