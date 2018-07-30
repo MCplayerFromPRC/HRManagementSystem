@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2ba4f208-3256-44d8-9890-1af8c06ccf29" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/controller/RecruitInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/controller/RecruitInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index4.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index4.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/logregis.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logregis.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cc/controller/RecruitInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/controller/RecruitInfoController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -61,8 +56,8 @@
       <file leaf-file-name="index4.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/index4.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1646">
-              <caret line="60" column="23" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+            <state relative-caret-position="163">
+              <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#table#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -352,7 +347,7 @@
       <workItem from="1532938213960" duration="9399000" />
       <workItem from="1532950704845" duration="1171000" />
       <workItem from="1532952123079" duration="2004000" />
-      <workItem from="1532956863160" duration="15787000" />
+      <workItem from="1532956863160" duration="16226000" />
     </task>
     <task id="LOCAL-00001" summary="第二天&#10;已完成：招聘信息&#10;未完成：简历&#10;准备做：简历">
       <created>1532654237177</created>
@@ -410,11 +405,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532958087522</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="第七天凌晨&#10;      已完成：所有表 首页页面&#10;      未完成：JSP&#10;      准备做：游客controller的简历Service&#10;      &#10;      项目做到太晚了  现在交的算明天早上九点半那次">
+      <created>1532973787073</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1532973787074</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115198000" />
+    <option name="totallyTimeSpent" value="115637000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -447,7 +449,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3382353" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3382353" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28971255" />
@@ -476,7 +478,8 @@
     <MESSAGE value="第二天晚上&#10;      已完成：招聘信息 简历&#10;      未完成：。。。&#10;      准备做：。。。" />
     <MESSAGE value="第六天&#10;      已完成：薪资表&#10;      未完成：JSP&#10;      准备做：所有表" />
     <MESSAGE value="第六天&#10;      已完成：所有表&#10;      未完成：JSP&#10;      准备做：controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="第六天&#10;      已完成：所有表&#10;      未完成：JSP&#10;      准备做：controller" />
+    <MESSAGE value="第七天凌晨&#10;      已完成：所有表 首页页面&#10;      未完成：JSP&#10;      准备做：游客controller的简历Service&#10;      &#10;      项目做到太晚了  现在交的算明天早上九点半那次" />
+    <option name="LAST_COMMIT_MESSAGE" value="第七天凌晨&#10;      已完成：所有表 首页页面&#10;      未完成：JSP&#10;      准备做：游客controller的简历Service&#10;      &#10;      项目做到太晚了  现在交的算明天早上九点半那次" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -823,8 +826,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index4.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1646">
-          <caret line="60" column="23" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+        <state relative-caret-position="163">
+          <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#table#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
