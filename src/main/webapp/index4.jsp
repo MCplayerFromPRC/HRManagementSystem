@@ -43,7 +43,7 @@
             <div class="dropdown">
                 <div class="btn-group-vertical btn-block btn-group-lg" role="group">
                     <a href="" class="btn btn-danger" data-toggle="dropdown">
-                        123<span class="glyphicon glyphicon-chevron-right"></span>
+                        公司简介<span class="glyphicon glyphicon-chevron-right"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li>
@@ -52,6 +52,21 @@
                                 <p>智联招聘（NYSE:ZPIN），为求职者提供免费注册、求职指导、简历管理、
                                     职业测评等服务，职位真实可靠，反馈快速及时。燃青春助梦想，上智
                                     联招聘，找到满意工作！马上登录！</p>
+                            </div>
+                        </li>
+                        <div class="divider"></div>
+                        <li align="center">
+                            <p>*************期待你的加入*************</p>
+                        </li>
+                    </ul>
+                    <a href="" class="btn btn-warning" data-toggle="dropdown">
+                        123<span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="jumbotron">
+                                <h1>Hello, world!</h1>
+                                <p></p>
                             </div>
                         </li>
                         <div class="divider"></div>
