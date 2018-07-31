@@ -353,7 +353,7 @@
       <workItem from="1532950704845" duration="1171000" />
       <workItem from="1532952123079" duration="2004000" />
       <workItem from="1532956863160" duration="16631000" />
-      <workItem from="1532999041703" duration="18108000" />
+      <workItem from="1532999041703" duration="18516000" />
     </task>
     <task id="LOCAL-00001" summary="第二天&#10;已完成：招聘信息&#10;未完成：简历&#10;准备做：简历">
       <created>1532654237177</created>
@@ -467,11 +467,18 @@
       <option name="project" value="LOCAL" />
       <updated>1533052021379</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="第七天晚&#10;      已完成：完善页面&#10;      未完成：其他页面大致框架&#10;      准备做：做完表现和底层 再做contorller就方便了">
+      <created>1533052132865</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1533052132865</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134150000" />
+    <option name="totallyTimeSpent" value="134558000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
