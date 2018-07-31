@@ -14,9 +14,9 @@ public class GuestController {
     @Resource
     private GuestService gs;
 
-    @RequestMapping("/home")
+    @RequestMapping(value = {"/home","/"})
     public String home(){
-        return "/index2.jsp";
+        return "../../index";
     }
 
     @RequestMapping("/login")
@@ -25,7 +25,7 @@ public class GuestController {
         ModelAndView mv=new ModelAndView();
         if(guest!=null){
             session.setAttribute("guest",guest);
-            mv.setViewName("guestinfo");
+            mv.setViewName("guest/guestinfo");
         }else {
             session.removeAttribute("guest");
             mv.setViewName("../../logregis");
@@ -39,7 +39,7 @@ public class GuestController {
         if(gs.register(guest)){
             guest=gs.login(guest);
             session.setAttribute("guest",guest);
-            mv.setViewName("guestinfo");
+            mv.setViewName("guest/guestinfo");
         }else{
             session.removeAttribute("guest");
             mv.setViewName("../../logregis");

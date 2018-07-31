@@ -22,58 +22,174 @@
     <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
     <script src="js/bootstrap.js"></script>
     <style>
-        .dropdown-menu {
+        div.btn-group-vertical .dropdown-menu {
             margin-top: 0px;
             height: 420px;
             width: 485%;
             margin-left:4px;
-            top: 0;
+            top: 0px;
             left:100%;
+        }
+        #dropdown2{
+            top:-100%;
+        }
+        #dropdown3{
+            top:-200%;
+        }
+        #dropdown4{
+            top:-300%;
+        }
+        #dropdown5{
+            top:-400%;
         }
     </style>
 </head>
 <body>
-    <ul class="nav nav-tabs">
-        <c:if test="${empty guest}">
-            <a href="logregis.jsp">登录/注册</a><br/>
+    <c:if test="${empty admin}">
+        <c:if test="${empty employee}">
+            <c:if test="${empty guest}">
+                <%@ include file="navbar.jsp"%>
+            </c:if>
         </c:if>
-    </ul>
+    </c:if>
     <div class="container">
         <div class="col-md-2">
             <div class="dropdown">
-                <div class="btn-group-vertical btn-block btn-group-lg" role="group">
-                    <a href="" class="btn btn-danger" data-toggle="dropdown">
-                        公司简介<span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="jumbotron">
-                                <h1>Hello, world!</h1>
-                                <p>智联招聘（NYSE:ZPIN），为求职者提供免费注册、求职指导、简历管理、
-                                    职业测评等服务，职位真实可靠，反馈快速及时。燃青春助梦想，上智
-                                    联招聘，找到满意工作！马上登录！</p>
-                            </div>
-                        </li>
-                        <div class="divider"></div>
-                        <li align="center">
-                            <p>*************期待你的加入*************</p>
-                        </li>
-                    </ul>
-                    <a href="" class="btn btn-warning" data-toggle="dropdown">
-                        123<span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="jumbotron">
-                                <h1>Hello, world!</h1>
-                                <p></p>
-                            </div>
-                        </li>
-                        <div class="divider"></div>
-                        <li align="center">
-                            <p>*************期待你的加入*************</p>
-                        </li>
-                    </ul>
+                <div class="btn-group-vertical btn-block" role="group">
+                    <div class="btn-group btn-group-lg">
+                        <a href="" class="btn btn-danger" data-toggle="dropdown">
+                            公司简介<span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="jumbotron">
+                                    <h1>Hello, world!</h1>
+                                    <p>智联招聘（NYSE:ZPIN），为求职者提供免费注册、求职指导、简历管理、
+                                        职业测评等服务，职位真实可靠，反馈快速及时。燃青春助梦想，上智
+                                        联招聘，找到满意工作！马上登录！</p>
+                                </div>
+                            </li>
+                            <div class="divider"></div>
+                            <li align="center">
+                                <p>*************期待你的加入*************</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn-group btn-group-lg">
+                        <a href="" class="btn btn-warning" data-toggle="dropdown">
+                            新闻播报<span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                        <ul class="dropdown-menu" id="dropdown2">
+                            <li>
+                                <div class="jumbotron">
+                                    <h3>上半年居民收入榜出炉 京沪人均可支配收入超 3 万</h3>
+                                    <p>上半年居民收入榜出炉。国家统计局公布的数据显示，上海、
+                                        北京上半年居民人均可支配收入突破 3 万元，属于居民收
+                                        入排行榜的 " 第一梯队 "。总体来看，共有 9 个省份上
+                                        半年人均可支配收入超过全国水平。</p>
+                                </div>
+                            </li>
+                            <div class="divider"></div>
+                            <li align="center">
+                                <p>*************期待你的加入*************</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn-group btn-group-lg">
+                        <a href="" class="btn btn-info" data-toggle="dropdown">
+                            行业要闻<span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                        <ul class="dropdown-menu" id="dropdown3">
+                            <li>
+                                <div class="jumbotron">
+                                    <h3>培育产教融合IT人才新力量</h3>
+                                    <p>2018年7月1日，中国软件行业协会在北京展览馆报告厅举办了中国IT人才
+                                        培养发展论坛。本次论坛主题为“新力量——推动学科建设和发展，
+                                        加快行业人才培养和输送”。出席论坛的领导和嘉宾有工业和信息化部
+                                        信息化和软件服务业司李冠宇副司长、中国软件行业协会智能应用服务
+                                        分会邱钦伦秘书长、北京大学软件与微电子学院林慧苹副院长，以及来自
+                                        百度、腾讯、中软国际等企业嘉宾。出席论坛的还有软件领域的专家、
+                                        研究机构、企业代表、地方协会、国际友人等近300人。北京航空航天大
+                                        学计算机学院院长高小鹏教授主持了本次论坛。</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn-group btn-group-lg">
+                        <a href="" class="btn btn-success" data-toggle="dropdown">
+                            行业资讯<span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                        <ul class="dropdown-menu" id="dropdown4">
+                            <li>
+                                <div class="jumbotron">
+                                    <h4>行业选择</h4>
+                                    <table class="table">
+                                        <tr>
+                                            <th>
+                                                <p><small><a href="">互联网IT</a></small></p>
+                                                <p><small><a href="">房地产/建筑</a></small></p>
+                                                <p><small><a href="">贸易/零售/物流</a></small></p>
+                                                <p><small><a href="">教育/传媒/广告</a></small></p>
+                                                <p><small><a href="">市场/销售</a></small></p>
+                                                <p><small><a href="">人事/财务/行政</a></small></p>
+                                            </th>
+                                            <td>
+                                                <p><small><a href="">Java开发</a>/</small></p>
+                                                <p><small><a href="">土建工程师</a></small></p>
+                                                <p><small><a href="">外贸</a></small></p>
+                                                <p><small><a href="">编导</a></small></p>
+                                                <p><small><a href="">市场策划</a></small></p>
+                                                <p><small><a href="">人力资源主管</a></small></p>
+                                            </td>
+                                            <td>
+                                                <p><small><a href="">Web前端</a></small></p>
+                                                <p><small><a href="">施工员</a></small></p>
+                                                <p><small><a href="">采购经理</a></small></p>
+                                                <p><small><a href="">美术指导</a></small></p>
+                                                <p><small><a href="">销售经理</a></small></p>
+                                                <p><small><a href="">出纳</a></small></p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn-group btn-group-lg">
+                        <a href="" class="btn btn-primary" data-toggle="dropdown">
+                            友情链接<span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                        <ul class="dropdown-menu" id="dropdown5">
+                            <li>
+                                <div class="jumbotron">
+                                    <h3>常用合作网站</h3>
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                <p><a href="">百度</a></p>
+                                                <p><a href="">优酷</a></p>
+                                                <p><a href="">土豆</a></p>
+                                                <p><a href="">爱奇艺</a></p>
+                                            </td>
+                                            <td>
+                                                <p><a href="">新浪</a></p>
+                                                <p><a href="">腾讯</a></p>
+                                                <p><a href="">淘宝</a></p>
+                                                <p><a href="">京东</a></p>
+                                            </td>
+                                            <td>
+                                                <p><a href="">雅虎</a></p>
+                                                <p><a href="">虎扑</a></p>
+                                                <p><a href="">微博</a></p>
+                                                <p><a href="">网易</a></p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </li>
+                            <div class="divider"></div>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -140,17 +256,17 @@
         </table>
         <ul class="pagination">
             <li>
-                <a href="javascript:void(0)" aria-label="Previous">
+                <a href="showrecruitinfobypage?pg=${page-1>0?page-1:1}&pageSize=4&revoke=0" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
             <c:forEach var="pg" begin="1" end="${pageNum}">
                 <li>
-                    <a class="apage" href="javascript:void(0)">${pg}</a>
+                    <a class="apage" href="showrecruitinfobypage?pg=${pg}&pageSize=4&revoke=0">${pg}</a>
                 </li>
             </c:forEach>
             <li>
-                <a href="javascript:void(0)" aria-label="Next">
+                <a href="showrecruitinfobypage?pg=${page+1>pageNum?page:page+1}&pageSize=4&revoke=0" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
