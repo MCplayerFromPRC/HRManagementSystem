@@ -78,7 +78,7 @@
                     <button type="submit" class="btn btn-default">查找</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="logregis.jsp">游客 登录/注册</a></li>
+                    <li><a href="logregis.jsp">登录/注册</a></li>
                     <li>
                         <a>
                             <span>定位：</span>

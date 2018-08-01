@@ -45,8 +45,17 @@
     </style>
 </head>
 <body>
+    <c:if test="${not empty admin}">
+        <%@ include file="WEB-INF/pages/admin/adminnavbar.jsp"%>
+    </c:if>
     <c:if test="${empty admin}">
+        <c:if test="${not empty employee}">
+            <%@ include file="WEB-INF/pages/employee/employeenavbar.jsp"%>
+        </c:if>
         <c:if test="${empty employee}">
+            <c:if test="${not empty guest}">
+                <%@ include file="WEB-INF/pages/guest/guestnavbar.jsp"%>
+            </c:if>
             <c:if test="${empty guest}">
                 <%@ include file="navbar.jsp"%>
             </c:if>
@@ -193,7 +202,7 @@
                 </div>
             </div>
         </div>
-        <div id="carousel-example-generic" class="carousel slide col-md-8" data-ride="carousel">
+        <div id="carousel-example-generic" class="carousel slide col-md-7 col-md-offset-1" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -250,6 +259,9 @@
                     <td class="col-md-3">
                         <p>${recruitInfo.address}</p>
                         <p style="color: #50b26b">${recruitInfo.phone}</p>
+                        <c:if test="${not empty guest}">
+                            <button type="submit">投递简历</button>
+                        </c:if>
                     </td>
                 </tr>
             </c:forEach>

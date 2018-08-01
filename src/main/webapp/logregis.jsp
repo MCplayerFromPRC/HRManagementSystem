@@ -47,9 +47,19 @@
                 <input class="form-control" type="text" name="name" placeholder="用户名" required autofocus/><br/>
                 <input type="text" name="pass" class="form-control" placeholder="密码" required/><br/>
                 <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> 记住我
-                    </label>
+                    <p>
+                        <label class="col-md-offset-2">
+                            <span> 身份：</span>
+                            <select class="form-inline" name="identity">
+                                <option value="guest">游客</option>
+                                <option value="employee">职工</option>
+                                <option value="admin">管理员</option>
+                            </select>
+                        </label>
+                        <label class="col-md-offset-3">
+                            <input type="checkbox" value="remember-me"> 记住我
+                        </label>
+                    </p>
                 </div>
                 <button class="btn btn-lg btn-primary col-md-5" type="submit">登录</button>
                 <button class="but btn btn-lg btn-primary col-md-5 col-md-offset-1" type="button">注册</button>

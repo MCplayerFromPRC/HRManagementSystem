@@ -7,6 +7,21 @@
         <id property="id" column="g_id"/>
         <result property="name" column="g_name"/>
         <result property="pass" column="g_pass"/>
+        <collection property="resumes" ofType="resume"
+                    column="g_id" select="com.cc.dao.ResumeDao.getByGid">
+            <id property="id" column="re_id"/>
+            <result property="gid" column="re_gid"/>
+            <result property="name" column="re_name"/>
+            <result property="gender" column="re_gender"/>
+            <result property="email" column="re_email"/>
+            <result property="city" column="re_city"/>
+            <result property="school" column="re_school"/>
+            <result property="major" column="re_major"/>
+            <result property="age" column="re_age"/>
+            <result property="description" column="re_description"/>
+            <result property="salary" column="re_salary"/>
+            <result property="job" column="re_job"/>
+        </collection>
     </resultMap>
     <insert id="insert" parameterType="guest">
         <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">

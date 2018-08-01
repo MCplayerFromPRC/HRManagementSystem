@@ -1,20 +1,23 @@
 package com.cc.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Guest implements Serializable {
     private int id;
     private String name;
     private String pass;
+    private List<Resume> resumes;
 
     public Guest() {
 
     }
 
-    public Guest(int id, String name, String pass) {
+    public Guest(int id, String name, String pass, List<Resume> resumes) {
         this.id = id;
         this.name = name;
         this.pass = pass;
+        this.resumes = resumes;
     }
 
     public int getId() {
@@ -41,12 +44,21 @@ public class Guest implements Serializable {
         this.pass = pass;
     }
 
+    public List<Resume> getResumes() {
+        return resumes;
+    }
+
+    public void setResumes(List<Resume> resumes) {
+        this.resumes = resumes;
+    }
+
     @Override
     public String toString() {
         return "Guest{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", pass='" + pass + '\'' +
+                ", resumes=" + resumes +
                 '}';
     }
 }

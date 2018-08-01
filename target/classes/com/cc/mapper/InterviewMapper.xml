@@ -7,6 +7,32 @@
         <result property="riid" column="iv_riid"/>
         <result property="state" column="iv_state"/>
         <result property="ivtime" column="iv_ivtime"/>
+        <association property="resume" column="iv_reid" javaType="resume"
+                     select="com.cc.dao.ResumeDao.getById">
+            <id property="id" column="re_id"/>
+            <result property="gid" column="re_gid"/>
+            <result property="name" column="re_name"/>
+            <result property="gender" column="re_gender"/>
+            <result property="email" column="re_email"/>
+            <result property="city" column="re_city"/>
+            <result property="school" column="re_school"/>
+            <result property="major" column="re_major"/>
+            <result property="age" column="re_age"/>
+            <result property="description" column="re_description"/>
+            <result property="salary" column="re_salary"/>
+            <result property="job" column="re_job"/>
+        </association>
+        <association property="recruitInfo" column="iv_riid" javaType="recruitInfo"
+                     select="com.cc.dao.RecruitInfoDao.getById">
+            <id property="id" column="ri_id"/>
+            <result property="company" column="ri_company"/>
+            <result property="address" column="ri_address"/>
+            <result property="phone" column="ri_phone"/>
+            <result property="salary" column="ri_salary"/>
+            <result property="industry" column="ri_industry"/>
+            <result property="revoke" column="ri_revoke"/>
+            <result property="job" column="ri_job"/>
+        </association>
     </resultMap>
     <insert id="insert">
         <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
@@ -28,8 +54,14 @@
     <select id="getInterviewByReidAndState" resultMap="interview">
         select * from T_INTERVIEW where IV_REID=#{reid} and IV_STATE=#{state}
     </select>
+    <select id="getInterviewByReid" resultMap="interview">
+        select * from T_INTERVIEW where IV_REID=#{reid}
+    </select>
     <select id="getInterviewByRiidAndState" resultMap="interview">
         select * from T_INTERVIEW where IV_RIID=#{riid} and IV_STATE=#{state}
+    </select>
+    <select id="getInterviewByRiid" resultMap="interview">
+        select * from T_INTERVIEW where IV_RIID=#{riid}
     </select>
     <select id="getInterviewById" resultMap="interview">
         select * from T_INTERVIEW where IV_ID=#{id}

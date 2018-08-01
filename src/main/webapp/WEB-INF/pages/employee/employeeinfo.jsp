@@ -2,8 +2,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: MCplayer
-  Date: 2018/7/25
-  Time: 16:59
+  Date: 2018/8/1
+  Time: 9:45
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -23,10 +23,9 @@
     <script src="js/bootstrap.js"></script>
 </head>
 <body>
-    <c:if test="${not empty guest}">
-        <%@ include file="guestnavbar.jsp"%>
+    <c:if test="${not empty employee}">
+        <%@ include file="employeenavbar.jsp"%>
     </c:if>
-
 </body>
 </html>
 

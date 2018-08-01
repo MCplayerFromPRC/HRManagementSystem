@@ -10,6 +10,14 @@
         <result property="industry" column="ri_industry"/>
         <result property="revoke" column="ri_revoke"/>
         <result property="job" column="ri_job"/>
+        <collection property="interviews" ofType="interview" column="ri_id"
+                    select="com.cc.dao.InterviewDao.getInterviewByRiid">
+            <id property="id" column="iv_id"/>
+            <result property="reid" column="iv_reid"/>
+            <result property="riid" column="iv_riid"/>
+            <result property="state" column="iv_state"/>
+            <result property="ivtime" column="iv_ivtime"/>
+        </collection>
     </resultMap>
     <insert id="insert">
         <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">

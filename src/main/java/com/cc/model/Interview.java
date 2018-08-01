@@ -8,16 +8,20 @@ public class Interview implements Serializable {
     private int riid;
     private int state;
     private String ivtime;
+    private Resume resume;
+    private RecruitInfo recruitInfo;
 
     public Interview() {
     }
 
-    public Interview(int id, int reid, int riid, int state, String ivtime) {
+    public Interview(int id, int reid, int riid, int state, String ivtime, Resume resume, RecruitInfo recruitInfo) {
         this.id = id;
         this.reid = reid;
         this.riid = riid;
         this.state = state;
         this.ivtime = ivtime;
+        this.resume = resume;
+        this.recruitInfo = recruitInfo;
     }
 
     public int getId() {
@@ -60,6 +64,22 @@ public class Interview implements Serializable {
         this.ivtime = ivtime;
     }
 
+    public Resume getResume() {
+        return resume;
+    }
+
+    public void setResume(Resume resume) {
+        this.resume = resume;
+    }
+
+    public RecruitInfo getRecruitInfo() {
+        return recruitInfo;
+    }
+
+    public void setRecruitInfo(RecruitInfo recruitInfo) {
+        this.recruitInfo = recruitInfo;
+    }
+
     @Override
     public String toString() {
         return "Interview{" +
@@ -68,6 +88,8 @@ public class Interview implements Serializable {
                 ", riid=" + riid +
                 ", state=" + state +
                 ", ivtime='" + ivtime + '\'' +
+                ", resume=" + resume +
+                ", recruitInfo=" + recruitInfo +
                 '}';
     }
 }

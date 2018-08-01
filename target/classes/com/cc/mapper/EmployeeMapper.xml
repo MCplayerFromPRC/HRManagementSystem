@@ -38,4 +38,7 @@
     <select id="getByJobid" resultMap="employee">
         select * from T_EMPLOYEE where EMP_JOBID=#{jobid}
     </select>
+    <select id="getByNameAndPass" resultMap="employee">
+        select * from T_EMPLOYEE where EMP_NAME=#{name} and EMP_PASS=#{pass}
+    </select>
 </mapper>

@@ -7,6 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface EmployeeDao {
+    Employee getByNameAndPass(Employee employee);
     Employee getById(int id);
     List<Employee> getByJobid(int jobid);
     boolean insert(Employee employee);

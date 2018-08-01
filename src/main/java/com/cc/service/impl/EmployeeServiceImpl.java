@@ -12,6 +12,12 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
     @Resource
     private EmployeeDao ed;
+
+    @Override
+    public Employee getByNameAndPass(Employee employee) {
+        return ed.getByNameAndPass(employee);
+    }
+
     @Override
     public Employee getById(int id) {
         return ed.getById(id);
