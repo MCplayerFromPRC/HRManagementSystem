@@ -1,9 +1,11 @@
 package com.cc.controller;
 
 import com.cc.model.Guest;
+import com.cc.model.Interview;
 import com.cc.model.RecruitInfo;
 import com.cc.model.Resume;
 import com.cc.service.*;
+import com.cc.util.DateUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,7 +44,29 @@ public class AdminController {
     public ModelAndView getRecruitInfoByPage(HttpServletRequest request,int pg,int revoke){
         ris.getByPage(pg,pg,revoke);
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("guest/resumelist");
+        mv.setViewName("admin/resumelist");
+        return mv;
+    }
+
+    @RequestMapping("/updateinterview1state")
+    public ModelAndView updateRecruit1State(HttpServletRequest request,int id){
+        Interview interview=is.getInterviewById(id);
+        interview.setState(1);
+        is.update(interview);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("admin/resumelist");
+        return mv;
+    }
+
+    @RequestMapping("/updateinterview2state")
+    public ModelAndView updateRecruit2State(HttpServletRequest request,int id,String ivtime){
+        Interview interview=is.getInterviewById(id);
+        interview.setState(2);
+        interview.setIvtime(DateUtil.javaStringFormDateTimeLocalFormatToDataBaseVarchar(ivtime));
+        interview.setInviteTime(DateUtil.getSqlDate());
+        is.update(interview);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("admin/resumelist");
         return mv;
     }
 

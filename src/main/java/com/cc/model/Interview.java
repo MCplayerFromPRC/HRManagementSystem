@@ -1,6 +1,7 @@
 package com.cc.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Interview implements Serializable {
     private int id;
@@ -8,18 +9,20 @@ public class Interview implements Serializable {
     private int riid;
     private int state;
     private String ivtime;
+    private Date inviteTime;
     private Resume resume;
     private RecruitInfo recruitInfo;
 
     public Interview() {
     }
 
-    public Interview(int id, int reid, int riid, int state, String ivtime, Resume resume, RecruitInfo recruitInfo) {
+    public Interview(int id, int reid, int riid, int state, String ivtime, Date inviteTime, Resume resume, RecruitInfo recruitInfo) {
         this.id = id;
         this.reid = reid;
         this.riid = riid;
         this.state = state;
         this.ivtime = ivtime;
+        this.inviteTime = inviteTime;
         this.resume = resume;
         this.recruitInfo = recruitInfo;
     }
@@ -64,6 +67,14 @@ public class Interview implements Serializable {
         this.ivtime = ivtime;
     }
 
+    public Date getInviteTime() {
+        return inviteTime;
+    }
+
+    public void setInviteTime(Date inviteTime) {
+        this.inviteTime = inviteTime;
+    }
+
     public Resume getResume() {
         return resume;
     }
@@ -88,6 +99,7 @@ public class Interview implements Serializable {
                 ", riid=" + riid +
                 ", state=" + state +
                 ", ivtime='" + ivtime + '\'' +
+                ", inviteTime=" + inviteTime +
                 ", resume=" + resume +
                 ", recruitInfo=" + recruitInfo +
                 '}';

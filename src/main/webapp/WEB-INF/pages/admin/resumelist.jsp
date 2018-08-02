@@ -90,7 +90,7 @@
                 <div class="panel-heading" role="tab" id="headingResume">
                     <h2 class="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseResume" aria-expanded="true" aria-controls="collapseResume">
-                            招聘信息id${recruitInfo.id}收到的简历
+                            招聘信息&emsp;id${recruitInfo.id}&emsp;收到的简历
                         </a>
                     </h2>
                 </div>
@@ -98,75 +98,86 @@
                     <div class="panel-body">
                         <div class="panel-group" id="accordionResume" role="tablist" aria-multiselectable="true">
                             <c:forEach items="${recruitInfo.interviews}" var="interview">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="heading${interview.resume.id}">
-                                        <h3 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionResume" href="#collapse${interview.resume.id}" aria-expanded="false" aria-controls="collapse${interview.resume.id}">
-                                                <span>&emsp;简历${interview.resume.id}&emsp;${interview.resume.name}&emsp;${interview.resume.school}</span>
-                                            </a>
-                                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="float: right">删除</span>
-                                        </h3>
-                                    </div>
-                                    <div id="collapse${interview.resume.id}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading${interview.resume.id}">
-                                        <div class="panel-body">
-                                            <div class="bs-example" data-example-id="contextual-table">
-                                                <table class="table">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>简历 序号</th>
-                                                        <th>${interview.resume.id}</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr class="active">
-                                                        <th scope="row">姓名</th>
-                                                        <td>${interview.resume.name}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">性别</th>
-                                                        <td>${interview.resume.gender}</td>
-                                                    </tr>
-                                                    <tr class="success">
-                                                        <th scope="row">邮箱</th>
-                                                        <td>${interview.resume.email}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">城市</th>
-                                                        <td>${interview.resume.city}</td>
-                                                    </tr>
-                                                    <tr class="info">
-                                                        <th scope="row">学校</th>
-                                                        <td>${interview.resume.school}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">专业</th>
-                                                        <td>${interview.resume.major}</td>
-                                                    </tr>
-                                                    <tr class="warning">
-                                                        <th scope="row">年龄</th>
-                                                        <td>${interview.resume.age}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">期望薪资</th>
-                                                        <td>${interview.resume.salary}</td>
-                                                    </tr>
-                                                    <tr class="danger">
-                                                        <th scope="row">应聘职位</th>
-                                                        <td>${interview.resume.job}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row" rowspan="2">详情</th>
-                                                        <td rowspan="2">${interview.resume.description}</td>
-                                                    </tr>
-                                                    <tr>
+                                <c:if test="${interview.state==0}">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="heading${interview.resume.id}">
+                                            <h3 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionResume" href="#collapse${interview.resume.id}" aria-expanded="false" aria-controls="collapse${interview.resume.id}">
+                                                    <span>简历${interview.resume.id}&emsp;${interview.resume.name}&emsp;${interview.resume.school}</span>
+                                                </a>
+                                                <a href="/admin/updateinterview1state?id=${interview.id}">
+                                                    <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="float: right">删除</span>
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div id="collapse${interview.resume.id}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading${interview.resume.id}">
+                                            <div class="panel-body">
+                                                <div class="bs-example" data-example-id="contextual-table">
+                                                    <table class="table">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>简历 序号</th>
+                                                            <th>${interview.resume.id}</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr class="active">
+                                                            <th scope="row">姓名</th>
+                                                            <td>${interview.resume.name}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">性别</th>
+                                                            <td>${interview.resume.gender}</td>
+                                                        </tr>
+                                                        <tr class="success">
+                                                            <th scope="row">邮箱</th>
+                                                            <td>${interview.resume.email}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">城市</th>
+                                                            <td>${interview.resume.city}</td>
+                                                        </tr>
+                                                        <tr class="info">
+                                                            <th scope="row">学校</th>
+                                                            <td>${interview.resume.school}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">专业</th>
+                                                            <td>${interview.resume.major}</td>
+                                                        </tr>
+                                                        <tr class="warning">
+                                                            <th scope="row">年龄</th>
+                                                            <td>${interview.resume.age}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">期望薪资</th>
+                                                            <td>${interview.resume.salary}</td>
+                                                        </tr>
+                                                        <tr class="danger">
+                                                            <th scope="row">应聘职位</th>
+                                                            <td>${interview.resume.job}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row" rowspan="2">详情</th>
+                                                            <td rowspan="2">${interview.resume.description}</td>
+                                                        </tr>
+                                                        <tr>
 
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div><!-- /example -->
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <form method="post" action="admin/updateinterview2state?id=${interview.id}">
+                                                        <div class="form-group">
+                                                            <label for="ivtime">选择面试日期</label>
+                                                            <input id="ivtime" type="datetime-local" name="ivtime"/>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-default">发出面试邀请</button>
+                                                    </form>
+                                                </div><!-- /example -->
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </c:if>
                             </c:forEach>
                         </div>
                     </div>
