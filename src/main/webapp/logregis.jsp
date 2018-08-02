@@ -24,6 +24,11 @@
         #regform{
             display: none;
         }
+        #selectcheckbox{
+            padding: 7px 0px;
+            margin: 0px;
+            width:54px;
+        }
     </style>
     <script>
         $(function(){
@@ -46,20 +51,22 @@
                 <h2 class="form-signin-heading">Please sign in</h2>
                 <input class="form-control" type="text" name="name" placeholder="用户名" required autofocus/><br/>
                 <input type="text" name="pass" class="form-control" placeholder="密码" required/><br/>
-                <div class="checkbox">
-                    <p>
-                        <label class="col-md-offset-2">
-                            <span> 身份：</span>
-                            <select class="form-inline" name="identity">
-                                <option value="guest">游客</option>
-                                <option value="employee">职工</option>
-                                <option value="admin">管理员</option>
-                            </select>
-                        </label>
-                        <label class="col-md-offset-3">
-                            <input type="checkbox" value="remember-me"> 记住我
-                        </label>
-                    </p>
+                <div class="container">
+                    <label for="selectid" class="col-md-1 control-label" id="selectcheckbox"><span class="h4">身份：</span> </label>
+                    <div class="col-md-3" data-example-ids="select-form-control">
+                        <select class="form-control" id="selectid" name="identity">
+                            <option value="guest">游客</option>
+                            <option value="employee">职工</option>
+                            <option value="admin">管理员</option>
+                        </select>
+                    </div><!-- /.bs-example -->
+                    <div class="form-group col-md-3">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="remember-me"> 记住我
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <button class="btn btn-lg btn-primary col-md-5" type="submit">登录</button>
                 <button class="but btn btn-lg btn-primary col-md-5 col-md-offset-1" type="button">注册</button>
