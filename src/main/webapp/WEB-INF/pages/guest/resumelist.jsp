@@ -93,14 +93,14 @@
                 </div>
             </c:forEach>
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading${i.index+1}">
+                <div class="panel-heading" role="tab" id="heading">
                     <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse${i.index+1}" aria-expanded="false" aria-controls="collapse${i.index+1}">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse" aria-expanded="false" aria-controls="collapse">
                             <span class="glyphicon glyphicon-plus-sign"  aria-hidden="true"></span> 添加简历
                         </a>
                     </h4>
                 </div>
-                <div id="collapse${i.index+1}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading${i.index+1}">
+                <div id="collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading">
                     <div class="panel-body">
                         <form method="post" action="guest/insertresume?gid=${guest.id}">
                             <div class="form-group">

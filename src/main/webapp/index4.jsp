@@ -62,7 +62,7 @@
         </c:if>
     </c:if>
     <div class="container">
-        <div class="col-md-2">
+        <div class="col-md-2 col-md-offset-1">
             <div class="dropdown">
                 <div class="btn-group-vertical btn-block" role="group">
                     <div class="btn-group btn-group-lg">
@@ -202,7 +202,7 @@
                 </div>
             </div>
         </div>
-        <div id="carousel-example-generic" class="carousel slide col-md-7 col-md-offset-1" data-ride="carousel">
+        <div id="carousel-example-generic" class="carousel slide col-md-7" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -260,7 +260,19 @@
                         <p>${recruitInfo.address}</p>
                         <p style="color: #50b26b">${recruitInfo.phone}</p>
                         <c:if test="${not empty guest}">
-                            <button type="submit">投递简历</button>
+                            <c:set var="flag" value="${0}"></c:set>
+                            <c:forEach items="${guest.resumes}" var="resume">
+                                <c:forEach items="${recruitInfo.interviews}" var="interview">
+                                    <c:if test="${interview.resume.id==resume.id}">
+                                        <c:set var="flag" value="${flag+1}"></c:set>
+                                    </c:if>
+                                </c:forEach>
+                            </c:forEach>
+                            <c:if test="${flag<guest.resumes.size()}">
+                                <form method="post" action="guest/insertinterview?riid=${recruitInfo.id}">
+                                    <button type="submit">投递简历</button>
+                                </form>
+                            </c:if>
                         </c:if>
                     </td>
                 </tr>

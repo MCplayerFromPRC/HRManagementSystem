@@ -19,4 +19,10 @@ mybatis:
   mapper-locations: classpath:com/cc/mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
   type-aliases-package: com.cc.model  # 注意：对应实体类的路径
 
+#logging:
+##    file:   # 日志文件,绝对路径或相对路径
+##    path:   # 保存日志文件目录路径
+##  config: # 日志配置文件,Spring Boot默认使用classpath路径下的日志配置文件,如:logback.xml
+#  level:  # 日志级别
+#    org.springframework.web: DEBUG
 

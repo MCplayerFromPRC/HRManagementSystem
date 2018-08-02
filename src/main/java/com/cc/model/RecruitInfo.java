@@ -112,7 +112,6 @@ public class RecruitInfo implements Serializable {
                 ", industry='" + industry + '\'' +
                 ", revoke=" + revoke +
                 ", job='" + job + '\'' +
-                ", interviews=" + interviews +
                 '}';
     }
 }

@@ -6,7 +6,7 @@
         <result property="reid" column="iv_reid"/>
         <result property="riid" column="iv_riid"/>
         <result property="state" column="iv_state"/>
-        <result property="ivtime" column="iv_ivtime"/>
+        <result property="ivtime"  column="iv_ivtime"/>
         <association property="resume" column="iv_reid" javaType="resume"
                      select="com.cc.dao.ResumeDao.getById">
             <id property="id" column="re_id"/>
@@ -39,7 +39,7 @@
             select SEQ_RESUME.nextval as id from dual
         </selectKey>
         insert into T_INTERVIEW(IV_ID,IV_REID,IV_RIID,IV_STATE,IV_IVTIME) values
-            (#{id},#{reid},#{riid},#{state},#{ivtime})
+            (#{id},#{reid},#{riid},#{state},#{ivtime,jdbcType=VARCHAR})
     </insert>
     <update id="update">
         update T_INTERVIEW set IV_REID=#{reid},IV_RIID=#{riid},IV_STATE=#{state}

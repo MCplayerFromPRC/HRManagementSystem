@@ -38,11 +38,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                <li><a href="admin/getrecruitinfofirstpage">查看简历</a></li>
+                <li><a href="#">应聘录用</a></li>
                 <li><a href="#">薪资结算</a></li>
                 <li><a href="#">惩罚记录</a></li>
                 <li><a href="#">考勤记录</a></li>
                 <li><a href="#">培训管理</a></li>
-                <li><a href="#">应聘录用</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">内部管理 <span class="caret"></span></a>
                     <ul class="dropdown-menu" id="navbardropdown">

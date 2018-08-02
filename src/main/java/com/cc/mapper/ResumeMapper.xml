@@ -16,6 +16,12 @@
         <result property="description" column="re_description"/>
         <result property="salary" column="re_salary"/>
         <result property="job" column="re_job"/>
+        <association property="guest" javaType="guest" column="re_gid"
+                     select="com.cc.dao.GuestDao.getById">
+            <id property="id" column="g_id"/>
+            <result property="name" column="g_name"/>
+            <result property="pass" column="g_pass"/>
+        </association>
         <collection property="interviews" ofType="interview" column="re_id"
                     select="com.cc.dao.InterviewDao.getInterviewByReid">
             <id property="id" column="iv_id"/>

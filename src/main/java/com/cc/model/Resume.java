@@ -16,12 +16,13 @@ public class Resume implements Serializable {
     private String description;
     private double salary;
     private String job;
+    private Guest guest;
     private List<Interview> interviews;
 
     public Resume() {
     }
 
-    public Resume(int id, int gid, String name, String gender, String email, String city, String school, String major, int age, String description, double salary, String job, List<Interview> interviews) {
+    public Resume(int id, int gid, String name, String gender, String email, String city, String school, String major, int age, String description, double salary, String job, Guest guest, List<Interview> interviews) {
         this.id = id;
         this.gid = gid;
         this.name = name;
@@ -34,6 +35,7 @@ public class Resume implements Serializable {
         this.description = description;
         this.salary = salary;
         this.job = job;
+        this.guest = guest;
         this.interviews = interviews;
     }
 
@@ -133,6 +135,14 @@ public class Resume implements Serializable {
         this.job = job;
     }
 
+    public Guest getGuest() {
+        return guest;
+    }
+
+    public void setGuest(Guest guest) {
+        this.guest = guest;
+    }
+
     public List<Interview> getInterviews() {
         return interviews;
     }
@@ -156,7 +166,7 @@ public class Resume implements Serializable {
                 ", description='" + description + '\'' +
                 ", salary=" + salary +
                 ", job='" + job + '\'' +
-                ", interviews=" + interviews +
                 '}';
     }
+
 }
