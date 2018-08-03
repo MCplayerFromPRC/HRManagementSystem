@@ -27,7 +27,115 @@
         <%@ include file="adminnavbar.jsp"%>
     </c:if>
     <c:if test="${not empty department}">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading">
+                    <h2 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse" aria-expanded="false" aria-controls="collapse">
+                            <span>部门 ${department.id}&emsp;${department.name}</span>
+                        </a>
+                    </h2>
+                </div>
+                <div id="collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading">
+                    <div class="panel-body">
+                        <div class="bs-example">
+                            <form method="post" action="">
+                                <div class="form-group">
+                                    <label>部门</label>
+                                    <input type="text" class="form-control" name="name" value="${department.name}"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>人数</label>
+                                    <input type="number" class="form-control" name="empno" value="${department.empno}"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>创立时间</label>
+                                    <input type="text" class="form-control" name="createTime" value="${department.createTime}"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="selectstate" class="control-label">部门状态</label>
+                                    <select class="form-control" id="selectstate" name="state">
+                                        <option value="0" selected>仍存在</option>
+                                        <option value="1">撤销该部门</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-default">更改</button>
+                            </form>
+                        </div><!-- /example -->
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingJob">
+                    <h2 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseJob" aria-expanded="false" aria-controls="collapseJob">
+                            部门 id${department.id}&emsp;${department.name}的职位
+                        </a>
+                    </h2>
+                </div>
+                <div id="collapseJob" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJob">
+                    <div class="panel-body">
+                        <div class="panel-group" id="accordionJob" role="tablist" aria-multiselectable="true">
+                            <c:forEach items="${department.jobs}" var="job">
+                                <c:if test="${job.state==0}">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingJob${job.id}">
+                                            <h3 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionJob" href="#collapseJob${job.id}" aria-expanded="false" aria-controls="collapseJob${job.id}">
+                                                    <span>职位 ${job.id}&emsp;${job.name}</span>
+                                                </a>
+                                                <a href="">
+                                                    <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="float: right">删除</span>
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div id="collapseJob${job.id}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJob${job.id}">
+                                            <div class="panel-body">
+                                                <div class="bs-example">
+                                                    <form method="post" action="">
+                                                        <div class="form-group">
+                                                            <label>职位</label>
+                                                            <input type="text" class="form-control" name="name" value="${job.name}"/>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="selectjobstate" class="control-label">职位状态</label>
+                                                            <select class="form-control" id="selectjobstate" name="state">
+                                                                <option value="0" selected>仍存在</option>
+                                                                <option value="1">撤销该职位</option>
+                                                            </select>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-default">更改</button>
+                                                    </form>
+                                                </div><!-- /example -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingJob${job.id}emp">
+                                            <h3 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionJob" href="#collapseJob${job.id}emp" aria-expanded="false" aria-controls="collapseJob${job.id}emp">
+                                                    <span>职位 ${job.id}&emsp;${job.name}的员工</span>
+                                                </a>
+                                                <a href="">
+                                                    <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="float: right">删除</span>
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div id="collapseJob${job.id}emp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJob${job.id}emp">
+                                            <div class="panel-body">
+                                                <div class="bs-example">
 
+                                                </div><!-- /example -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:if>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </c:if>
     <c:if test="${not empty ad_de_pageNum}">
         <div align="center">

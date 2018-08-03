@@ -27,5 +27,8 @@
     <select id="getById" resultMap="train">
         select * from T_TRAIN where TRAIN_ID=#{id}
     </select>
+    <select id="getByContent" resultMap="train">
+        select * from T_TRAIN where TRAIN_CONTENT=#{content}
+    </select>
 
 </mapper>

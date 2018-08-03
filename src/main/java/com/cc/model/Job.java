@@ -7,16 +7,18 @@ public class Job implements Serializable {
     private int id;
     private String name;
     private int did;
+    private int state;
     private Department department;
     private List<Employee> employees;
 
     public Job() {
     }
 
-    public Job(int id, String name, int did, Department department, List<Employee> employees) {
+    public Job(int id, String name, int did, int state, Department department, List<Employee> employees) {
         this.id = id;
         this.name = name;
         this.did = did;
+        this.state = state;
         this.department = department;
         this.employees = employees;
     }
@@ -61,12 +63,21 @@ public class Job implements Serializable {
         this.employees = employees;
     }
 
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         return "Job{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", did=" + did +
+                ", state=" + state +
                 '}';
     }
 }

@@ -5,6 +5,7 @@
         <id property="id" column="j_id"/>
         <result property="name" column="j_name"/>
         <result property="did" column="j_did"/>
+        <result property="state" column="j_state"/>
         <association property="department" javaType="department" column="j_did"
             select="com.cc.dao.DepartmentDao.getById">
             <id property="id" column="dept_id"/>
@@ -35,10 +36,10 @@
         <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
             select SEQ_JOB.nextval as id from dual
         </selectKey>
-        insert into T_JOB(J_ID,J_NAME,J_DID) values (#{id},#{name},#{did})
+        insert into T_JOB(J_ID,J_NAME,J_DID,J_STATE) values (#{id},#{name},#{did},#{state})
     </insert>
     <update id="update">
-        update T_JOB set J_NAME=#{name},J_DID=#{did} where J_ID=#{id}
+        update T_JOB set J_NAME=#{name},J_DID=#{did},J_STATE=#{state} where J_ID=#{id}
     </update>
     <delete id="delete">
         delete from T_JOB where J_ID=#{id}
