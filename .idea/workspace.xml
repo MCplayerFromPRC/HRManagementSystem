@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ba4f208-3256-44d8-9890-1af8c06ccf29" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/departmentlist2.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/dao/TrainDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/dao/TrainDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/mapper/DepartmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/mapper/DepartmentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/mapper/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/mapper/EmployeeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/mapper/JobMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/mapper/JobMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/mapper/TrainMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/mapper/TrainMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/model/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/model/Job.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/departmentlist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/departmentlist.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cc/dao/DepartmentDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/dao/DepartmentDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/dao/TrainDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/dao/TrainDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/mapper/DepartmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/mapper/DepartmentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/mapper/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/mapper/EmployeeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/mapper/JobMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/mapper/JobMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/mapper/TrainMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/mapper/TrainMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/model/Job.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/model/Job.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cc/service/DepartmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/service/DepartmentService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cc/service/impl/DepartmentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/service/impl/DepartmentServiceImpl.class" afterDir="false" />
     </list>
@@ -58,7 +60,7 @@
       <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cc/controller/AdminController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
+            <state relative-caret-position="746">
               <caret line="124" column="32" lean-forward="true" selection-start-line="124" selection-start-column="32" selection-end-line="124" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -67,11 +69,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="departmentlist.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="departmentlist.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/departmentlist.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
+            <state relative-caret-position="2017">
+              <caret line="169" column="160" selection-start-line="169" selection-start-column="160" selection-end-line="169" selection-end-column="160" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="departmentlist2.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/departmentlist2.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1207">
+              <caret line="230" column="55" lean-forward="true" selection-start-line="230" selection-start-column="55" selection-end-line="230" selection-end-column="55" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#a#1;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#1;n#h3#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#1;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,7 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/navbar.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/cc/service/EmployeeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cc/service/impl/EmployeeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cc/controller/RecruitInfoController.java" />
@@ -143,7 +158,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/cc/dao/DepartmentDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cc/service/DepartmentService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cc/service/impl/DepartmentServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cc/controller/AdminController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cc/model/Job.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cc/mapper/JobMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/cc/mapper/DepartmentMapper.xml" />
@@ -152,6 +166,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/cc/mapper/TrainMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/cc/dao/TrainDao.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/departmentlist.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cc/controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/departmentlist2.jsp" />
       </list>
     </option>
   </component>
@@ -364,15 +380,16 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\MCplayer\IdeaProjects\HRManagementSystem\src\main\webapp\WEB-INF\pages\guest" />
-      <recent name="C:\Users\MCplayer\IdeaProjects\HRManagementSystem\src\main\webapp\css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MCplayer\IdeaProjects\HRManagementSystem\src\main\webapp\WEB-INF\pages\admin" />
       <recent name="C:\Users\MCplayer\IdeaProjects\HRManagementSystem\src\main\java\com\cc\controller" />
       <recent name="C:\Users\MCplayer\IdeaProjects\HRManagementSystem\src\main\webapp\js" />
       <recent name="C:\Users\MCplayer\IdeaProjects\HRManagementSystem\src\main\webapp\css" />
       <recent name="C:\Users\MCplayer\IdeaProjects\HRManagementSystem\src\main\resource" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MCplayer\IdeaProjects\HRManagementSystem\src\main\webapp\WEB-INF\pages\guest" />
+      <recent name="C:\Users\MCplayer\IdeaProjects\HRManagementSystem\src\main\webapp\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -479,7 +496,7 @@
       <workItem from="1532999041703" duration="19389000" />
       <workItem from="1533084951932" duration="30562000" />
       <workItem from="1533171452742" duration="22293000" />
-      <workItem from="1533257649125" duration="30963000" />
+      <workItem from="1533257649125" duration="37286000" />
     </task>
     <task id="LOCAL-00001" summary="第二天&#10;已完成：招聘信息&#10;未完成：简历&#10;准备做：简历">
       <created>1532654237177</created>
@@ -642,11 +659,18 @@
       <option name="project" value="LOCAL" />
       <updated>1533287260679</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="第十天&#10;      已完成：管理部门 &#10;      未完成：部门删改&#10;      准备做：培训 考勤">
+      <created>1533289804175</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1533289804175</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219249000" />
+    <option name="totallyTimeSpent" value="225572000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -659,6 +683,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50075644" side_tool="true" weight="0.43137255" />
@@ -681,7 +706,7 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.43137255" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32843137" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30257186" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30257186" />
       <window_info anchor="right" id="Bean Validation" order="8" weight="0.32980332" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="7" />
@@ -723,7 +748,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1001,13 +1025,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/adminnavbar.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="41" column="68" lean-forward="true" selection-start-line="41" selection-start-column="68" selection-end-line="41" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cc/dao/DepartmentDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1032,16 +1049,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cc/controller/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="124" column="32" lean-forward="true" selection-start-line="124" selection-start-column="32" selection-end-line="124" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1159,8 +1166,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/departmentlist.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
+        <state relative-caret-position="2017">
+          <caret line="169" column="160" selection-start-line="169" selection-start-column="160" selection-end-line="169" selection-end-column="160" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cc/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="746">
+          <caret line="124" column="32" lean-forward="true" selection-start-line="124" selection-start-column="32" selection-end-line="124" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/adminnavbar.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-265">
+          <caret line="71" column="49" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/departmentlist2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="230" column="55" lean-forward="true" selection-start-line="230" selection-start-column="55" selection-end-line="230" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#a#1;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#1;n#h3#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#1;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

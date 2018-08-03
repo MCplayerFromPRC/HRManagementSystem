@@ -27,6 +27,7 @@
             <id property="id" column="j_id"/>
             <result property="name" column="j_name"/>
             <result property="did" column="j_did"/>
+            <result property="state" column="j_state"/>
         </association>
         <association property="train" javaType="train" column="emp_trainid"
                      select="com.cc.dao.TrainDao.getById">

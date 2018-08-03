@@ -113,7 +113,7 @@ public class AdminController {
         session.setAttribute("ad_de_pageNum",departments.size());
         mv.addObject("department",departments.get(0));
         mv.addObject("page",1);
-        mv.setViewName("admin/departmentlist");
+        mv.setViewName("admin/departmentlist2");
         return mv;
     }
 
@@ -123,7 +123,7 @@ public class AdminController {
         ModelAndView mv=new ModelAndView();
         mv.addObject("department",departments);
         mv.addObject("page",pg);
-        mv.setViewName("admin/departmentlist");
+        mv.setViewName("admin/departmentlist2");
         return mv;
     }
 

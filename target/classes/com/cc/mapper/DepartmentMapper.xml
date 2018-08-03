@@ -12,6 +12,7 @@
             <id property="id" column="j_id"/>
             <result property="name" column="j_name"/>
             <result property="did" column="j_did"/>
+            <result property="state" column="j_state"/>
         </collection>
     </resultMap>
     <insert id="insert">
@@ -35,11 +36,15 @@
     <select id="getAll" resultMap="department">
         select * from T_DEPARTMENT
     </select>
-    <select id="getByPage" resultMap="department">
+    <select id="getByPageAndState" resultMap="department">
         select * from
-            (select *,ROWNUM rn
-             from T_RECRUITINFO
+            (select rm.*,ROWNUM rn
+             from (select * from T_RECRUITINFO
+             where DEPT_STATE=#{state}) rm
              where  ROWNUM &lt;= #{page})
         where rn &gt;= #{page}
+    </select>
+    <select id="getByState" resultMap="department">
+        select * from T_DEPARTMENT where DEPT_STATE=#{state}
     </select>
 </mapper>

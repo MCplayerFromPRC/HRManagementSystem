@@ -124,7 +124,69 @@
                                         <div id="collapseJob${job.id}emp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJob${job.id}emp">
                                             <div class="panel-body">
                                                 <div class="bs-example">
-
+                                                    <div class="panel-group" id="accordionJobemp" role="tablist" aria-multiselectable="true">
+                                                        <c:forEach var="employee" items="${job.employees}">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="headingJob${job.id}emp${employee.id}">
+                                                                    <h3 class="panel-title">
+                                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionJobemp" href="#collapseJob${job.id}emp${employee.id}" aria-expanded="false" aria-controls="collapseJob${job.id}emp${employee.id}">
+                                                                            <span>员工 ${employee.id}&emsp;${employee.account}</span>
+                                                                        </a>
+                                                                        <a href="">
+                                                                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="float: right">删除</span>
+                                                                        </a>
+                                                                    </h3>
+                                                                </div>
+                                                                <div id="collapseJob${job.id}emp${employee.id}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJob${job.id}emp${employee.id}">
+                                                                    <div class="panel-body">
+                                                                        <div class="bs-example">
+                                                                            <form method="post" action="">
+                                                                                <div class="form-group">
+                                                                                    <label>姓名</label>
+                                                                                    <input type="text" class="form-control" name="account" value="${employee.account}"/>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label>性别</label>
+                                                                                    <input type="text" class="form-control" name="gender" value="${employee.gender}"/>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label>年龄</label>
+                                                                                    <input type="number" class="form-control" name="age" value="${employee.age}"/>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label>薪资</label>
+                                                                                    <input type="number" class="form-control" name="salary" value="${employee.salary}"/>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label>社保</label>
+                                                                                    <input type="number" class="form-control" name="socialSecurity" value="${employee.socialSecurity}"/>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label>电话</label>
+                                                                                    <input type="number" class="form-control" name="phone" value="${employee.phone}"/>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label>邮箱</label>
+                                                                                    <input type="text" class="form-control" name="email" value="${employee.email}"/>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="selectjobstate" class="control-label">就职状态</label>
+                                                                                    <select class="form-control" id="selectjobempstate" name="state">
+                                                                                        <option value="0">准备上班</option>
+                                                                                        <option value="1">试用期</option>
+                                                                                        <option value="2">正式入职</option>
+                                                                                        <option value="3">休假</option>
+                                                                                        <option value="4">离职</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <button type="submit" class="btn btn-default">更改</button>
+                                                                            </form>
+                                                                        </div><!-- /example -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </c:forEach>
+                                                    </div>
                                                 </div><!-- /example -->
                                             </div>
                                         </div>
