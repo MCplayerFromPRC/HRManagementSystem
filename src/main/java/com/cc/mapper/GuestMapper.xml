@@ -38,7 +38,7 @@
     <select id="getAll" resultMap="guest">
         select * from t_guest
     </select>
-    <select id="getById" resultType="com.cc.model.Guest">
+    <select id="getById" resultMap="guest">
         select * from t_guest where g_id=#{id}
     </select>
 </mapper>

@@ -16,11 +16,15 @@ public class Employee implements Serializable {
     private long phone;
     private String email;
     private int state;
+    private int gid;
+    private Guest guest;
+    private Job job;
+    private Train train;
 
     public Employee() {
     }
 
-    public Employee(int id, String account, String pass, String name, String gender, int age, int jobid, double salary, double socialSecurity, int trainid, long phone, String email,int state) {
+    public Employee(int id, String account, String pass, String name, String gender, int age, int jobid, double salary, double socialSecurity, int trainid, long phone, String email, int state, int gid, Guest guest, Job job, Train train) {
         this.id = id;
         this.account = account;
         this.pass = pass;
@@ -33,7 +37,11 @@ public class Employee implements Serializable {
         this.trainid = trainid;
         this.phone = phone;
         this.email = email;
-        this.state= state;
+        this.state = state;
+        this.gid = gid;
+        this.guest = guest;
+        this.job = job;
+        this.train = train;
     }
 
     public int getId() {
@@ -140,6 +148,38 @@ public class Employee implements Serializable {
         this.state = state;
     }
 
+    public int getGid() {
+        return gid;
+    }
+
+    public void setGid(int gid) {
+        this.gid = gid;
+    }
+
+    public Guest getGuest() {
+        return guest;
+    }
+
+    public void setGuest(Guest guest) {
+        this.guest = guest;
+    }
+
+    public Job getJob() {
+        return job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
+    }
+
+    public Train getTrain() {
+        return train;
+    }
+
+    public void setTrain(Train train) {
+        this.train = train;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -156,6 +196,8 @@ public class Employee implements Serializable {
                 ", phone=" + phone +
                 ", email='" + email + '\'' +
                 ", state=" + state +
+                ", gid=" + gid +
+                ", guest=" + guest +
                 '}';
     }
 }

@@ -17,6 +17,7 @@
             <result property="riid" column="iv_riid"/>
             <result property="state" column="iv_state"/>
             <result property="ivtime" column="iv_ivtime"/>
+            <result property="inviteTime" column="iv_invitetime"/>
         </collection>
     </resultMap>
     <insert id="insert">

@@ -1,19 +1,24 @@
 package com.cc.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Job implements Serializable {
     private int id;
     private String name;
     private int did;
+    private Department department;
+    private List<Employee> employees;
 
     public Job() {
     }
 
-    public Job(int id, String name, int did) {
+    public Job(int id, String name, int did, Department department, List<Employee> employees) {
         this.id = id;
         this.name = name;
         this.did = did;
+        this.department = department;
+        this.employees = employees;
     }
 
     public int getId() {
@@ -38,6 +43,22 @@ public class Job implements Serializable {
 
     public void setDid(int did) {
         this.did = did;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
     @Override

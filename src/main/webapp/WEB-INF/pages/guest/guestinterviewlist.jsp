@@ -1,3 +1,5 @@
+<%@ page import="com.cc.model.Interview" %>
+<%@ page import="com.cc.util.DateUtil" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -21,6 +23,36 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".accept").click(function () {
+                $.ajax({
+                    type:"post",
+                    url:"guest/updateinterviewstate",
+                    data:{
+                        "id":$(this).siblings("input").val(),
+                        "state":3
+                    },
+                    success:function (obj) {
+                        $("#panel"+obj).remove();
+                    }
+                })
+            })
+            $(".refuse").click(function () {
+                $.ajax({
+                    type:"post",
+                    url:"guest/updateinterviewstate",
+                    data:{
+                        "id":$(this).siblings("input").val(),
+                        "state":4
+                    },
+                    success:function (obj) {
+                        $("#panel"+obj).remove();
+                    }
+                })
+            })
+        })
+    </script>
 </head>
 <body>
     <c:if test="${not empty guest}">
@@ -29,7 +61,7 @@
             <c:forEach items="${guest.resumes}" var="resume">
                 <c:forEach items="${resume.interviews}" var="interview">
                     <c:if test="${interview.state==2}">
-                        <div class="panel panel-default">
+                        <div id="panel${interview.id}" class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading${resume.id}">
                                 <h3 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionResume" href="#collapse${resume.id}" aria-expanded="false" aria-controls="collapse${resume.id}">
@@ -41,13 +73,15 @@
                                 <div class="panel-body">
                                     <p>
                                         亲爱的${resume.name}：<br/>
-                                        &emsp;本公司诚挚邀请您参加定于${interview.ivtime}的面试<br/>
+                                        &emsp;本公司诚挚邀请您参加定于<%Interview interview= (Interview) pageContext.getAttribute("interview");
+                                            out.print(DateUtil.DataBaseVarcharFormDateTimeLocalFormatTojavaString(interview.getIvtime())+"时");%>的面试<br/>
                                         &emsp; &emsp; &emsp; &emsp;${interview.recruitInfo.company}人事部<br/>
-                                        &emsp; &emsp; &emsp; &emsp;${interview.inviteTime}
+                                        &emsp; &emsp; &emsp; &emsp;<%out.print(DateUtil.transDataBaseDate(interview.getInviteTime()).split(" ")[0]);%>
                                     </p>
                                     <form>
-                                        <button type="button" class="btn btn-default">接受邀请</button>
-                                        <button type="button" class="btn btn-default">拒绝邀请</button>
+                                        <input type="hidden" name="id" value="${interview.id}"/>
+                                        <button type="button" class="btn btn-default accept">接受邀请</button>
+                                        <button type="button" class="btn btn-default refuse">拒绝邀请</button>
                                     </form>
                                 </div>
                             </div>

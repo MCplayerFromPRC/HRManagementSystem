@@ -185,6 +185,27 @@
             </div>
         </div>
     </c:if>
+    <c:if test="${not empty ad_iv_pageNum}">
+        <div align="center">
+            <ul class="pagination" >
+                <li>
+                    <a href="admin/getrecruitinfobypage?pg=${page-1>0? page-1:1}&revoke=0" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <c:forEach var="pg" begin="1" end="${ ad_iv_pageNum}">
+                    <li>
+                        <a class="apage" href="admin/getrecruitinfobypage?pg=${pg}&revoke=0">${pg}</a>
+                    </li>
+                </c:forEach>
+                <li>
+                    <a href="admin/getrecruitinfobypage?pg=${page+1> ad_iv_pageNum?page:page+1}&revoke=0" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </c:if>
 </body>
 </html>
 

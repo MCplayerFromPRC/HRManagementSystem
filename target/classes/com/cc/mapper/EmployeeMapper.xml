@@ -15,19 +15,42 @@
         <result property="phone" column="emp_phone"/>
         <result property="email" column="emp_email"/>
         <result property="state" column="emp_state"/>
+        <result property="gid" column="emp_gid"/>
+        <association property="guest" javaType="guest" column="emp_gid"
+                     select="com.cc.dao.GuestDao.getById">
+            <id property="id" column="g_id"/>
+            <result property="name" column="g_name"/>
+            <result property="pass" column="g_pass"/>
+        </association>
+        <association property="job" javaType="job" column="emp_jobid"
+                     select="com.cc.dao.JobDao.getById">
+            <id property="id" column="j_id"/>
+            <result property="name" column="j_name"/>
+            <result property="did" column="j_did"/>
+        </association>
+        <association property="train" javaType="train" column="emp_trainid"
+                     select="com.cc.dao.TrainDao.getById">
+            <id property="id" column="train_id"/>
+            <result property="subject" column="train_subject"/>
+            <result property="content" column="train_content"/>
+            <result property="object" column="train_object"/>
+            <result property="startTime" column="train_starttime"/>
+            <result property="endTime" column="train_endTime"/>
+            <result property="place" column="train_place"/>
+        </association>
     </resultMap>
     <insert id="insert">
         <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
             select SEQ_EMP.nextval as id from dual
         </selectKey>
         insert into T_EMPLOYEE(EMP_ID,EMP_ACCOUNT,EMP_PASS,EMP_NAME,EMP_GENDER,EMP_AGE,EMP_JOBID,EMP_SAL,EMP_SOSECUR,EMP_TRAINID,
-        EMP_PHONE,EMP_EMAIL,EMP_STATE) values (#{id},#{account},#{pass},#{name},#{gender},#{age},#{jobid},#{salary},#{socialSecurity},#{trainid},
-        #{phone},#{email},#{state})
+        EMP_PHONE,EMP_EMAIL,EMP_STATE,EMP_GID) values (#{id},#{account},#{pass},#{name},#{gender},#{age},#{jobid},#{salary},#{socialSecurity},#{trainid},
+        #{phone},#{email},#{state},#{gid})
     </insert>
     <update id="update">
         update T_EMPLOYEE set EMP_ACCOUNT=#{account},EMP_PASS=#{pass},EMP_NAME=#{name},EMP_GENDER=#{gender},EMP_AGE=#{age},
             EMP_JOBID=#{jobid},EMP_SAL=#{salary},EMP_SOSECUR=#{socialSecurity},EMP_TRAINID=#{trainid},EMP_PHONE=#{phone},
-            EMP_EMAIL=#{email},EMP_STATE=#{state} where EMP_ID=#{id}
+            EMP_EMAIL=#{email},EMP_STATE=#{state},EMP_GID=#{gid} where EMP_ID=#{id}
     </update>
     <delete id="delete">
         delete from T_EMPLOYEE where EMP_ID=#{id}
@@ -40,5 +63,8 @@
     </select>
     <select id="getByNameAndPass" resultMap="employee">
         select * from T_EMPLOYEE where EMP_NAME=#{name} and EMP_PASS=#{pass}
+    </select>
+    <select id="getByTrainid" resultMap="employee">
+        select * from T_EMPLOYEE where EMP_TRAINID=#{trainid}
     </select>
 </mapper>

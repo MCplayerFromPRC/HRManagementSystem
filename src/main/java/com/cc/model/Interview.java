@@ -1,6 +1,8 @@
 package com.cc.model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Interview implements Serializable {
@@ -9,14 +11,14 @@ public class Interview implements Serializable {
     private int riid;
     private int state;
     private String ivtime;
-    private Date inviteTime;
+    private Timestamp inviteTime;
     private Resume resume;
     private RecruitInfo recruitInfo;
 
     public Interview() {
     }
 
-    public Interview(int id, int reid, int riid, int state, String ivtime, Date inviteTime, Resume resume, RecruitInfo recruitInfo) {
+    public Interview(int id, int reid, int riid, int state, String ivtime, Timestamp inviteTime, Resume resume, RecruitInfo recruitInfo) {
         this.id = id;
         this.reid = reid;
         this.riid = riid;
@@ -67,11 +69,11 @@ public class Interview implements Serializable {
         this.ivtime = ivtime;
     }
 
-    public Date getInviteTime() {
+    public Timestamp getInviteTime() {
         return inviteTime;
     }
 
-    public void setInviteTime(Date inviteTime) {
+    public void setInviteTime(Timestamp inviteTime) {
         this.inviteTime = inviteTime;
     }
 

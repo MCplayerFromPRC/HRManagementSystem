@@ -47,19 +47,19 @@
                         <div class="panel-body">
                             <form method="post" action="guest/updateresume?id=${resume.id}&gid=${resume.gid}">
                                 <div class="form-group">
-                                    <label for="name">姓名</label>
+                                    <label>姓名</label>
                                     <input type="text" class="form-control" name="name" value="${resume.name}"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="gender">性别</label>
+                                    <label>性别</label>
                                     <input type="text" class="form-control" name="gender" value="${resume.gender}"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">邮箱</label>
+                                    <label>邮箱</label>
                                     <input type="email" class="form-control" name="email" value="${resume.email}"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="city">城市</label>
+                                    <label>城市</label>
                                     <input type="text" class="form-control" name="city" value="${resume.city}"/>
                                 </div>
                                 <div class="form-group">
@@ -67,23 +67,23 @@
                                     <input type="text" class="form-control" name="school" value="${resume.school}"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="major">专业</label>
+                                    <label>专业</label>
                                     <input type="text" class="form-control" name="major" value="${resume.major}"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="age">年龄</label>
+                                    <label>年龄</label>
                                     <input type="number" class="form-control" name="age" value="${resume.age}"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="salary">期望薪资</label>
+                                    <label>期望薪资</label>
                                     <input type="number" class="form-control" name="salary" value="${resume.salary}"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="job">应聘岗位</label>
+                                    <label>应聘岗位</label>
                                     <input type="text" class="form-control" name="job" value="${resume.job}"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">备注</label>
+                                    <label>备注</label>
                                     <textarea name="description" class="form-control" cols="30">${resume.description}</textarea>
                                 </div>
                                 <button type="submit" class="btn btn-default">更改</button>

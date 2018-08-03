@@ -79,5 +79,11 @@ public class GuestController {
         return mv;
     }
 
-
+    @RequestMapping("/updateinterviewstate")
+    public @ResponseBody String updateInterviewState(HttpSession session,int id,int state){
+        Interview interview=is.getInterviewById(id);
+        interview.setState(state);
+        is.update(interview);
+        return id+"";
+    }
 }

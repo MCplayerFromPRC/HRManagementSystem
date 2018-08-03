@@ -5,15 +5,23 @@
         <id property="id" column="dept_id"/>
         <result property="name" column="dept_name"/>
         <result property="empno" column="dept_empno"/>
+        <result property="state" column="dept_state"/>
+        <result property="createTime" column="dept_createtime"/>
+        <collection property="jobs" ofType="job" column="dept_id"
+                    select="com.cc.dao.JobDao.getByDid">
+            <id property="id" column="j_id"/>
+            <result property="name" column="j_name"/>
+            <result property="did" column="j_did"/>
+        </collection>
     </resultMap>
     <insert id="insert">
         <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
             select SEQ_DEPT.nextval as id from dual
         </selectKey>
-        insert into T_DEPARTMENT(DEPT_ID,DEPT_NAME,DEPT_EMPNO) values (#{id},#{name},#{empno})
+        insert into T_DEPARTMENT(DEPT_ID,DEPT_NAME,DEPT_EMPNO,DEPT_CREATETIME,DEPT_STATE) values (#{id},#{name},#{empno},#{createTime},#{state})
     </insert>
     <update id="update">
-        update T_DEPARTMENT set DEPT_NAME=#{name},DEPT_EMPNO=#{empno} where DEPT_ID=#{id}
+        update T_DEPARTMENT set DEPT_NAME=#{name},DEPT_EMPNO=#{empno},DEPT_CREATETIME=#{createTime},DEPT_STATE=#{state} where DEPT_ID=#{id}
     </update>
     <delete id="delete">
         delete from T_DEPARTMENT where DEPT_ID=#{id}
@@ -23,5 +31,15 @@
     </select>
     <select id="getById" resultMap="department">
         select * from T_DEPARTMENT where DEPT_ID=#{id}
+    </select>
+    <select id="getAll" resultMap="department">
+        select * from T_DEPARTMENT
+    </select>
+    <select id="getByPage" resultMap="department">
+        select * from
+            (select *,ROWNUM rn
+             from T_RECRUITINFO
+             where  ROWNUM &lt;= #{page})
+        where rn &gt;= #{page}
     </select>
 </mapper>

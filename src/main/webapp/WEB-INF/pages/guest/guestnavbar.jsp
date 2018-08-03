@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="pages/guest/resumesent">招聘投递</a></li>
-                <li><a href="#">面试邀请</a></li>
+                <li><a href="pages/guest/guestinterviewlist">面试邀请</a></li>
                 <li><a href="pages/guest/resumelist">简历修改</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于我们 <span class="caret"></span></a>

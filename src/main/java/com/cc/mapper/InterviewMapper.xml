@@ -39,12 +39,12 @@
         <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
             select SEQ_RESUME.nextval as id from dual
         </selectKey>
-        insert into T_INTERVIEW(IV_ID,IV_REID,IV_RIID,IV_STATE,IV_IVTIME) values
-            (#{id},#{reid},#{riid},#{state},#{ivtime,jdbcType=VARCHAR})
+        insert into T_INTERVIEW(IV_ID,IV_REID,IV_RIID,IV_STATE,IV_IVTIME,IV_INVITETIME) values
+            (#{id},#{reid},#{riid},#{state},#{ivtime,jdbcType=VARCHAR},#{inviteTime,jdbcType=DATE})
     </insert>
     <update id="update">
         update T_INTERVIEW set IV_REID=#{reid},IV_RIID=#{riid},IV_STATE=#{state}
-            ,IV_IVTIME=#{ivtime} where IV_ID=#{id}
+            ,IV_IVTIME=#{ivtime},IV_INVITETIME=#{inviteTime} where IV_ID=#{id}
     </update>
     <delete id="delete">
       delete from T_INTERVIEW where IV_ID=#{id}

@@ -8,6 +8,7 @@ import java.util.List;
 @Mapper
 public interface JobDao {
     Job getByName(String name);
+    Job getById(int id);
     List<Job> getByDid(int did);
     boolean insert(Job job);
     boolean update(Job job);

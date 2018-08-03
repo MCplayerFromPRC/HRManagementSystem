@@ -1,0 +1,55 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: MCplayer
+  Date: 2018/8/3
+  Time: 15:56
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="<%=basePath%>"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+</head>
+<body>
+    <c:if test="${not empty admin}">
+        <%@ include file="adminnavbar.jsp"%>
+    </c:if>
+    <c:if test="${not empty department}">
+
+    </c:if>
+    <c:if test="${not empty ad_de_pageNum}">
+        <div align="center">
+            <ul class="pagination" >
+                <li>
+                    <a href="admin/getdepartmentbypage?pg=${page-1>0? page-1:1}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <c:forEach var="pg" begin="1" end="${ ad_de_pageNum}">
+                    <li>
+                        <a class="apage" href="admin/getdepartmentbypage?pg=${pg}">${pg}</a>
+                    </li>
+                </c:forEach>
+                <li>
+                    <a href="admin/getdepartmentbypage?pg=${page+1> ad_de_pageNum?page:page+1}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </c:if>
+</body>
+</html>
+
