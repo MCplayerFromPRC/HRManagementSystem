@@ -1,6 +1,7 @@
 package com.cc.model;
 
 import org.hibernate.validator.internal.constraintvalidators.bv.past.PastValidatorForReadableInstant;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -11,6 +12,7 @@ public class Department implements Serializable {
     private String name;
     private int empno;
     private int state;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp createTime;
     private List<Job> jobs;
 

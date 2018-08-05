@@ -33,6 +33,8 @@ public class AdminController {
     private EmployeeService es;
     @Resource
     private DepartmentService  ds;
+    @Resource
+    private JobService js;
 
     @RequestMapping("/getrecruitinfofirstpage")
     public ModelAndView getRecruitInfoFirstPage(HttpServletRequest request){
@@ -127,4 +129,51 @@ public class AdminController {
         return mv;
     }
 
+    @RequestMapping("/dlistupdatedepartment")
+    public ModelAndView dlistUpdateDepartment(Department department){
+        ds.update(department);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getalldepartment");
+        return mv;
+    }
+
+    @RequestMapping("/dlistinsertdepartment")
+    public ModelAndView dlistInsertDepartment(Department department){
+        ds.insert(department);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getalldepartment");
+        return mv;
+    }
+
+    @RequestMapping("/dlistdeletedepartment")
+    public ModelAndView dlistDeleteDepartment(Department department){
+        ds.delete(department);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getalldepartment");
+        return mv;
+    }
+
+    @RequestMapping("/dlistupdatejob")
+    public ModelAndView dlistUpdateJob(Job job){
+        js.update(job);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getalldepartment");
+        return mv;
+    }
+
+    @RequestMapping("/dlistinsertjob")
+    public ModelAndView dlistInsertJob(Job job){
+        js.insert(job);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getalldepartment");
+        return mv;
+    }
+
+    @RequestMapping("/dlistdeletejob")
+    public ModelAndView dlistDeleteJob(Job job){
+        js.delete(job);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getalldepartment");
+        return mv;
+    }
 }

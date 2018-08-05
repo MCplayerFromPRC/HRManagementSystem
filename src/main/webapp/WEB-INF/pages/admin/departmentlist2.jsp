@@ -34,12 +34,16 @@
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse" aria-expanded="false" aria-controls="collapse">
                             <span>部门 ${department.id}&emsp;${department.name}</span>
                         </a>
+                        <a href="admin/dlistdeletedepartment?id=${department.id}">
+                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="float: right">删除</span>
+                        </a>
                     </h2>
                 </div>
                 <div id="collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading">
                     <div class="panel-body">
                         <div class="bs-example">
-                            <form method="post" action="">
+                            <form method="post" action="admin/dlistupdatedepartment">
+                                <input type="hidden" name="id" value="${department.id}"/>
                                 <div class="form-group">
                                     <label>部门</label>
                                     <input type="text" class="form-control" name="name" value="${department.name}"/>
@@ -50,7 +54,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>创立时间</label>
-                                    <input type="text" class="form-control" name="createTime" value="${department.createTime}"/>
+                                    <input type="date" class="form-control" name="createTime" value="${department.createTime}"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="selectstate" class="control-label">部门状态</label>
@@ -84,9 +88,6 @@
                                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionJob" href="#collapseJob${job.id}" aria-expanded="false" aria-controls="collapseJob${job.id}">
                                                     <span>职位 ${job.id}&emsp;${job.name}及其员工信息</span>
                                                 </a>
-                                                <a href="">
-                                                    <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="float: right">删除</span>
-                                                </a>
                                             </h3>
                                         </div>
                                         <div id="collapseJob${job.id}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJob${job.id}">
@@ -98,7 +99,7 @@
                                                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionJobdetail" href="#collapseJobdetail${job.id}" aria-expanded="false" aria-controls="collapseJobdetail${job.id}">
                                                                     <span>职位 ${job.id}&emsp;${job.name}</span>
                                                                 </a>
-                                                                <a href="">
+                                                                <a href="admin/dlistdeletejob?id=${job.id}">
                                                                     <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="float: right">删除</span>
                                                                 </a>
                                                             </h3>
@@ -106,7 +107,9 @@
                                                         <div id="collapseJobdetail${job.id}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJobdetail${job.id}">
                                                             <div class="panel-body">
                                                                 <div class="bs-example">
-                                                                    <form method="post" action="">
+                                                                    <form method="post" action="admin/dlistupdatejob">
+                                                                        <input type="hidden" name="id" value="${job.id}"/>
+                                                                        <input type="hidden" name="did" value="${department.id}"/>
                                                                         <div class="form-group">
                                                                             <label>职位</label>
                                                                             <input type="text" class="form-control" name="name" value="${job.name}"/>
@@ -129,9 +132,6 @@
                                                             <h3 class="panel-title">
                                                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionJobdetail" href="#collapseJob${job.id}emp" aria-expanded="false" aria-controls="collapseJob${job.id}emp">
                                                                     <span>职位 ${job.id}&emsp;${job.name}的员工</span>
-                                                                </a>
-                                                                <a href="">
-                                                                    <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="float: right">删除</span>
                                                                 </a>
                                                             </h3>
                                                         </div>
@@ -200,6 +200,61 @@
                                                                                 </div>
                                                                             </div>
                                                                         </c:forEach>
+                                                                        <div class="panel panel-default">
+                                                                            <div class="panel-heading" role="tab" id="headingJob${job.id}empadd">
+                                                                                <h3 class="panel-title">
+                                                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionJobemp" href="#collapseJob${job.id}empadd" aria-expanded="false" aria-controls="collapseJob${job.id}empadd">
+                                                                                        <span class="glyphicon glyphicon-plus" aria-hidden="true">添加员工</span>
+                                                                                    </a>
+                                                                                </h3>
+                                                                            </div>
+                                                                            <div id="collapseJob${job.id}empadd" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJob${job.id}empadd">
+                                                                                <div class="panel-body">
+                                                                                    <div class="bs-example">
+                                                                                        <form method="post" action="">
+                                                                                            <input type="hidden" name="state" value="0">
+                                                                                            <div class="form-group">
+                                                                                                <label>账号</label>
+                                                                                                <input type="text" class="form-control" name="name"/>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label>密码</label>
+                                                                                                <input type="text" class="form-control" name="pass"/>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label>姓名</label>
+                                                                                                <input type="text" class="form-control" name="account"/>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label>性别</label>
+                                                                                                <input type="text" class="form-control" name="gender"/>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label>年龄</label>
+                                                                                                <input type="number" class="form-control" name="age"/>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label>薪资</label>
+                                                                                                <input type="number" class="form-control" name="salary"/>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label>社保</label>
+                                                                                                <input type="number" class="form-control" name="socialSecurity"/>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label>电话</label>
+                                                                                                <input type="number" class="form-control" name="phone"/>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label>邮箱</label>
+                                                                                                <input type="text" class="form-control" name="email"/>
+                                                                                            </div>
+                                                                                            <button type="submit" class="btn btn-default">添加</button>
+                                                                                        </form>
+                                                                                    </div><!-- /example -->
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div><!-- /example -->
                                                             </div>
@@ -222,19 +277,51 @@
                                 <div id="collapseJobadd" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJobadd">
                                     <div class="panel-body">
                                         <div class="bs-example">
-                                            <form method="post" action="">
+                                            <form method="post" action="admin/dlistinsertjob">
+                                                <input type="hidden" name="did" value="${department.id}">
                                                 <div class="form-group">
                                                     <label>职位</label>
-                                                    <input type="text" class="form-control" name="name" value="${job.name}"/>
+                                                    <input type="text" class="form-control" name="name"/>
                                                 </div>
                                                 <input type="hidden" id="addjobstate" name="state" value="0"/>
-                                                <button type="submit" class="btn btn-default">更改</button>
+                                                <button type="submit" class="btn btn-default">添加</button>
                                             </form>
                                         </div><!-- /example -->
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingadd">
+                    <h2 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseadd" aria-expanded="false" aria-controls="collapseadd">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true">添加部门</span>
+                        </a>
+                    </h2>
+                </div>
+                <div id="collapseadd" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingadd">
+                    <div class="panel-body">
+                        <div class="bs-example">
+                            <form method="post" action="admin/dlistinsertdepartment">
+                                <input type="hidden" name="state" value="0"/>
+                                <div class="form-group">
+                                    <label>部门</label>
+                                    <input type="text" class="form-control" name="name" value="${department.name}"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>人数</label>
+                                    <input type="number" class="form-control" name="empno" value="${department.empno}"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>创立时间</label>
+                                    <input type="date" class="form-control" name="createTime" value="${department.createTime}"/>
+                                </div>
+                                <button type="submit" class="btn btn-default">添加</button>
+                            </form>
+                        </div><!-- /example -->
                     </div>
                 </div>
             </div>
