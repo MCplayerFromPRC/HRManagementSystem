@@ -12,7 +12,7 @@ public class Department implements Serializable {
     private String name;
     private int empno;
     private int state;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp createTime;
     private List<Job> jobs;
 

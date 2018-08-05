@@ -68,4 +68,15 @@
     <select id="getByTrainid" resultMap="employee">
         select * from T_EMPLOYEE where EMP_TRAINID=#{trainid}
     </select>
+    <select id="getAll" resultMap="employee">
+        select * from T_EMPLOYEE
+    </select>
+    <select id="getByPage" resultMap="employee">
+        select * from
+            (select rm.*,ROWNUM rn
+             from (select *
+                   from T_EMPLOYEE) rm
+             where  ROWNUM &lt;= #{end})
+        where rn &gt;= #{start}
+    </select>
 </mapper>

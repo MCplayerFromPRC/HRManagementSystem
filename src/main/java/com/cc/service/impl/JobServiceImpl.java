@@ -1,6 +1,7 @@
 package com.cc.service.impl;
 
 import com.cc.dao.JobDao;
+import com.cc.model.Employee;
 import com.cc.model.Job;
 import com.cc.service.JobService;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,11 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public boolean insert(Job job) {
-        return jd.insert(job);
+        if(jd.getByName(job.getName())==null){
+            return jd.insert(job);
+        }else {
+            return false;
+        }
     }
 
     @Override
@@ -34,6 +39,11 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public boolean delete(Job job) {
-        return jd.delete(job);
+        List<Employee> employees=jd.getById(job.getId()).getEmployees();
+        if(employees==null||employees.size()==0) {
+            return jd.delete(job);
+        }else {
+            return false;
+        }
     }
 }

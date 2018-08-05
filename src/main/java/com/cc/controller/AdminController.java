@@ -139,6 +139,7 @@ public class AdminController {
 
     @RequestMapping("/dlistinsertdepartment")
     public ModelAndView dlistInsertDepartment(Department department){
+        department.setCreateTime(DateUtil.getSqlDate());
         ds.insert(department);
         ModelAndView mv=new ModelAndView();
         mv.setViewName("forward:getalldepartment");
@@ -175,5 +176,56 @@ public class AdminController {
         ModelAndView mv=new ModelAndView();
         mv.setViewName("forward:getalldepartment");
         return mv;
+    }
+
+    @RequestMapping("/dlistupdateemployee")
+    public ModelAndView dlistUpdateEmployee(Employee employee){
+        es.update(employee);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getalldepartment");
+        return mv;
+    }
+
+    @RequestMapping("/dlistinsertemployee")
+    public ModelAndView dlistInsertEmployee(Employee employee){
+        es.insert(employee);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getalldepartment");
+        return mv;
+    }
+
+    @RequestMapping("/dlistdeleteemployee")
+    public ModelAndView dlistDeleteEmployee(Employee employee){
+        es.delete(employee);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getalldepartment");
+        return mv;
+    }
+
+    @RequestMapping("/getallemployee")
+    public ModelAndView getAllEmployee(HttpSession session){
+        List<Employee> employees=es.getAll();
+        int ad_emp_pageNum=employees.size()%5==0?employees.size()/5:employees.size()/5+1;
+        ModelAndView mv=new ModelAndView();
+        session.setAttribute("ad_emp_pageNum",ad_emp_pageNum);
+        mv.addObject("employees",es.getByPage(1,5));
+        mv.addObject("page",1);
+        mv.setViewName("admin/employeelist");
+        return mv;
+    }
+
+    @RequestMapping("/getemployeebypage")
+    public ModelAndView getEmployeeByPage(HttpServletRequest request,int pg){
+        List<Employee> employees=es.getByPage((pg-1)*5+1,pg*5);
+        ModelAndView mv=new ModelAndView();
+        mv.addObject("employees",employees);
+        mv.addObject("page",pg);
+        mv.setViewName("admin/employeelist");
+        return mv;
+    }
+
+    @RequestMapping("/getdepartmentjobcontact")
+    public @ResponseBody  List<Department> getDepartmentJobContact(int state){
+        return ds.getByState(state);
     }
 }

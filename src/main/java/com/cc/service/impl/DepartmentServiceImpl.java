@@ -1,7 +1,9 @@
 package com.cc.service.impl;
 
 import com.cc.dao.DepartmentDao;
+import com.cc.dao.JobDao;
 import com.cc.model.Department;
+import com.cc.model.Job;
 import com.cc.service.DepartmentService;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,8 @@ import java.util.List;
 public class DepartmentServiceImpl implements DepartmentService {
     @Resource
     private DepartmentDao dd;
-
+    @Resource
+    private JobDao jd;
     @Override
     public List<Department> getAll() {
         return dd.getAll();
@@ -40,7 +43,12 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public boolean insert(Department department) {
-        return dd.insert(department);
+        Department department1=dd.getByName(department.getName());
+        if(department1==null) {
+            return dd.insert(department);
+        }else {
+            return false;
+        }
     }
 
     @Override
@@ -50,6 +58,14 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public boolean delete(Department department) {
-        return dd.delete(department);
+        if(department.getEmpno()==0) {
+            List<Job> jobs=dd.getById(department.getId()).getJobs();
+            for(Job job:jobs) {
+                jd.delete(job);
+            }
+            return dd.delete(department);
+        }else {
+            return false;
+        }
     }
 }

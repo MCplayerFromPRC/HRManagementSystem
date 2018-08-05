@@ -1,5 +1,7 @@
 package com.cc.model;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -8,7 +10,9 @@ public class Job implements Serializable {
     private String name;
     private int did;
     private int state;
+    @JSONField(serialize = false)
     private Department department;
+    @JSONField(serialize = false)
     private List<Employee> employees;
 
     public Job() {

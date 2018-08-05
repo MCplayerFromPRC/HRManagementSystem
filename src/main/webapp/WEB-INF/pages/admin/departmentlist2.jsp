@@ -21,6 +21,11 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#selectjobempstate").find("option[value='"+$("#empstate").val()+"']").attr("selected",true);
+        })
+    </script>
 </head>
 <body>
     <c:if test="${not empty admin}">
@@ -54,7 +59,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>创立时间</label>
-                                    <input type="date" class="form-control" name="createTime" value="${department.createTime}"/>
+                                    <input type="text" class="form-control" name="createTime" value="${department.createTime}" disabled/>
                                 </div>
                                 <div class="form-group">
                                     <label for="selectstate" class="control-label">部门状态</label>
@@ -146,7 +151,7 @@
                                                                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionJobemp" href="#collapseJob${job.id}emp${employee.id}" aria-expanded="false" aria-controls="collapseJob${job.id}emp${employee.id}">
                                                                                             <span>员工 ${employee.id}&emsp;${employee.account}</span>
                                                                                         </a>
-                                                                                        <a href="">
+                                                                                        <a href="admin/dlistdeleteemployee?id=${employee.id}">
                                                                                             <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="float: right">删除</span>
                                                                                         </a>
                                                                                     </h3>
@@ -154,7 +159,13 @@
                                                                                 <div id="collapseJob${job.id}emp${employee.id}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJob${job.id}emp${employee.id}">
                                                                                     <div class="panel-body">
                                                                                         <div class="bs-example">
-                                                                                            <form method="post" action="">
+                                                                                            <form method="post" action="admin/dlistupdateemployee">
+                                                                                                <input type="hidden" name="id" value="${employee.id}"/>
+                                                                                                <input type="hidden" name="name" value="${employee.name}"/>
+                                                                                                <input type="hidden" name="pass" value="${employee.pass}"/>
+                                                                                                <input type="hidden" name="jobid" value="${job.id}"/>
+                                                                                                <input type="hidden" name="trainid" value="${employee.trainid}"/>
+                                                                                                <input type="hidden" name="gid" value="${employee.gid}"/>
                                                                                                 <div class="form-group">
                                                                                                     <label>姓名</label>
                                                                                                     <input type="text" class="form-control" name="account" value="${employee.account}"/>
@@ -185,6 +196,7 @@
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label for="selectjobstate" class="control-label">就职状态</label>
+                                                                                                    <input type="hidden" id="empstate" value="${employee.state}"/>
                                                                                                     <select class="form-control" id="selectjobempstate" name="state">
                                                                                                         <option value="0">准备上班</option>
                                                                                                         <option value="1">试用期</option>
@@ -211,8 +223,9 @@
                                                                             <div id="collapseJob${job.id}empadd" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJob${job.id}empadd">
                                                                                 <div class="panel-body">
                                                                                     <div class="bs-example">
-                                                                                        <form method="post" action="">
+                                                                                        <form method="post" action="admin/dlistinsertemployee">
                                                                                             <input type="hidden" name="state" value="0">
+                                                                                            <input type="hidden" name="jobid" value="${job.id}"/>
                                                                                             <div class="form-group">
                                                                                                 <label>账号</label>
                                                                                                 <input type="text" class="form-control" name="name"/>
@@ -306,18 +319,15 @@
                     <div class="panel-body">
                         <div class="bs-example">
                             <form method="post" action="admin/dlistinsertdepartment">
+                                <input type="hidden" name="id" value="0"/>
                                 <input type="hidden" name="state" value="0"/>
                                 <div class="form-group">
                                     <label>部门</label>
-                                    <input type="text" class="form-control" name="name" value="${department.name}"/>
+                                    <input type="text" class="form-control" name="name"/>
                                 </div>
                                 <div class="form-group">
                                     <label>人数</label>
-                                    <input type="number" class="form-control" name="empno" value="${department.empno}"/>
-                                </div>
-                                <div class="form-group">
-                                    <label>创立时间</label>
-                                    <input type="date" class="form-control" name="createTime" value="${department.createTime}"/>
+                                    <input type="number" class="form-control" name="empno" value="0" disabled/>
                                 </div>
                                 <button type="submit" class="btn btn-default">添加</button>
                             </form>

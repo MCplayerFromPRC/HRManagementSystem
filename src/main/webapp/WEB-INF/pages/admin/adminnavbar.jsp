@@ -74,13 +74,8 @@
                             </a>
                         </li>
                         <li align="center">
-                            <a href="#">
-                                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 职位管理
-                            </a>
-                        </li>
-                        <li align="center">
-                            <a href="#">
-                                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 职工管理
+                            <a href="admin/getallemployee">
+                                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 员工高级管理
                             </a>
                         </li>
                         <li role="separator" class="divider"></li>
