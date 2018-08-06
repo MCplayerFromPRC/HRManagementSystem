@@ -74,7 +74,7 @@
                                     <p>
                                         亲爱的${resume.name}：<br/>
                                         &emsp;本公司诚挚邀请您参加定于<%Interview interview= (Interview) pageContext.getAttribute("interview");
-                                            out.print(DateUtil.DataBaseVarcharFormDateTimeLocalFormatTojavaString(interview.getIvtime())+"时");%>的面试<br/>
+                                            out.print(DateUtil.dataBaseVarcharFormDateTimeLocalFormatTojavaString(interview.getIvtime())+"时");%>的面试<br/>
                                         &emsp; &emsp; &emsp; &emsp;${interview.recruitInfo.company}人事部<br/>
                                         &emsp; &emsp; &emsp; &emsp;<%out.print(DateUtil.transDataBaseDate(interview.getInviteTime()).split(" ")[0]);%>
                                     </p>

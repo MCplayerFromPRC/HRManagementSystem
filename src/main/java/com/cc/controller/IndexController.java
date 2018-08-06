@@ -100,9 +100,9 @@ public class IndexController {
 
     @RequestMapping("/showrecruitinfo")
     public String showRecruitInfo(HttpServletRequest request, int pageSize, int revoke){
-        List<RecruitInfo> recruitInfos=ris.getByPage(1,pageSize,revoke);
+        List<RecruitInfo> recruitInfos=ris.getByPageAndNotRevoke(1,pageSize,revoke);
         request.setAttribute("recruitInfos",recruitInfos);
-        int  size=ris.getByRevoke(revoke).size();
+        int  size=ris.getByNotRevoke(revoke).size();
         int  pageNum=(size%pageSize==0? size/pageSize:size/pageSize+1);
         request.setAttribute("page",1);
         request.getSession().setAttribute("pageNum",pageNum);
@@ -113,7 +113,7 @@ public class IndexController {
     public ModelAndView showRecruitInfoByPage(int pg,int pageSize,int revoke){
         int start=(pg-1)*pageSize+1;
         int end=pg*pageSize;
-        List<RecruitInfo> recruitInfos=ris.getByPage(start,end,revoke);
+        List<RecruitInfo> recruitInfos=ris.getByPageAndNotRevoke(start,end,revoke);
         ModelAndView mv=new ModelAndView();
         mv.addObject("recruitInfos",recruitInfos);
         mv.addObject("page",pg);

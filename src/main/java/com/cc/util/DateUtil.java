@@ -11,15 +11,19 @@ public class DateUtil {
     private static SimpleDateFormat sdfJSP=new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
     private static SimpleDateFormat sdfTimeStamp=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static String javaStringFormDateTimeLocalFormatToDataBaseVarchar(String javaString){
-        String[] dateTime=javaString.split("T");
-        String date=dateTime[0];
-        String time=dateTime[1];
-        String[] ymd=date.split("-");
-        String[] hm=time.split(":");
-        return ymd[0]+ymd[1]+ymd[2]+hm[0]+hm[1];
+        String[] dateTime = javaString.split("T");
+        if(dateTime.length>1) {
+            String date = dateTime[0];
+            String time = dateTime[1];
+            String[] ymd = date.split("-");
+            String[] hm = time.split(":");
+            return ymd[0] + ymd[1] + ymd[2] + hm[0] + hm[1];
+        }else {
+            return javaString;
+        }
     }
 
-    public static String DataBaseVarcharFormDateTimeLocalFormatTojavaString(String dataBaseVarchar){
+    public static String dataBaseVarcharFormDateTimeLocalFormatTojavaString(String dataBaseVarchar){
         return dataBaseVarchar.substring(0,4)+"年"+dataBaseVarchar.substring(4,6)+"月"+dataBaseVarchar.substring(6,8)+"日 "
                 +dataBaseVarchar.substring(8,10)+":"+dataBaseVarchar.substring(10);
     }

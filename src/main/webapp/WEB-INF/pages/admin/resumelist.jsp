@@ -73,10 +73,10 @@
                                 </tr>
                                 <tr class="danger">
                                     <th scope="row">招聘状态</th>
-                                    <c:if test="${recruitInfo.revoke==0}">
+                                    <c:if test="${recruitInfo.revoke==1}">
                                         <td>热招中</td>
                                     </c:if>
-                                    <c:if test="${recruitInfo.revoke==1}">
+                                    <c:if test="${recruitInfo.revoke==2}">
                                         <td>已结束</td>
                                     </c:if>
                                 </tr>

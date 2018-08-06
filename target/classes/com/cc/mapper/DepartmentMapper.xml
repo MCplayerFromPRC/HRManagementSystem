@@ -39,7 +39,7 @@
     <select id="getByPageAndState" resultMap="department">
         select * from
             (select rm.*,ROWNUM rn
-             from (select * from T_RECRUITINFO
+             from (select * from T_DEPARTMENT
              where DEPT_STATE=#{state}) rm
              where  ROWNUM &lt;= #{page})
         where rn &gt;= #{page}

@@ -1,12 +1,10 @@
-package com.cc.dao;
+package com.cc.service;
 
 import com.cc.model.Train;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Mapper
-public interface TrainDao {
+public interface TrainService {
     List<Train> getByNotState(List<Integer> states);
     List<Train> getAll();
     Train getByContent(String content);

@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li align="center">
-                            <a href="#">
+                            <a href="admin/getalltrain">
                                 <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 培训管理
                             </a>
                         </li>
@@ -71,6 +71,11 @@
                         <li align="center">
                             <a href="admin/getalldepartment">
                                 <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 部门管理
+                            </a>
+                        </li>
+                        <li align="center">
+                            <a href="admin/getrecruitinfoformanagement">
+                                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 招聘发布
                             </a>
                         </li>
                         <li align="center">

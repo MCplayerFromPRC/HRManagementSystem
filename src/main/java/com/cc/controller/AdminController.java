@@ -13,6 +13,8 @@ import javax.annotation.Resource;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -35,10 +37,12 @@ public class AdminController {
     private DepartmentService  ds;
     @Resource
     private JobService js;
+    @Resource
+    private TrainService ts;
 
     @RequestMapping("/getrecruitinfofirstpage")
     public ModelAndView getRecruitInfoFirstPage(HttpServletRequest request){
-        List<RecruitInfo> recruitInfos=ris.getByRevoke(0);
+        List<RecruitInfo> recruitInfos=ris.getByNotRevoke(0);
         ModelAndView mv=new ModelAndView();
         request.getSession().setAttribute("ad_iv_pageNum",recruitInfos.size());
         mv.addObject("recruitInfo",recruitInfos.get(0));
@@ -49,7 +53,7 @@ public class AdminController {
 
     @RequestMapping("/getrecruitinfobypage")
     public ModelAndView getRecruitInfoByPage(HttpServletRequest request,int pg,int revoke){
-        RecruitInfo recruitInfo=ris.getByPage(pg,pg,revoke).get(0);
+        RecruitInfo recruitInfo=ris.getByPageAndNotRevoke(pg,pg,revoke).get(0);
         ModelAndView mv=new ModelAndView();
         mv.addObject("recruitInfo",recruitInfo);
         mv.addObject("page",pg);
@@ -227,5 +231,109 @@ public class AdminController {
     @RequestMapping("/getdepartmentjobcontact")
     public @ResponseBody  List<Department> getDepartmentJobContact(int state){
         return ds.getByState(state);
+    }
+
+    @RequestMapping("/getalltrain")
+    public ModelAndView getAllTrain(HttpServletRequest request){
+        List<Integer> states=new ArrayList<>();
+        states.add(2);
+        states.add(4);
+        List<Train> trains=ts.getByNotState(states);
+        ModelAndView mv=new ModelAndView();
+        mv.addObject("trains",trains);
+        mv.addObject("nowTime",new Timestamp(DateUtil.getSqlDate().getTime()));
+        mv.setViewName("admin/trainrelease");
+        return mv;
+    }
+
+    @RequestMapping("/updatetrain")
+    public ModelAndView updateTrain(Train train,String startTime,String endTime){
+        train.setStartTime(DateUtil.javaStringFormDateTimeLocalFormatToDataBaseVarchar(startTime));
+        train.setEndTime(DateUtil.javaStringFormDateTimeLocalFormatToDataBaseVarchar(endTime));
+        ts.update(train);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getalltrain");
+        return mv;
+    }
+
+    @RequestMapping("/releasetrain")
+    public ModelAndView releaseTrain(Train train,String startTime,String endTime){
+        train.setStartTime(DateUtil.javaStringFormDateTimeLocalFormatToDataBaseVarchar(startTime));
+        train.setEndTime(DateUtil.javaStringFormDateTimeLocalFormatToDataBaseVarchar(endTime));
+        train.setState(1);
+        train.setReleaseTime(DateUtil.getSqlDate());
+        ts.update(train);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getalltrain");
+        return mv;
+    }
+
+    @RequestMapping("/changestatetrain")
+    public ModelAndView changeStateTrain(Train train){
+        Train train1=ts.getById(train.getId());
+        train1.setState(train.getState());
+        if (train.getState()==1){
+            train1.setReleaseTime(DateUtil.getSqlDate());
+        }
+        ts.update(train1);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getalltrain");
+        return mv;
+    }
+
+    @RequestMapping("/inserttrain")
+    public ModelAndView insertTrain(Train train,String startTime,String endTime){
+        train.setStartTime(DateUtil.javaStringFormDateTimeLocalFormatToDataBaseVarchar(startTime));
+        train.setEndTime(DateUtil.javaStringFormDateTimeLocalFormatToDataBaseVarchar(endTime));
+        ts.insert(train);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getalltrain");
+        return mv;
+    }
+
+    @RequestMapping("/getrecruitinfoformanagement")
+    public ModelAndView getRecruitInfoForManagement(HttpServletRequest request){
+        List<RecruitInfo> recruitInfos=ris.getAll();
+        int ad_ri_pageNum=recruitInfos.size()%5==0?recruitInfos.size()/5:recruitInfos.size()/5+1;
+        ModelAndView mv=new ModelAndView();
+        request.getSession().setAttribute("ad_ri_pageNum",ad_ri_pageNum);
+        mv.addObject("recruitInfos",recruitInfos.subList(0,5));
+        mv.addObject("page",1);
+        mv.setViewName("admin/recruitinfolist");
+        return mv;
+    }
+
+    @RequestMapping("/getrecruitinfomanagementbypage")
+    public ModelAndView getRecruitInfoManagementByPage(HttpServletRequest request,int pg){
+        List<RecruitInfo> recruitInfos=ris.getByPage((pg-1)*5+1,pg*5);
+        ModelAndView mv=new ModelAndView();
+        mv.addObject("recruitInfos",recruitInfos);
+        mv.addObject("page",pg);
+        mv.setViewName("admin/recruitinfolist");
+        return mv;
+    }
+
+    @RequestMapping("/updaterecruitinfo")
+    public ModelAndView updateRecruitInfo(RecruitInfo recruitInfo){
+        ris.update(recruitInfo);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getrecruitinfoformanagement");
+        return mv;
+    }
+
+    @RequestMapping("/insertrecruitinfo")
+    public ModelAndView insertRecruitInfo(RecruitInfo recruitInfo){
+        ris.insert(recruitInfo);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getrecruitinfoformanagement");
+        return mv;
+    }
+
+    @RequestMapping("/deleterecruitinfo")
+    public ModelAndView DeleteRecruitInfo(RecruitInfo recruitInfo){
+        ris.delete(recruitInfo);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getrecruitinfoformanagement");
+        return mv;
     }
 }

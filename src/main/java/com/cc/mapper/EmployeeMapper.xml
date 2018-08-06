@@ -38,6 +38,7 @@
             <result property="startTime" column="train_starttime"/>
             <result property="endTime" column="train_endTime"/>
             <result property="place" column="train_place"/>
+            <result property="state" column="train_state"/>
         </association>
     </resultMap>
     <insert id="insert">

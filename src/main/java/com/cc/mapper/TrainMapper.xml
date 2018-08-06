@@ -9,17 +9,19 @@
         <result property="startTime" column="train_starttime"/>
         <result property="endTime" column="train_endTime"/>
         <result property="place" column="train_place"/>
+        <result property="state" column="train_state"/>
+        <result property="releaseTime" column="train_releasetime"/>
     </resultMap>
     <insert id="insert">
         <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
             select SEQ_TRAIN.nextval as id from dual
         </selectKey>
-        insert into T_TRAIN(TRAIN_ID,TRAIN_SUBJUCT,TRAIN_CONTENT,TRAIN_OBJECT,TRAIN_STARTTIME,TRAIN_ENDTIME,TRAIN_PLACE)
-                values (#{id},#{subject},#{content},#{object},#{startTime},#{endTime},#{place})
+        insert into T_TRAIN(TRAIN_ID,TRAIN_SUBJECT,TRAIN_CONTENT,TRAIN_OBJECT,TRAIN_STARTTIME,TRAIN_ENDTIME,TRAIN_PLACE,TRAIN_STATE,TRAIN_RELEASETIME)
+                values (#{id},#{subject},#{content},#{object},#{startTime},#{endTime},#{place},#{state},#{releaseTime,jdbcType=DATE})
     </insert>
     <update id="update">
-        update T_TRAIN set TRAIN_SUBJUCT=#{subject},TRAIN_CONTENT=#{content},TRAIN_OBJECT=#{object},TRAIN_STARTTIME=#{startTime}
-            ,TRAIN_ENDTIME=#{endTime},TRAIN_PLACE=#{place} where TRAIN_ID=#{id}
+        update T_TRAIN set TRAIN_SUBJECT=#{subject},TRAIN_CONTENT=#{content},TRAIN_OBJECT=#{object},TRAIN_STARTTIME=#{startTime}
+            ,TRAIN_ENDTIME=#{endTime},TRAIN_PLACE=#{place},TRAIN_STATE=#{state},TRAIN_RELEASETIME=#{releaseTime,jdbcType=DATE} where TRAIN_ID=#{id}
     </update>
     <delete id="delete">
         delete from T_TRAIN where TRAIN_ID=#{id}
@@ -29,6 +31,15 @@
     </select>
     <select id="getByContent" resultMap="train">
         select * from T_TRAIN where TRAIN_CONTENT=#{content}
+    </select>
+    <select id="getAll" resultMap="train">
+        select * from T_TRAIN
+    </select>
+    <select id="getByNotState" resultMap="train" parameterType="list">
+        select * from T_TRAIN where
+        <foreach collection="list" open="TRAIN_STATE not in(" separator="," close=")" item="i">
+            #{i}
+        </foreach>
     </select>
 
 </mapper>

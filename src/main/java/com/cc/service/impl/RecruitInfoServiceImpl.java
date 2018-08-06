@@ -16,14 +16,23 @@ import java.util.Map;
 public class RecruitInfoServiceImpl implements RecruitInfoService {
     @Resource
     private RecruitInfoDao rid;
+
     @Override
-    public List<RecruitInfo> getByPage(int start, int end, int revoke) {
+    public List<RecruitInfo> getByPage(int start, int end) {
+        HashMap<String,Integer> map=new HashMap<>();
+        map.put("start",start);
+        map.put("end",end);
+        return rid.getByPage(map);
+    }
+
+    @Override
+    public List<RecruitInfo> getByPageAndNotRevoke(int start, int end, int revoke) {
         HashMap<String,Integer> map=new HashMap<>();
         map.put("start",start);
         map.put("end",end);
         map.put("revoke",revoke);
 //        return rid.getByPage(start,  end,  revoke);
-        return rid.getByPage(map);
+        return rid.getByPageAndNotRevoke(map);
     }
 
     @Override
@@ -32,8 +41,8 @@ public class RecruitInfoServiceImpl implements RecruitInfoService {
     }
 
     @Override
-    public List<RecruitInfo> getByRevoke(int revoke) {
-        return rid.getByRevoke(revoke);
+    public List<RecruitInfo> getByNotRevoke(int revoke) {
+        return rid.getByNotRevoke(revoke);
     }
 
     @Override

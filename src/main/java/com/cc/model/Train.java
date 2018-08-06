@@ -1,6 +1,7 @@
 package com.cc.model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Train implements Serializable {
     private int id;
@@ -10,11 +11,13 @@ public class Train implements Serializable {
     private String startTime;
     private String endTime;
     private String place;
+    private int state;
+    private Timestamp releaseTime;
 
     public Train() {
     }
 
-    public Train(int id, String subject, String content, String object, String startTime, String endTime, String place) {
+    public Train(int id, String subject, String content, String object, String startTime, String endTime, String place, int state, Timestamp releaseTime) {
         this.id = id;
         this.subject = subject;
         this.content = content;
@@ -22,6 +25,8 @@ public class Train implements Serializable {
         this.startTime = startTime;
         this.endTime = endTime;
         this.place = place;
+        this.state = state;
+        this.releaseTime = releaseTime;
     }
 
     public int getId() {
@@ -80,6 +85,22 @@ public class Train implements Serializable {
         this.place = place;
     }
 
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public Timestamp getReleaseTime() {
+        return releaseTime;
+    }
+
+    public void setReleaseTime(Timestamp releaseTime) {
+        this.releaseTime = releaseTime;
+    }
+
     @Override
     public String toString() {
         return "Train{" +
@@ -90,6 +111,7 @@ public class Train implements Serializable {
                 ", startTime='" + startTime + '\'' +
                 ", endTime='" + endTime + '\'' +
                 ", place='" + place + '\'' +
+                ", state=" + state +
                 '}';
     }
 }

@@ -34,8 +34,8 @@
     <delete id="delete">
         delete from T_RECRUITINFO where RI_ID=#{id}
     </delete>
-    <select id="getByRevoke" resultMap="recruitInfo">
-        select * from T_RECRUITINFO where RI_REVOKE=0
+    <select id="getByNotRevoke" resultMap="recruitInfo">
+        select * from T_RECRUITINFO where RI_REVOKE &lt;&gt; #{revoke}
     </select>
     <select id="getAll" resultMap="recruitInfo">
         select * from T_RECRUITINFO
@@ -43,11 +43,19 @@
     <select id="getById" resultMap="recruitInfo">
         select * from T_RECRUITINFO where RI_ID=#{id}
     </select>
-    <select id="getByPage" resultMap="recruitInfo" parameterType="map">
+    <select id="getByPageAndNotRevoke" resultMap="recruitInfo" parameterType="map">
         select * from
             (select rm.*,ROWNUM rn
              from (select * from T_RECRUITINFO
-             where RI_REVOKE=#{revoke}) rm
+             where RI_REVOKE &lt;&gt; #{revoke}) rm
+             where  ROWNUM &lt;= #{end})
+        where rn &gt;= #{start}
+    </select>
+    <select id="getByPage" resultMap="recruitInfo">
+        select * from
+            (select rm.*,ROWNUM rn
+             from (select *
+                   from T_RECRUITINFO) rm
              where  ROWNUM &lt;= #{end})
         where rn &gt;= #{start}
     </select>

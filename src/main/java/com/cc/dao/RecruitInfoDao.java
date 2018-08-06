@@ -12,8 +12,9 @@ import java.util.Map;
 public interface RecruitInfoDao {
 //    List<RecruitInfo> getByPage(@Param("start") int start,@Param("end") int end,@Param("revoke") int revoke);
     List<RecruitInfo> getByPage(HashMap<String,Integer> map);
+    List<RecruitInfo> getByPageAndNotRevoke(HashMap<String,Integer> map);
     List<RecruitInfo> getAll();
-    List<RecruitInfo> getByRevoke(int revoke);
+    List<RecruitInfo> getByNotRevoke(int revoke);
     RecruitInfo getById(int id);
     boolean insert(RecruitInfo recruitInfo);
     boolean update(RecruitInfo recruitInfo);
