@@ -54,6 +54,17 @@
                     $(".selectjob").append($option1);
                 }
             })
+            $.ajax({
+                type:"post",
+                url:"admin/gettrainforemployee",
+                data:{},
+                success:function (obj) {
+                    for(var index in obj){
+                        var $option1=$("<option value='"+obj[index]["id"]+"'>"+obj[index]["subject"]+"</option>");
+                        $(".selecttrain").append($option1);
+                    }
+                }
+            })
         })
     </script>
 </head>
@@ -85,16 +96,16 @@
                                 <div id="collapseemp${employee.id}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingemp${employee.id}">
                                     <div class="panel-body">
                                         <div class="bs-example">
-                                            <form method="post" action="">
+                                            <form method="post" action="admin/changeemployeejob?id=${employee.id}">
                                                 <div class="col-md-3">
                                                     <label class="control-label">部门</label>
-                                                    <select class="form-control selectdept" name="state">
+                                                    <select class="form-control selectdept" name="deptid">
 
                                                     </select>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label class="control-label">职位</label>
-                                                    <select class="form-control selectjob" name="state">
+                                                    <select class="form-control selectjob" name="jobid">
 
                                                     </select>
                                                 </div>
@@ -119,10 +130,10 @@
                                     <div id="collapseemp${employee.id}train" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingemp${employee.id}train">
                                         <div class="panel-body">
                                             <div class="bs-example">
-                                                <form method="post" action="">
+                                                <form method="post" action="admin/changeemployeetrain?id=${employee.id}">
                                                     <div class="col-md-3">
                                                         <label for="selecttrain${employee.id}" class="control-label">培训</label>
-                                                        <select class="form-control" id="selecttrain${employee.id}" name="state">
+                                                        <select class="form-control selecttrain" name="trainid" >
 
                                                         </select>
                                                     </div>

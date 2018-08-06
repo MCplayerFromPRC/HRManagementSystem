@@ -192,6 +192,7 @@ public class AdminController {
 
     @RequestMapping("/dlistinsertemployee")
     public ModelAndView dlistInsertEmployee(Employee employee){
+        Employee employee1=es.getById(employee.getId());
         es.insert(employee);
         ModelAndView mv=new ModelAndView();
         mv.setViewName("forward:getalldepartment");
@@ -334,6 +335,34 @@ public class AdminController {
         ris.delete(recruitInfo);
         ModelAndView mv=new ModelAndView();
         mv.setViewName("forward:getrecruitinfoformanagement");
+        return mv;
+    }
+
+    @RequestMapping("/changeemployeejob")
+    public ModelAndView changeEmployeeJob(int id,int jobid){
+        Employee employee=es.getById(id);
+        employee.setJobid(jobid);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getallemployee");
+        return mv;
+    }
+
+    @RequestMapping("/gettrainforemployee")
+    public @ResponseBody  List<Train> getTrainForEmployee(){
+        List<Integer> states=new ArrayList<>();
+        states.add(0);
+        states.add(2);
+        states.add(3);
+        states.add(4);
+        return ts.getByNotState(states);
+    }
+
+    @RequestMapping("/changeemployeetrain")
+    public ModelAndView changeEmployeeTrain(int id,int trainid){
+        Employee employee=es.getById(id);
+        employee.setTrainid(trainid);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getallemployee");
         return mv;
     }
 }

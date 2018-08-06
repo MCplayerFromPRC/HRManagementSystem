@@ -26,6 +26,7 @@
     <c:if test="${not empty employee}">
         <%@ include file="employeenavbar.jsp"%>
     </c:if>
+    <c:if test="${not empty employee}"
 </body>
 </html>
 

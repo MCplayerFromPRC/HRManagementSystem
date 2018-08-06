@@ -38,7 +38,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#">培训信息</a></li>
+                <li><a href="emp">培训信息</a></li>
                 <li><a href="#">奖惩信息</a></li>
                 <li><a href="#">考勤记录</a></li>
                 <li class="dropdown">
