@@ -4,28 +4,46 @@
     <resultMap id="rewards" type="rewards">
         <id property="id" column="rewards_id"/>
         <result property="empid" column="rewards_empid"/>
-        <result property="payDate" column="rewards_paydate"/>
+        <result property="state" column="rewards_state"/>
         <result property="reMoney" column="rewards_remoney"/>
         <result property="time" column="rewards_time"/>
+        <result property="description" column="rewards_description"/>
     </resultMap>
     <insert id="insert">
         <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
             select SEQ_REWARDS.nextval as id from dual
         </selectKey>
-        insert into T_REWARDS(REWARDS_ID,REWARDS_EMPID,REWARDS_PAYDATE,REWARDS_REMONEY,REWARDS_TIME) values
-            (#{id},#{empid},#{payDate},#{reMoney},#{time})
+        insert into T_REWARDS(REWARDS_ID,REWARDS_EMPID,REWARDS_STATE,REWARDS_REMONEY,REWARDS_TIME,REWARDS_DESCRIPTION) values
+            (#{id},#{empid},#{state},#{reMoney},#{time},#{description})
     </insert>
     <update id="update">
-        update T_REWARDS set REWARDS_EMPID=#{empid},REWARDS_PAYDATE=#{payDate},REWARDS_REMONEY=#{reMoney}
-        ,REWARDS_TIME=#{time} where REWARDS_ID=#{id}
+        update T_REWARDS set REWARDS_EMPID=#{empid},REWARDS_STATE=#{state},REWARDS_REMONEY=#{reMoney}
+        ,REWARDS_TIME=#{time},REWARDS_DESCRIPTION=#{description} where REWARDS_ID=#{id}
     </update>
     <delete id="delete">
         delete from T_REWARDS where REWARDS_ID=#{id}
     </delete>
-    <select id="getByEmpidAndPayDate" resultMap="rewards">
-        select * from T_REWARDS where REWARDS_EMPID=#{empid} and REWARDS_PAYDATE=#{payDate}
-    </select>
     <select id="getById" resultMap="rewards">
-        select * from T_REWARDS where REWARDS_ID=#{id};
+        select * from T_REWARDS where REWARDS_ID=#{id}
+    </select>
+    <select id="getByEmpidAndState" resultMap="rewards">
+        select * from T_REWARDS where REWARDS_EMPID=#{empid} and REWARDS_STATE=#{state}
+    </select>
+    <select id="getByEmpidAndNotState" resultMap="rewards">
+        select * from T_REWARDS where REWARDS_EMPID=#{empid} and REWARDS_STATE &lt;&gt; #{state}
+    </select>
+    <select id="getByEmpid" resultMap="rewards">
+        select * from T_REWARDS where REWARDS_EMPID=#{empid}
+    </select>
+    <select id="getByEmpidStateForEmployee" resultMap="rewards">
+        select * from T_REWARDS where REWARDS_EMPID=#{empid} and REWARDS_STATE=0
+    </select>
+    <select id="getByEmpidAndPage" resultMap="rewards" parameterType="map">
+        select * from
+            (select rm.*,ROWNUM rn
+             from (select * from T_REWARDS
+             where REWARDS_EMPID=#{empid} and REWARDS_STATE &lt;&gt; 3) rm
+             where  ROWNUM &lt;= #{end})
+        where rn &gt;= #{start}
     </select>
 </mapper>

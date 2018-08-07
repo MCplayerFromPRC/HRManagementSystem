@@ -39,6 +39,8 @@ public class AdminController {
     private JobService js;
     @Resource
     private TrainService ts;
+    @Resource
+    private RewardsService res;
 
     @RequestMapping("/getrecruitinfofirstpage")
     public ModelAndView getRecruitInfoFirstPage(HttpServletRequest request){
@@ -361,6 +363,54 @@ public class AdminController {
     public ModelAndView changeEmployeeTrain(int id,int trainid){
         Employee employee=es.getById(id);
         employee.setTrainid(trainid);
+        es.update(employee);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getallemployee");
+        return mv;
+    }
+
+    @RequestMapping("/getemployeerewardspages")
+    public @ResponseBody int getEmployeeRewardsPages(Rewards rewards){
+        List<Rewards> rewardss=res.getByEmpidAndNotState(rewards);
+        return rewardss.size()%5==0?rewardss.size()/5:rewardss.size()/5+1;
+    }
+
+    @RequestMapping("/getemployeerewardsbypages")
+    public @ResponseBody List<Rewards> getEmployeeRewardsByPages(int empid,int pg){
+        List<Rewards> rewardss=res.getByEmpidAndPage(empid,(pg-1)*5+1,pg*5);
+        return rewardss;
+    }
+
+    @RequestMapping("/getemployeerewardsfirstpageslist")
+    public @ResponseBody List<Rewards> getEmployeeRewardsFirstPagesList(int empid){
+        List<Rewards> rewardss=res.getByEmpidAndPage(empid,1,5);
+        return rewardss;
+    }
+
+    @RequestMapping("/deleterewards")
+    public ModelAndView deleteRewards(Rewards rewards,BindingResult bindingResult){
+        Rewards rewards1=res.getById(rewards.getId());
+        rewards1.setState(3);
+        res.update(rewards1);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getallemployee");
+        return mv;
+    }
+
+    @RequestMapping("/changerewards")
+    public ModelAndView changeRewards(Rewards rewards,BindingResult bindingResult,String time){
+        rewards.setTime(DateUtil.getSqlDate(time));
+        res.update(rewards);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getallemployee");
+        return mv;
+    }
+
+    @RequestMapping("/addemployeerewards")
+    public ModelAndView addEmployeeRewards(Rewards rewards,BindingResult bindingResult,String time){
+        rewards.setState(0);
+        rewards.setTime(DateUtil.getSqlDate(time));
+        res.insert(rewards);
         ModelAndView mv=new ModelAndView();
         mv.setViewName("forward:getallemployee");
         return mv;

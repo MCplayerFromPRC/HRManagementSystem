@@ -2,8 +2,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: MCplayer
-  Date: 2018/8/1
-  Time: 9:45
+  Date: 2018/8/7
+  Time: 11:46
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -26,9 +26,7 @@
     <c:if test="${not empty employee}">
         <%@ include file="employeenavbar.jsp"%>
     </c:if>
-    <c:if test="${not empty employee}">
-
-    </c:if>
+    奖惩信息
 </body>
 </html>
 

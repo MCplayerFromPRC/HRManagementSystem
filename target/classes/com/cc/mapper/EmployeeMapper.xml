@@ -39,7 +39,17 @@
             <result property="endTime" column="train_endTime"/>
             <result property="place" column="train_place"/>
             <result property="state" column="train_state"/>
+            <result property="releaseTime" column="train_releasetime"/>
         </association>
+        <collection property="rewardss" ofType="rewards" column="emp_id"
+                    select="com.cc.dao.RewardsDao.getByEmpidStateForEmployee">
+            <id property="id" column="rewards_id"/>
+            <result property="empid" column="rewards_empid"/>
+            <result property="state" column="rewards_state"/>
+            <result property="reMoney" column="rewards_remoney"/>
+            <result property="time" column="rewards_time"/>
+            <result property="description" column="rewards_description"/>
+        </collection>
     </resultMap>
     <insert id="insert">
         <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">

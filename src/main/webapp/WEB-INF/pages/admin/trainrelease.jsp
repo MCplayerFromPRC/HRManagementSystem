@@ -25,7 +25,7 @@
     <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
     <script src="js/bootstrap.js"></script>
     <script>
-        function   process(v) {
+        function process(v) {
             document.theForm.action = v;
             document.theForm.submit();
         }

@@ -40,6 +40,16 @@ public class DateUtil {
         return Timestamp.valueOf(sdfTimeStamp.format(new Date()));
     }
 
+    public static Timestamp getSqlDate(String dateTimeLocal) {
+        String sqlDate=dateTimeLocal.replace("T"," ");
+        if(sqlDate.split(":").length==2){
+            sqlDate=sqlDate+":00";
+        }else if(sqlDate.split(":").length!=3){
+            return null;
+        }
+        return Timestamp.valueOf(sqlDate);
+    }
+
     public static String transDataBaseDate(Date date){
         return sdfJSP.format(date);
     }

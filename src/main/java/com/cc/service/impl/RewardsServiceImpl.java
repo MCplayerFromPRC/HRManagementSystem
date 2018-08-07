@@ -6,15 +6,36 @@ import com.cc.service.RewardsService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
 public class RewardsServiceImpl implements RewardsService {
     @Resource
     private RewardsDao rd;
+
     @Override
-    public List<Rewards> getByEmpidAndPayDate(Rewards rewards) {
-        return rd.getByEmpidAndPayDate(rewards);
+    public List<Rewards> getByEmpid(int empid) {
+        return rd.getByEmpid(empid);
+    }
+
+    @Override
+    public List<Rewards> getByEmpidAndState(Rewards rewards) {
+        return rd.getByEmpidAndState(rewards);
+    }
+
+    @Override
+    public List<Rewards> getByEmpidAndNotState(Rewards rewards) {
+        return rd.getByEmpidAndNotState(rewards);
+    }
+
+    @Override
+    public List<Rewards> getByEmpidAndPage(int empid,int  start,int end) {
+        HashMap<String,Integer> map=new HashMap<>();
+        map.put("empid",empid);
+        map.put("start",start);
+        map.put("end",end);
+        return rd.getByEmpidAndPage(map);
     }
 
     @Override

@@ -1,24 +1,27 @@
 package com.cc.model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Rewards implements Serializable {
     private int id;
     private int empid;
-    private Date payDate;
+    private int state;
     private double reMoney;
-    private Date time;
+    private Timestamp time;
+    private String description;
 
     public Rewards() {
     }
 
-    public Rewards(int id, int empid, Date payDate, double reMoney,Date time) {
+    public Rewards(int id, int empid, int state, double reMoney, Timestamp time, String description) {
         this.id = id;
         this.empid = empid;
-        this.payDate = payDate;
+        this.state = state;
         this.reMoney = reMoney;
-        this.time=time;
+        this.time = time;
+        this.description = description;
     }
 
     public int getId() {
@@ -37,14 +40,6 @@ public class Rewards implements Serializable {
         this.empid = empid;
     }
 
-    public Date getPayDate() {
-        return payDate;
-    }
-
-    public void setPayDate(Date payDate) {
-        this.payDate = payDate;
-    }
-
     public double getReMoney() {
         return reMoney;
     }
@@ -53,12 +48,28 @@ public class Rewards implements Serializable {
         this.reMoney = reMoney;
     }
 
-    public Date getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Timestamp time) {
         this.time = time;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
@@ -66,9 +77,10 @@ public class Rewards implements Serializable {
         return "Rewards{" +
                 "id=" + id +
                 ", empid=" + empid +
-                ", payDate='" + payDate + '\'' +
+                ", state=" + state +
                 ", reMoney=" + reMoney +
                 ", time=" + time +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

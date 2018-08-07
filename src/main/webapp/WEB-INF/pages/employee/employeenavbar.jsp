@@ -38,28 +38,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="emp">培训信息</a></li>
-                <li><a href="#">奖惩信息</a></li>
+                <li><a href="pages/employee/traininfo">培训信息</a></li>
+                <li><a href="pages/employee/rewardslist">奖惩信息</a></li>
                 <li><a href="#">考勤记录</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">内部信息 <span class="caret"></span></a>
-                    <ul class="dropdown-menu" id="navbardropdown">
-                        <li align="center">
-                            <a href="#">
-                                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 查看部门
-                            </a>
-                        </li>
-                        <li align="center">
-                            <a href="#">
-                                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 查看职位
-                            </a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li align="center">
-                            <a href="#">技术支持<br/>***CC***</a>
-                        </li>
-                    </ul>
-                </li>
+                <li><a href="employee/getcompanyinfo">内部信息</a></li>
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">

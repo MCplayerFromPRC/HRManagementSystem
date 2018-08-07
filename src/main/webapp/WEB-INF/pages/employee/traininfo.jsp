@@ -1,5 +1,6 @@
 <%@ page import="com.cc.model.Train" %>
 <%@ page import="com.cc.util.DateUtil" %>
+<%@ page import="com.cc.model.Employee" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -30,6 +31,9 @@
     </c:if>
     <c:if test="${not empty employee.train&&employee.train.state==1}">
         <div class="bs-example" data-example-id="contextual-table">
+            <%
+                Train train= ((Employee) session.getAttribute("employee")).getTrain();
+            %>
             <table class="table">
                 <thead>
                     <tr>
@@ -54,9 +58,10 @@
                         <th scope="row">培训时间</th>
                         <td>
                             <%
-                                Train train= (Train) pageContext.getAttribute("train");
-                                out.print(DateUtil.dataBaseVarcharFormDateTimeLocalFormatTojavaString(train.getStartTime())+"时 至 "+
-                                        DateUtil.dataBaseVarcharFormDateTimeLocalFormatTojavaString(train.getEndTime())+"时");
+                                if(train!=null) {
+                                    out.print(DateUtil.dataBaseVarcharFormDateTimeLocalFormatTojavaString(train.getStartTime()) + "时 至 " +
+                                            DateUtil.dataBaseVarcharFormDateTimeLocalFormatTojavaString(train.getEndTime()) + "时");
+                                }
                             %>
                         </td>
                     </tr>

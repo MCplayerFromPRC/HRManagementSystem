@@ -1,6 +1,7 @@
 package com.cc.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Employee implements Serializable {
     private int id;
@@ -20,11 +21,12 @@ public class Employee implements Serializable {
     private Guest guest;
     private Job job;
     private Train train;
+    private List<Rewards> rewardss;
 
     public Employee() {
     }
 
-    public Employee(int id, String account, String pass, String name, String gender, int age, int jobid, double salary, double socialSecurity, int trainid, long phone, String email, int state, int gid, Guest guest, Job job, Train train) {
+    public Employee(int id, String account, String pass, String name, String gender, int age, int jobid, double salary, double socialSecurity, int trainid, long phone, String email, int state, int gid, Guest guest, Job job, Train train, List<Rewards> rewardss) {
         this.id = id;
         this.account = account;
         this.pass = pass;
@@ -42,6 +44,7 @@ public class Employee implements Serializable {
         this.guest = guest;
         this.job = job;
         this.train = train;
+        this.rewardss = rewardss;
     }
 
     public int getId() {
@@ -180,6 +183,14 @@ public class Employee implements Serializable {
         this.train = train;
     }
 
+    public List<Rewards> getRewardss() {
+        return rewardss;
+    }
+
+    public void setRewardss(List<Rewards> rewardss) {
+        this.rewardss = rewardss;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -197,7 +208,6 @@ public class Employee implements Serializable {
                 ", email='" + email + '\'' +
                 ", state=" + state +
                 ", gid=" + gid +
-                ", guest=" + guest +
                 '}';
     }
 }
