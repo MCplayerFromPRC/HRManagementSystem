@@ -25,9 +25,45 @@
 <body>
     <c:if test="${not empty employee}">
         <%@ include file="employeenavbar.jsp"%>
-    </c:if>
-    <c:if test="${not empty employee}">
-
+        <div class="col-md-10">
+            <form method="post" action="employee/updateemployeeinfo">
+                <input type="hidden" name="id" value="${employee.id}"/>
+                <div class="form-group">
+                    <label>姓名</label>
+                    <input type="text" class="form-control" name="account" value="${employee.account}" required/>
+                </div>
+                <div class="form-group">
+                    <label>账号</label>
+                    <input type="text" class="form-control" name="name" value="${employee.name}" required/>
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input type="text" class="form-control" name="pass" value="${employee.pass}" required/>
+                </div>
+                <div class="form-group">
+                    <label>性别</label>
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="男" checked> 男
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="女"> 女
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>年龄</label>
+                    <input type="number" class="form-control" name="age" value="${employee.age}" required/>
+                </div>
+                <div class="form-group">
+                    <label>电话</label>
+                    <input type="number" class="form-control" name="phone" value="${employee.phone}" required/>
+                </div>
+                <div class="form-group">
+                    <label>邮箱</label>
+                    <input type="email" class="form-control" name="email" value="${employee.email}" required/>
+                </div>
+                <button type="submit" class="btn btn-default">更改</button>
+            </form>
+        </div>
     </c:if>
 </body>
 </html>

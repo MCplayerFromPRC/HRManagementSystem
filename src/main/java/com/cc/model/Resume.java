@@ -1,20 +1,32 @@
 package com.cc.model;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
 public class Resume implements Serializable {
     private int id;
     private int gid;
+    @NotNull
     private String name;
+    @NotNull
     private String gender;
+    @NotNull
     private String email;
+    @NotNull
     private String city;
+    @NotNull
     private String school;
+    @NotNull
     private String major;
+    @Min(0)
     private int age;
     private String description;
+    @Min(0)
     private double salary;
+    @NotNull
     private String job;
     private Guest guest;
     private List<Interview> interviews;

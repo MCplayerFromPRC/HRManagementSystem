@@ -55,15 +55,15 @@
                                 <input type="hidden" name="id" value="${train.id}"/>
                                 <div class="form-group">
                                     <label>科目</label>
-                                    <input type="text" class="form-control" name="subject" value="${train.subject}"/>
+                                    <input type="text" class="form-control" name="subject" value="${train.subject}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>内容</label>
-                                    <input type="text" class="form-control" name="content" value="${train.content}"/>
+                                    <input type="text" class="form-control" name="content" value="${train.content}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>对象</label>
-                                    <input type="text" class="form-control" name="object" value="${train.object}"/>
+                                    <input type="text" class="form-control" name="object" value="${train.object}" required/>
                                 </div><br/>
                                 <h5>时间定于
                                 <%
@@ -74,15 +74,15 @@
                                 </h5><br/>
                                 <div class="form-group">
                                     <label>开始时间</label>
-                                    <input type="datetime-local" class="form-control" name="startTime" value="${train.startTime}"/>
+                                    <input type="datetime-local" class="form-control" name="startTime" value="${train.startTime}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>结束时间</label>
-                                    <input type="datetime-local" class="form-control" name="endTime" value="${train.endTime}"/>
+                                    <input type="datetime-local" class="form-control" name="endTime" value="${train.endTime}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>地点</label>
-                                    <input type="text" class="form-control" name="place" value="${train.place}"/>
+                                    <input type="text" class="form-control" name="place" value="${train.place}" required/>
                                 </div>
                                 <%
                                     if(train.getReleaseTime()!=null) {
@@ -130,11 +130,11 @@
                             <input type="hidden" name="state" value="0"/>
                             <div class="form-group">
                                 <label>科目</label>
-                                <input type="text" class="form-control" name="subject"/>
+                                <input type="text" class="form-control" name="subject" required/>
                             </div>
                             <div class="form-group">
                                 <label>内容</label>
-                                <input type="text" class="form-control" name="content"/>
+                                <input type="text" class="form-control" name="content" required/>
                             </div>
                             <div class="form-group">
                                 <label>对象</label>
@@ -142,15 +142,15 @@
                             </div>
                             <div class="form-group">
                                 <label>开始时间</label>
-                                <input type="datetime-local" class="form-control" name="startTime"/>
+                                <input type="datetime-local" class="form-control" name="startTime" required/>
                             </div>
                             <div class="form-group">
                                 <label>结束时间</label>
-                                <input type="datetime-local" class="form-control" name="endTime"/>
+                                <input type="datetime-local" class="form-control" name="endTime" required/>
                             </div>
                             <div class="form-group">
                                 <label>地点</label>
-                                <input type="text" class="form-control" name="place"/>
+                                <input type="text" class="form-control" name="place" required/>
                             </div>
                             <button type="submit" class="btn btn-default">添加</button>
                         </form>

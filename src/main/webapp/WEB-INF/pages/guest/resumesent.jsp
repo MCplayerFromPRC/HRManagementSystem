@@ -28,10 +28,70 @@
     </style>
 </head>
 <body>
-<c:if test="${not empty guest}">
-    <%@ include file="guestnavbar.jsp"%>
-</c:if>
+    <c:if test="${not empty guest}">
+        <%@ include file="guestnavbar.jsp"%>
+    </c:if>
+    <c:if test="${not empty error}">
+        <p class="h3">${error}</p>
+    </c:if>
+    <c:if test="${empty error}">
+        <c:if test="${not empty resume}">
+            <p class="h4">已发送简历</p>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>简历 序号</th>
+                    <th>${resume.id}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="active">
+                    <th scope="row">姓名</th>
+                    <td>${resume.name}</td>
+                </tr>
+                <tr>
+                    <th scope="row">性别</th>
+                    <td>${resume.gender}</td>
+                </tr>
+                <tr class="success">
+                    <th scope="row">邮箱</th>
+                    <td>${resume.email}</td>
+                </tr>
+                <tr>
+                    <th scope="row">城市</th>
+                    <td>${resume.city}</td>
+                </tr>
+                <tr class="info">
+                    <th scope="row">学校</th>
+                    <td>${resume.school}</td>
+                </tr>
+                <tr>
+                    <th scope="row">专业</th>
+                    <td>${resume.major}</td>
+                </tr>
+                <tr class="warning">
+                    <th scope="row">年龄</th>
+                    <td>${resume.age}</td>
+                </tr>
+                <tr>
+                    <th scope="row">期望薪资</th>
+                    <td>${resume.salary}</td>
+                </tr>
+                <tr class="danger">
+                    <th scope="row">应聘职位</th>
+                    <td>${resume.job}</td>
+                </tr>
+                <tr>
+                    <th scope="row" rowspan="2">详情</th>
+                    <td rowspan="2">${resume.description}</td>
+                </tr>
+                <tr>
 
+                </tr>
+                </tbody>
+            </table>
+        </c:if>
+    </c:if>
 </body>
 </html>
 

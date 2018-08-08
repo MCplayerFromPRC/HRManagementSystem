@@ -59,39 +59,39 @@
                         <input type="hidden" name="gid" value="${resume.gid}"/>
                         <div class="form-group">
                             <label>账号</label>
-                            <input type="text" class="form-control" name="name" value="${resume.guest.name}"/>
+                            <input type="text" class="form-control" name="name" value="${resume.guest.name}" required/>
                         </div>
                         <div class="form-group">
                             <label>密码</label>
-                            <input type="text" class="form-control" name="pass" value="${resume.guest.pass}"/>
+                            <input type="text" class="form-control" name="pass" value="${resume.guest.pass}" required/>
                         </div>
                         <div class="form-group">
                             <label>姓名</label>
-                            <input type="text" class="form-control" name="account" value="${resume.name}"/>
+                            <input type="text" class="form-control" name="account" value="${resume.name}" required/>
                         </div>
                         <div class="form-group">
                             <label>性别</label>
-                            <input type="text" class="form-control" name="gender" value="${resume.gender}"/>
+                            <input type="text" class="form-control" name="gender" value="${resume.gender}" required/>
                         </div>
                         <div class="form-group">
                             <label>年龄</label>
-                            <input type="number" class="form-control" name="age" value="${resume.age}"/>
+                            <input type="number" class="form-control" name="age" value="${resume.age}" required/>
                         </div>
                         <div class="form-group">
                             <label>邮箱</label>
-                            <input type="email" class="form-control" name="email" value="${resume.email}"/>
+                            <input type="email" class="form-control" name="email" value="${resume.email}" required/>
                         </div>
                         <div class="form-group">
                             <label>电话</label>
-                            <input type="number" class="form-control" name="phone"/>
+                            <input type="number" class="form-control" name="phone" required/>
                         </div>
                         <div class="form-group">
                             <label>薪资</label>
-                            <input type="number" class="form-control" name="salary" value="${resume.salary}"/>
+                            <input type="number" class="form-control" name="salary" value="${resume.salary}" required/>
                         </div>
                         <div class="form-group">
                             <label>岗位</label>
-                            <input type="text" class="form-control" name="job" value="${resume.job}"/>
+                            <input type="text" class="form-control" name="job" value="${resume.job}" required/>
                         </div>
                         <div class="form-group">
                             <label>培训</label>

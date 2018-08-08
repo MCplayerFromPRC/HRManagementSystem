@@ -42,15 +42,15 @@
                             <form method="post" action="">
                                 <div class="form-group">
                                     <label>部门</label>
-                                    <input type="text" class="form-control" name="name" value="${department.name}"/>
+                                    <input type="text" class="form-control" name="name" value="${department.name}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>人数</label>
-                                    <input type="number" class="form-control" name="empno" value="${department.empno}"/>
+                                    <input type="number" class="form-control" name="empno" value="${department.empno}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>创立时间</label>
-                                    <input type="text" class="form-control" name="createTime" value="${department.createTime}"/>
+                                    <input type="text" class="form-control" name="createTime" value="${department.createTime}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="selectstate" class="control-label">部门状态</label>

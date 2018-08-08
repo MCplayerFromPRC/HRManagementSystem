@@ -1,15 +1,13 @@
-package com.cc.dao;
+package com.cc.service;
 
 import com.cc.model.Attendance;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.HashMap;
 import java.util.List;
 
-@Mapper
-public interface AttendanceDao {
+public interface AttendanceService {
     List<Attendance> getByEmpidAndState(Attendance attendance);
-    Attendance getByEmpidAndStartLike(HashMap<String,String> map);
+    Attendance getByEmpidAndStartLike(String empid,String startlike);
     List<Attendance> getByEmpidAndStateAndEndTime(Attendance attendance);
     List<Attendance> getByEmpidAndEndTime(Attendance attendance);
     Attendance getById(int id);

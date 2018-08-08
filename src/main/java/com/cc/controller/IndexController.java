@@ -1,20 +1,18 @@
 package com.cc.controller;
 
-import com.cc.model.Admin;
-import com.cc.model.Employee;
-import com.cc.model.Guest;
-import com.cc.model.RecruitInfo;
-import com.cc.service.AdminService;
-import com.cc.service.EmployeeService;
-import com.cc.service.GuestService;
-import com.cc.service.RecruitInfoService;
+import com.cc.model.*;
+import com.cc.service.*;
+import com.cc.util.DateUtil;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -27,6 +25,8 @@ public class IndexController {
     private EmployeeService es;
     @Resource
     private RecruitInfoService ris;
+    @Resource
+    private AttendanceService attends;
 
     @RequestMapping(value = {"/home","/"})
     public String home(){
@@ -74,7 +74,10 @@ public class IndexController {
         Employee employee=new Employee();
         employee.setName(guest.getName());
         employee.setPass(guest.getPass());
-        return es.getByNameAndPass(employee);
+        employee=es.getByNameAndPass(employee);
+        employee.setAttendance(attends.getByEmpidAndStartLike(employee.getId()+"",
+                DateUtil.getSqlDateString().substring(0,10)));
+        return employee;
     }
 
     private Admin adminLogin(Guest guest){
@@ -85,15 +88,23 @@ public class IndexController {
     }
 
     @RequestMapping("/register")
-    public ModelAndView register(HttpSession session,Guest guest){
-        ModelAndView mv=new ModelAndView();
-        if(gs.register(guest)){
-            guest=gs.login(guest);
-            session.setAttribute("guest",guest);
-            mv.setViewName("guest/guestinfo");
-        }else{
+    public ModelAndView register(HttpServletRequest request,HttpSession session, @Valid Guest guest, BindingResult bindingResult){
+        ModelAndView mv = new ModelAndView();
+        if (bindingResult.hasErrors()) {
+            FieldError fieldError = bindingResult.getFieldError();
+            request.setAttribute("error",fieldError.getDefaultMessage());
             session.removeAttribute("guest");
             mv.setViewName("../../logregis");
+        }else {
+            if (gs.register(guest)) {
+                guest = gs.login(guest);
+                session.setAttribute("guest", guest);
+                mv.setViewName("guest/guestinfo");
+            } else {
+                request.setAttribute("error", "用户已存在");
+                session.removeAttribute("guest");
+                mv.setViewName("../../logregis");
+            }
         }
         return mv;
     }

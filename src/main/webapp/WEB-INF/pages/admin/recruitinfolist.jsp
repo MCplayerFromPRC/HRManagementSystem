@@ -50,27 +50,27 @@
                                     </div>
                                     <div class="form-group">
                                         <label>公司名称</label>
-                                        <input type="text" name="company" value="${recruitInfo.company}"/>
+                                        <input type="text" name="company" value="${recruitInfo.company}" required/>
                                     </div>
                                     <div class="form-group">
                                         <label>公司地址</label>
-                                        <input type="text" name="address" value="${recruitInfo.address}"/>
+                                        <input type="text" name="address" value="${recruitInfo.address}" required/>
                                     </div>
                                     <div class="form-group">
                                         <label>公司电话</label>
-                                        <input type="text" name="phone" value="${recruitInfo.phone}"/>
+                                        <input type="number" name="phone" value="${recruitInfo.phone}" required/>
                                     </div>
                                     <div class="form-group">
                                         <label>行业</label>
-                                        <input type="text" name="industry" value="${recruitInfo.industry}"/>
+                                        <input type="text" name="industry" value="${recruitInfo.industry}" required/>
                                     </div>
                                     <div class="form-group">
                                         <label>岗位</label>
-                                        <input type="text" name="job" value="${recruitInfo.job}"/>
+                                        <input type="text" name="job" value="${recruitInfo.job}" required/>
                                     </div>
                                     <div class="form-group">
                                         <label>基本工资</label>
-                                        <input type="text" name="salary" value="${recruitInfo.salary}"/>
+                                        <input type="number" name="salary" value="${recruitInfo.salary}" required/>
                                     </div>
                                     <div class="form-group">
                                         <label>招聘状态</label>
@@ -101,27 +101,27 @@
                             <form method="post" action="admin/insertrecruitinfo">
                                 <div class="form-group">
                                     <label>公司名称</label>
-                                    <input type="text" name="company"/>
+                                    <input type="text" name="company" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>公司地址</label>
-                                    <input type="text" name="address"/>
+                                    <input type="text" name="address" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>公司电话</label>
-                                    <input type="text" name="phone"/>
+                                    <input type="number" name="phone" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>行业</label>
-                                    <input type="text" name="industry"/>
+                                    <input type="text" name="industry" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>岗位</label>
-                                    <input type="text" name="job"/>
+                                    <input type="text" name="job" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>基本工资</label>
-                                    <input type="text" name="salary"/>
+                                    <input type="number" name="salary" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>招聘状态</label>

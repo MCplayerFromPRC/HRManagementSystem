@@ -75,6 +75,7 @@
                 <h2 class="form-signin-heading">请注册</h2>
                 <input class="form-control" type="text" name="name" placeholder="用户名" required autofocus/><br/>
                 <input type="text" name="pass" class="form-control" placeholder="密码" required/><br/>
+                <p class="text-center">${error}</p>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
                 <button class="but btn btn-lg btn-primary btn-block" type="button">登录</button>
             </form>

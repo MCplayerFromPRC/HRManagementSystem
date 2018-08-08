@@ -1,11 +1,14 @@
 package com.cc.model;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
 public class Guest implements Serializable {
     private int id;
+    @NotNull
     private String name;
+    @NotNull
     private String pass;
     private List<Resume> resumes;
 

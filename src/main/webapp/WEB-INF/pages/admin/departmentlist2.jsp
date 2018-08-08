@@ -51,11 +51,11 @@
                                 <input type="hidden" name="id" value="${department.id}"/>
                                 <div class="form-group">
                                     <label>部门</label>
-                                    <input type="text" class="form-control" name="name" value="${department.name}"/>
+                                    <input type="text" class="form-control" name="name" value="${department.name}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>人数</label>
-                                    <input type="number" class="form-control" name="empno" value="${department.empno}"/>
+                                    <input type="number" class="form-control" name="empno" value="${department.empno}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>创立时间</label>
@@ -117,7 +117,7 @@
                                                                         <input type="hidden" name="did" value="${department.id}"/>
                                                                         <div class="form-group">
                                                                             <label>职位</label>
-                                                                            <input type="text" class="form-control" name="name" value="${job.name}"/>
+                                                                            <input type="text" class="form-control" name="name" value="${job.name}" required/>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="selectjobstate" class="control-label">职位状态</label>
@@ -168,31 +168,31 @@
                                                                                                 <input type="hidden" name="gid" value="${employee.gid}"/>
                                                                                                 <div class="form-group">
                                                                                                     <label>姓名</label>
-                                                                                                    <input type="text" class="form-control" name="account" value="${employee.account}"/>
+                                                                                                    <input type="text" class="form-control" name="account" value="${employee.account}" required/>
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label>性别</label>
-                                                                                                    <input type="text" class="form-control" name="gender" value="${employee.gender}"/>
+                                                                                                    <input type="text" class="form-control" name="gender" value="${employee.gender}" required/>
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label>年龄</label>
-                                                                                                    <input type="number" class="form-control" name="age" value="${employee.age}"/>
+                                                                                                    <input type="number" class="form-control" name="age" value="${employee.age}" required/>
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label>薪资</label>
-                                                                                                    <input type="number" class="form-control" name="salary" value="${employee.salary}"/>
+                                                                                                    <input type="number" class="form-control" name="salary" value="${employee.salary}" required/>
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label>社保</label>
-                                                                                                    <input type="number" class="form-control" name="socialSecurity" value="${employee.socialSecurity}"/>
+                                                                                                    <input type="number" class="form-control" name="socialSecurity" value="${employee.socialSecurity}" required/>
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label>电话</label>
-                                                                                                    <input type="number" class="form-control" name="phone" value="${employee.phone}"/>
+                                                                                                    <input type="number" class="form-control" name="phone" value="${employee.phone}" required/>
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label>邮箱</label>
-                                                                                                    <input type="text" class="form-control" name="email" value="${employee.email}"/>
+                                                                                                    <input type="text" class="form-control" name="email" value="${employee.email}" required/>
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label for="selectjobstate" class="control-label">就职状态</label>
@@ -228,39 +228,39 @@
                                                                                             <input type="hidden" name="jobid" value="${job.id}"/>
                                                                                             <div class="form-group">
                                                                                                 <label>账号</label>
-                                                                                                <input type="text" class="form-control" name="name"/>
+                                                                                                <input type="text" class="form-control" name="name" required/>
                                                                                             </div>
                                                                                             <div class="form-group">
                                                                                                 <label>密码</label>
-                                                                                                <input type="text" class="form-control" name="pass"/>
+                                                                                                <input type="text" class="form-control" name="pass" required/>
                                                                                             </div>
                                                                                             <div class="form-group">
                                                                                                 <label>姓名</label>
-                                                                                                <input type="text" class="form-control" name="account"/>
+                                                                                                <input type="text" class="form-control" name="account" required/>
                                                                                             </div>
                                                                                             <div class="form-group">
                                                                                                 <label>性别</label>
-                                                                                                <input type="text" class="form-control" name="gender"/>
+                                                                                                <input type="text" class="form-control" name="gender" required/>
                                                                                             </div>
                                                                                             <div class="form-group">
                                                                                                 <label>年龄</label>
-                                                                                                <input type="number" class="form-control" name="age"/>
+                                                                                                <input type="number" class="form-control" name="age" required/>
                                                                                             </div>
                                                                                             <div class="form-group">
                                                                                                 <label>薪资</label>
-                                                                                                <input type="number" class="form-control" name="salary"/>
+                                                                                                <input type="number" class="form-control" name="salary" required/>
                                                                                             </div>
                                                                                             <div class="form-group">
                                                                                                 <label>社保</label>
-                                                                                                <input type="number" class="form-control" name="socialSecurity"/>
+                                                                                                <input type="number" class="form-control" name="socialSecurity" required/>
                                                                                             </div>
                                                                                             <div class="form-group">
                                                                                                 <label>电话</label>
-                                                                                                <input type="number" class="form-control" name="phone"/>
+                                                                                                <input type="number" class="form-control" name="phone" required/>
                                                                                             </div>
                                                                                             <div class="form-group">
                                                                                                 <label>邮箱</label>
-                                                                                                <input type="text" class="form-control" name="email"/>
+                                                                                                <input type="text" class="form-control" name="email" required/>
                                                                                             </div>
                                                                                             <button type="submit" class="btn btn-default">添加</button>
                                                                                         </form>
@@ -291,10 +291,10 @@
                                     <div class="panel-body">
                                         <div class="bs-example">
                                             <form method="post" action="admin/dlistinsertjob">
-                                                <input type="hidden" name="did" value="${department.id}">
+                                                <input type="hidden" name="did" value="${department.id}"/>
                                                 <div class="form-group">
                                                     <label>职位</label>
-                                                    <input type="text" class="form-control" name="name"/>
+                                                    <input type="text" class="form-control" name="name" required/>
                                                 </div>
                                                 <input type="hidden" id="addjobstate" name="state" value="0"/>
                                                 <button type="submit" class="btn btn-default">添加</button>
@@ -323,7 +323,7 @@
                                 <input type="hidden" name="state" value="0"/>
                                 <div class="form-group">
                                     <label>部门</label>
-                                    <input type="text" class="form-control" name="name"/>
+                                    <input type="text" class="form-control" name="name" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>人数</label>

@@ -13,7 +13,7 @@
             select SEQ_ATTEND.nextval as id from dual
         </selectKey>
         insert into T_ATTENDANCE(ATTEND_ID, ATTEND_STARTTIME, ATTEND_ENDTIME, ATTEND_EMPID, ATTEND_STATE) VALUES
-            (#{id},#{startTime},#{endTime},#{empid},#{state})
+            (#{id},#{startTime},#{endTime,jdbcType=DATE},#{empid},#{state})
     </insert>
     <update id="update">
         update T_ATTENDANCE set  ATTEND_STARTTIME=#{startTime}, ATTEND_ENDTIME=#{endTime},
@@ -32,5 +32,11 @@
     <select id="getByEmpidAndEndTime" resultMap="attendance">
         select * from T_ATTENDANCE where ATTEND_EMPID=#{empid} and ATTEND_ENDTIME
         between (select max(SAL_PAYDATE) from T_SALARY) and #{endTime}
+    </select>
+    <select id="getByEmpidAndStartLike" resultMap="attendance" parameterType="map">
+        select * from T_ATTENDANCE where ATTEND_EMPID=#{empid} and to_char(ATTEND_STARTTIME,'YYYY-MM-DD') = #{startlike}
+    </select>
+    <select id="getByEmpidAndState" resultMap="attendance">
+        select * from T_ATTENDANCE where ATTEND_EMPID=#{empid} and ATTEND_STATE=#{state}
     </select>
 </mapper>

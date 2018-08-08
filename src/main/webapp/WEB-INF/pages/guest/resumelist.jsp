@@ -48,44 +48,45 @@
                             <form method="post" action="guest/updateresume?id=${resume.id}&gid=${resume.gid}">
                                 <div class="form-group">
                                     <label>姓名</label>
-                                    <input type="text" class="form-control" name="name" value="${resume.name}"/>
+                                    <input type="text" class="form-control" name="name" value="${resume.name}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>性别</label>
-                                    <input type="text" class="form-control" name="gender" value="${resume.gender}"/>
+                                    <input type="text" class="form-control" name="gender" value="${resume.gender}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>邮箱</label>
-                                    <input type="email" class="form-control" name="email" value="${resume.email}"/>
+                                    <input type="email" class="form-control" name="email" value="${resume.email}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>城市</label>
-                                    <input type="text" class="form-control" name="city" value="${resume.city}"/>
+                                    <input type="text" class="form-control" name="city" value="${resume.city}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="school">毕业院校</label>
-                                    <input type="text" class="form-control" name="school" value="${resume.school}"/>
+                                    <input type="text" class="form-control" name="school" value="${resume.school}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>专业</label>
-                                    <input type="text" class="form-control" name="major" value="${resume.major}"/>
+                                    <input type="text" class="form-control" name="major" value="${resume.major}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>年龄</label>
-                                    <input type="number" class="form-control" name="age" value="${resume.age}"/>
+                                    <input type="number" class="form-control" name="age" value="${resume.age}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>期望薪资</label>
-                                    <input type="number" class="form-control" name="salary" value="${resume.salary}"/>
+                                    <input type="number" class="form-control" name="salary" value="${resume.salary}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>应聘岗位</label>
-                                    <input type="text" class="form-control" name="job" value="${resume.job}"/>
+                                    <input type="text" class="form-control" name="job" value="${resume.job}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>备注</label>
-                                    <textarea name="description" class="form-control" cols="30">${resume.description}</textarea>
+                                    <textarea name="description" class="form-control" cols="30" required>${resume.description}</textarea>
                                 </div>
+                                <p class="text-center">${error+""+resume.id}</p>
                                 <button type="submit" class="btn btn-default">更改</button>
                             </form>
                         </div>
@@ -143,6 +144,7 @@
                                 <label for="description">备注</label>
                                 <textarea name="description" class="form-control" id="description" cols="30"></textarea>
                             </div>
+                            <p class="text-center">${error}</p>
                             <button type="submit" class="btn btn-default">添加</button>
                         </form>
                     </div>
