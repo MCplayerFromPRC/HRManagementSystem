@@ -50,6 +50,19 @@
             <result property="time" column="rewards_time"/>
             <result property="description" column="rewards_description"/>
         </collection>
+        <collection property="salaries" ofType="salary" column="emp_id"
+                    select="com.cc.dao.SalaryDao.getByEmpid">
+            <id property="id" column="sal_id"/>
+            <result property="empid" column="sal_empid"/>
+            <result property="salMoney" column="sal_salmoney"/>
+            <result property="bonus" column="sal_bonus"/>
+            <result property="over" column="sal_over"/>
+            <result property="reward" column="sal_reward"/>
+            <result property="socialSecurity" column="sal_sosecur"/>
+            <result property="aggregate" column="sal_aggr"/>
+            <result property="payDate" column="sal_paydate"/>
+            <result property="addDate" column="sal_adddate"/>
+        </collection>
     </resultMap>
     <insert id="insert">
         <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">

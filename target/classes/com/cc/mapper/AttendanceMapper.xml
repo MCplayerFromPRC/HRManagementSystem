@@ -39,4 +39,11 @@
     <select id="getByEmpidAndState" resultMap="attendance">
         select * from T_ATTENDANCE where ATTEND_EMPID=#{empid} and ATTEND_STATE=#{state}
     </select>
+    <select id="getByEmpidAndStartLikeMonth" resultMap="attendance">
+        select * from T_ATTENDANCE where ATTEND_EMPID=#{empid} and to_char(ATTEND_STARTTIME,'YYYY-MM') = #{startlike}
+    </select>
+    <select id="getLastAttendace" resultMap="attendance">
+        select * from T_ATTENDANCE where ATTEND_STARTTIME=
+                                         (select max(ATTEND_STARTTIME) from T_ATTENDANCE);
+    </select>
 </mapper>

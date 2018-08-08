@@ -7,6 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface SalaryDao {
+    Salary getByEmpidAndAddDate(Salary salary);
     Salary getByEmpidAndPayDate(Salary salary);
     List<Salary> getByEmpid(int empid);
     List<Salary> getByPayDate(String payDate);

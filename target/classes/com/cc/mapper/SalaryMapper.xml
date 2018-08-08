@@ -11,28 +11,51 @@
         <result property="socialSecurity" column="sal_sosecur"/>
         <result property="aggregate" column="sal_aggr"/>
         <result property="payDate" column="sal_paydate"/>
+        <result property="addDate" column="sal_adddate"/>
+        <association property="employee" javaType="employee" column="sal_empid"
+                     select="com.cc.dao.EmployeeDao.getById">
+            <id property="id" column="emp_id"/>
+            <result property="account" column="emp_account"/>
+            <result property="pass" column="emp_pass"/>
+            <result property="name" column="emp_name"/>
+            <result property="gender" column="emp_gender"/>
+            <result property="age" column="emp_age"/>
+            <result property="jobid" column="emp_jobid"/>
+            <result property="salary" column="emp_sal"/>
+            <result property="socialSecurity" column="emp_sosecur"/>
+            <result property="trainid" column="emp_trainid"/>
+            <result property="phone" column="emp_phone"/>
+            <result property="email" column="emp_email"/>
+            <result property="state" column="emp_state"/>
+            <result property="gid" column="emp_gid"/>
+        </association>
     </resultMap>
     <insert id="insert">
         <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
             select SEQ_SAL.nextval as id from dual
         </selectKey>
-        insert into T_SALARY(SAL_ID,SAL_EMPID,SAL_SALMONEY,SAL_BONUS,SAL_OVER,SAL_REWARDS,SAL_SOSECUR,SAL_AGGR,SAL_PAYDATE)
-                values (#{id},#{empid},#{salary},#{bonus},#{over},#{rewards},#{socialSecurity},#{aggregate},#{payDate})
+        insert into T_SALARY(SAL_ID,SAL_EMPID,SAL_SALMONEY,SAL_BONUS,SAL_OVER,SAL_REWARDS,SAL_SOSECUR,SAL_AGGR,SAL_PAYDATE,SAL_ADDDATE)
+                values (#{id},#{empid},#{salMoney},#{bonus},#{over},#{rewards},#{socialSecurity},#{aggregate},#{payDate,jdbcType=DATE},#{addDate})
     </insert>
     <update id="update">
         update T_SALARY set SAL_EMPID=#{empid},SAL_SALMONEY= #{salMoney},SAL_BONUS=#{bonus},SAL_OVER=#{over},SAL_REWARDS=#{rewards},
-            SAL_SOSECUR=#{socialSecurity},SAL_AGGR=#{aggregate},SAL_PAYDATE=#{payDate} where SAL_ID=#{id}
+            SAL_SOSECUR=#{socialSecurity},SAL_AGGR=#{aggregate},SAL_PAYDATE=#{payDate},SAL_ADDDATE=#{addDate} where SAL_ID=#{id}
     </update>
     <delete id="delete">
         delete from T_SALARY where SAL_ID=#{id}
     </delete>
     <select id="getByEmpidAndPayDate" resultMap="salary">
-        select * from T_SALARY where SAL_EMPID=#{empid} and SAL_PAYDATE=#{payDate}
+        select * from T_SALARY where SAL_EMPID=#{empid} and
+                                     to_char(SAL_PAYDATE,'YYYY-MM') = to_char(#{payDate},'YYYY-MM')
     </select>
     <select id="getByEmpid" resultMap="salary">
-        select * from T_SALARY where SAL_EMPID=#{empid};
+        select * from T_SALARY where SAL_EMPID=#{empid}
     </select>
     <select id="getByPayDate" resultMap="salary">
         select * from T_SALARY where SAL_PAYDATE=#{payDate}
+    </select>
+    <select id="getByEmpidAndAddDate" resultMap="salary">
+        select * from T_SALARY where SAL_EMPID=#{empid} and
+                                     to_char(SAL_ADDDATE,'YYYY-MM') = to_char(#{addDate},'YYYY-MM')
     </select>
 </mapper>

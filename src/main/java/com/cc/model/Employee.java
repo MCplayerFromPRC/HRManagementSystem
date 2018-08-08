@@ -24,11 +24,12 @@ public class Employee implements Serializable {
     private Train train;
     private List<Rewards> rewardss;
     private Attendance attendance;
+    private List<Salary> salaries;
 
     public Employee() {
     }
 
-    public Employee(int id, String account, String pass, String name, String gender, int age, int jobid, double salary, double socialSecurity, int trainid, long phone, String email, int state, int gid, Guest guest, Job job, Train train, List<Rewards> rewardss, Attendance attendance) {
+    public Employee(int id, String account, String pass, String name, String gender, int age, int jobid, double salary, double socialSecurity, int trainid, long phone, String email, int state, int gid, Guest guest, Job job, Train train, List<Rewards> rewardss, Attendance attendance, List<Salary> salaries) {
         this.id = id;
         this.account = account;
         this.pass = pass;
@@ -48,6 +49,7 @@ public class Employee implements Serializable {
         this.train = train;
         this.rewardss = rewardss;
         this.attendance = attendance;
+        this.salaries = salaries;
     }
 
     public int getId() {
@@ -200,6 +202,14 @@ public class Employee implements Serializable {
 
     public void setAttendance(Attendance attendance) {
         this.attendance = attendance;
+    }
+
+    public List<Salary> getSalaries() {
+        return salaries;
+    }
+
+    public void setSalaries(List<Salary> salaries) {
+        this.salaries = salaries;
     }
 
     @Override

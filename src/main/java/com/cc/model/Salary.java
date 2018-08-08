@@ -12,12 +12,14 @@ public class Salary implements Serializable {
     private double rewards;
     private double socialSecurity;
     private double aggregate;
+    private Date addDate;
     private Date payDate;
+    private Employee employee;
 
     public Salary() {
     }
 
-    public Salary(int id, int empid, double salMoney, double bonus, double over, double rewards, double socialSecurity, double aggregate, Date payDate) {
+    public Salary(int id, int empid, double salMoney, double bonus, double over, double rewards, double socialSecurity, double aggregate, Date addDate, Date payDate, Employee employee) {
         this.id = id;
         this.empid = empid;
         this.salMoney = salMoney;
@@ -26,7 +28,9 @@ public class Salary implements Serializable {
         this.rewards = rewards;
         this.socialSecurity = socialSecurity;
         this.aggregate = aggregate;
+        this.addDate = addDate;
         this.payDate = payDate;
+        this.employee = employee;
     }
 
     public int getId() {
@@ -101,6 +105,22 @@ public class Salary implements Serializable {
         this.payDate = payDate;
     }
 
+    public Date getAddDate() {
+        return addDate;
+    }
+
+    public void setAddDate(Date addDate) {
+        this.addDate = addDate;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
     @Override
     public String toString() {
         return "Salary{" +
@@ -112,7 +132,8 @@ public class Salary implements Serializable {
                 ", rewards=" + rewards +
                 ", socialSecurity=" + socialSecurity +
                 ", aggregate=" + aggregate +
-                ", payDate='" + payDate + '\'' +
+                ", addDate=" + addDate +
+                ", payDate=" + payDate +
                 '}';
     }
 }

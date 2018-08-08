@@ -57,4 +57,7 @@ public class DateUtil {
         return sdfJSP.format(date);
     }
 
+    public static String transTimeStamp(Date date){
+        return sdfTimeStamp.format(date);
+    }
 }

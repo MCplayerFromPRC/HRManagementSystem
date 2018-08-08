@@ -1,3 +1,11 @@
+<%@ page import="com.cc.util.DateUtil" %>
+<%@ page import="java.sql.Timestamp" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.util.Calendar" %>
+<%@ page import="com.cc.model.Employee" %>
+<%@ page import="com.cc.model.Salary" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -454,6 +462,121 @@
                                 </div>
                             </div>
 
+                            <%
+                                Employee employee= (Employee) pageContext.getAttribute("employee");
+                                List<Salary> salaries=employee.getSalaries();
+                                Timestamp nowDate=DateUtil.getSqlDate();
+                                pageContext.setAttribute("nowDate",nowDate);
+                                boolean flag=false;
+                                Salary thisMonth=null;
+                                for(Salary salary:salaries){
+                                    if(nowDate.getTime()-salary.getAddDate().getTime()<5*24*60*60*1000){
+                                        thisMonth=salary;
+                                        flag=true;
+                                        break;
+                                    }
+                                }
+                                Calendar calendar1 = Calendar.getInstance();
+                                calendar1.set(Calendar.DAY_OF_MONTH, 1);
+                                calendar1.set(Calendar.HOUR_OF_DAY,0);
+                                calendar1.set(Calendar.MINUTE,0);
+                                calendar1.set(Calendar.SECOND,0);
+                                Calendar calendar5 = Calendar.getInstance();
+                                calendar5.set(Calendar.DAY_OF_MONTH, 10);
+                                calendar5.set(Calendar.HOUR_OF_DAY,23);
+                                calendar5.set(Calendar.MINUTE,59);
+                                calendar5.set(Calendar.SECOND,59);
+                                if((nowDate.getTime()-calendar1.getTimeInMillis())*(nowDate.getTime()-calendar5.getTimeInMillis())<0&&!flag){
+                            %>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingemp${employee.id}salary">
+                                    <h3 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionemp" href="#collapseemp${employee.id}salary" aria-expanded="false" aria-controls="collapseemp${employee.id}salary">
+                                            <span>计算薪资</span>
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div id="collapseemp${employee.id}salary" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingemp${employee.id}salary">
+                                    <div class="panel-body">
+                                        <div class="bs-example">
+                                            <form method="post" action="admin/countemployeesalary">
+                                                <input type="hidden" name="empid" value="${employee.id}"/>
+                                                <input type="hidden" name="salMoney" value="${employee.salary}"/>
+                                                <input type="hidden" name="bonus" value="${employee.salary*0.2}"/>
+                                                <input type="hidden" name="socialSecurity" value="${employee.socialSecurity}"/>
+                                                <button type="submit" class="btn btn-default">算${employee.account}的工资</button>
+                                            </form>
+                                        </div><!-- /example -->
+                                    </div>
+                                </div>
+                            </div>
+                            <%
+                                }else if(thisMonth!=null){
+                                    pageContext.setAttribute("thisMonth",thisMonth);
+                            %>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingemp${employee.id}salary">
+                                    <h3 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionemp" href="#collapseemp${employee.id}salary" aria-expanded="false" aria-controls="collapseemp${employee.id}salary">
+                                            <span>本月薪资</span>
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div id="collapseemp${employee.id}salary" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingemp${employee.id}salary">
+                                    <div class="panel-body">
+                                        <div class="bs-example">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>薪资 序号</th>
+                                                        <th>${thisMonth.id}</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="active">
+                                                        <th scope="row">基本工资</th>
+                                                        <td>${thisMonth.salMoney}</td>
+                                                    </tr>
+                                                    <tr class="success">
+                                                        <th scope="row">绩效奖金</th>
+                                                        <td>${thisMonth.bonus}</td>
+                                                    </tr>
+                                                    <tr class="info">
+                                                        <th scope="row">加班费用</th>
+                                                        <td>${thisMonth.over}</td>
+                                                    </tr>
+                                                    <tr class="warning">
+                                                        <th scope="row">奖惩费用</th>
+                                                        <td>${thisMonth.rewards}</td>
+                                                    </tr>
+                                                    <tr class="danger">
+                                                        <th scope="row">社保</th>
+                                                        <td>${thisMonth.socialSecurity}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">总计</th>
+                                                        <td>${thisMonth.aggregate}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">状态</th>
+                                                        <td>
+                                                            <c:if test="${empty thisMonth.payDate}">
+                                                                未领取
+                                                            </c:if>
+                                                            <c:if test="${not empty thisMonth.payDate}">
+                                                                已领取
+                                                            </c:if>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div><!-- /example -->
+                                    </div>
+                                </div>
+                            </div>
+                            <%
+                                }
+                            %>
                         </div>
                     </div>
                 </div>

@@ -41,6 +41,8 @@ public class AdminController {
     private TrainService ts;
     @Resource
     private RewardsService res;
+    @Resource
+    private SalaryService ss;
 
     @RequestMapping("/getrecruitinfofirstpage")
     public ModelAndView getRecruitInfoFirstPage(HttpServletRequest request){
@@ -344,6 +346,7 @@ public class AdminController {
     public ModelAndView changeEmployeeJob(int id,int jobid){
         Employee employee=es.getById(id);
         employee.setJobid(jobid);
+        es.update(employee);
         ModelAndView mv=new ModelAndView();
         mv.setViewName("forward:getallemployee");
         return mv;
@@ -411,6 +414,16 @@ public class AdminController {
         rewards.setState(0);
         rewards.setTime(DateUtil.getSqlDate(time));
         res.insert(rewards);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("forward:getallemployee");
+        return mv;
+    }
+
+
+    @RequestMapping("/countemployeesalary")
+    public ModelAndView countEmployeeSalary(Salary salary){
+        salary.setAddDate(DateUtil.getSqlDate());
+        ss.insert(salary);
         ModelAndView mv=new ModelAndView();
         mv.setViewName("forward:getallemployee");
         return mv;
